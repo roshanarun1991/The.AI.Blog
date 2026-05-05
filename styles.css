@@ -132,10 +132,11 @@ a:hover {
 
 .home-hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.78fr);
-  gap: 76px;
+  grid-template-columns: minmax(0, 980px);
+  gap: 36px;
   align-items: center;
-  min-height: calc(100vh - 96px);
+  min-height: auto;
+  padding: 72px 0 36px;
 }
 
 .kicker {
@@ -152,7 +153,7 @@ a:hover {
   font-size: clamp(82px, 9vw, 136px);
   font-weight: 400;
   line-height: 0.86;
-  letter-spacing: -0.065em;
+  letter-spacing: 0;
 }
 
 .home-copy p {
@@ -160,7 +161,7 @@ a:hover {
   margin: 30px 0 0;
   font-size: clamp(20px, 2vw, 28px);
   line-height: 1.36;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
 }
 
 .home-actions {
@@ -189,316 +190,6 @@ a:hover {
   transform: translateY(-1px);
 }
 
-.home-machine {
-  --bot-x: 0px;
-  --bot-y: 0px;
-  --bot-tilt: 0deg;
-  min-height: 520px;
-  padding: 26px;
-  border: 1px solid #d8d3d8;
-  background:
-    linear-gradient(90deg, rgba(30, 30, 30, 0.08) 1px, transparent 1px),
-    linear-gradient(rgba(30, 30, 30, 0.06) 1px, transparent 1px);
-  background-size: 32px 32px;
-  overflow: hidden;
-  transition: transform 220ms ease;
-}
-
-.machine-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #d8d3d8;
-  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
-  font-size: 12px;
-}
-
-.machine-head span {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.machine-head i {
-  display: block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #c4e817;
-  animation: sourceBlink 2s infinite ease-in-out;
-}
-
-.retro-bot {
-  position: relative;
-  width: 310px;
-  height: 380px;
-  margin: 22px auto 0;
-  perspective: 900px;
-  transform-style: preserve-3d;
-  animation: botBob 4s infinite ease-in-out;
-}
-
-.bot-halo {
-  position: absolute;
-  inset: 36px 30px auto;
-  height: 190px;
-  border: 1px solid rgba(196, 232, 23, 0.55);
-  border-radius: 28px;
-  transform: rotateX(64deg) rotateZ(-8deg);
-  animation: haloSpin 6s infinite linear;
-}
-
-.bot-core {
-  position: absolute;
-  left: 50%;
-  top: 44px;
-  width: 178px;
-  height: 142px;
-  border: 2px solid #242124;
-  border-radius: 34px 26px 30px 24px;
-  background:
-    linear-gradient(135deg, #f7f5f1, #9f9a91 38%, #4e4a45 39%, #151417 78%);
-  box-shadow:
-    -18px 18px 0 rgba(245, 143, 114, 0.18),
-    18px -10px 0 rgba(80, 220, 235, 0.2),
-    0 26px 38px rgba(30, 30, 30, 0.18);
-  transform: translateX(-50%) rotateY(-18deg) rotateZ(3deg);
-}
-
-.bot-core::before {
-  content: "";
-  position: absolute;
-  inset: -9px;
-  border-radius: 40px 32px 36px 30px;
-  border: 9px solid transparent;
-  border-left-color: #50dce9;
-  border-bottom-color: #c4e817;
-  border-right-color: #f58f72;
-  filter: saturate(1.2);
-  animation: rimGlow 2.4s infinite ease-in-out;
-}
-
-.bot-face {
-  position: absolute;
-  inset: 28px 24px 26px 26px;
-  border: 2px solid #1f1d20;
-  border-radius: 18px;
-  background:
-    linear-gradient(rgba(196, 232, 23, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(196, 232, 23, 0.08) 1px, transparent 1px),
-    #050508;
-  background-size: 16px 16px;
-  overflow: hidden;
-}
-
-.bot-face::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent, rgba(80, 220, 235, 0.18), transparent);
-  transform: translateY(-100%);
-  animation: faceScan 3s infinite linear;
-}
-
-.bot-eye {
-  position: absolute;
-  top: 43px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 16px #fff, 0 0 24px rgba(196, 232, 23, 0.7);
-  animation: botBlink 4s infinite;
-}
-
-.bot-eye.left {
-  left: 42px;
-}
-
-.bot-eye.right {
-  right: 42px;
-  animation-delay: 0.08s;
-}
-
-.bot-scan {
-  position: absolute;
-  left: 28px;
-  bottom: 20px;
-  width: 72px;
-  height: 2px;
-  background: #c4e817;
-  box-shadow: 0 0 12px #c4e817;
-  animation: scanner 2.2s infinite ease-in-out;
-}
-
-.bot-neck {
-  position: absolute;
-  left: 50%;
-  top: 184px;
-  width: 46px;
-  height: 34px;
-  border: 2px solid #242124;
-  background: #817b73;
-  transform: translateX(-50%) rotateY(-12deg);
-}
-
-.bot-torso {
-  position: absolute;
-  left: 50%;
-  top: 208px;
-  width: 128px;
-  height: 118px;
-  padding: 18px;
-  border: 2px solid #242124;
-  border-radius: 22px 20px 24px 18px;
-  background: linear-gradient(135deg, #d7d1c7, #817b73 62%, #383532);
-  transform: translateX(-50%) rotateY(-12deg);
-}
-
-.bot-torso::before,
-.bot-torso::after {
-  content: "";
-  position: absolute;
-  bottom: 24px;
-  width: 10px;
-  height: 40px;
-  border-radius: 10px;
-  background: #141316;
-}
-
-.bot-torso::before {
-  left: 34px;
-}
-
-.bot-torso::after {
-  right: 34px;
-}
-
-.bot-torso span {
-  display: block;
-  margin-bottom: 20px;
-  color: #141316;
-  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
-  font-size: 12px;
-}
-
-.bot-torso i {
-  display: inline-block;
-  width: 24px;
-  height: 7px;
-  margin-right: 5px;
-  background: #c4e817;
-  animation: codeBars 1.6s infinite ease-in-out;
-}
-
-.bot-shoulder {
-  position: absolute;
-  top: 220px;
-  width: 44px;
-  height: 44px;
-  border: 2px solid #242124;
-  border-radius: 50%;
-  background: #6e6963;
-}
-
-.bot-shoulder.left {
-  left: 64px;
-}
-
-.bot-shoulder.right {
-  right: 54px;
-}
-
-.bot-arm {
-  position: absolute;
-  top: 254px;
-  width: 40px;
-  height: 86px;
-  border: 2px solid #242124;
-  border-radius: 18px;
-  background: linear-gradient(#c9c3b9, #817b73);
-}
-
-.bot-arm.left {
-  left: 38px;
-  transform-origin: top center;
-  transform: rotate(28deg);
-  animation: marsLeftArm 3s infinite ease-in-out;
-}
-
-.bot-arm.right {
-  right: 28px;
-  transform-origin: top center;
-  transform: rotate(-10deg);
-  animation: marsRightArm 3.3s infinite ease-in-out;
-}
-
-.bot-leg {
-  position: absolute;
-  top: 322px;
-  width: 18px;
-  height: 40px;
-  border: 2px solid #242124;
-  border-radius: 9px;
-  background: #4a4641;
-}
-
-.bot-leg.left {
-  left: 123px;
-}
-
-.bot-leg.right {
-  right: 116px;
-}
-
-.bot-foot {
-  position: absolute;
-  bottom: 0;
-  width: 54px;
-  height: 28px;
-  border: 2px solid #242124;
-  border-radius: 14px 14px 10px 10px;
-  background: linear-gradient(#c9c3b9, #7c766e);
-}
-
-.bot-foot.left {
-  left: 96px;
-  animation: footTap 2.6s infinite ease-in-out;
-}
-
-.bot-foot.right {
-  right: 84px;
-  animation: footTap 2.6s infinite ease-in-out 0.3s;
-}
-
-.bot-shadow {
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  width: 196px;
-  height: 18px;
-  background: rgba(30, 30, 30, 0.16);
-  transform: translateX(-50%);
-  animation: shadowPulse 4s infinite ease-in-out;
-}
-
-.bot-caption {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 42px;
-}
-
-.bot-caption span {
-  min-height: 44px;
-  padding: 14px;
-  border: 1px solid #d8d3d8;
-  background: rgba(251, 248, 251, 0.84);
-  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
-  font-size: 12px;
-}
-
 .home-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -523,7 +214,7 @@ a:hover {
   margin: 0;
   font-size: 20px;
   line-height: 1.28;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
 .learning-lab,
@@ -555,7 +246,7 @@ a:hover {
   font-size: clamp(42px, 5vw, 72px);
   font-weight: 400;
   line-height: 0.92;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
 }
 
 .term-grid {
@@ -582,7 +273,7 @@ a:hover {
   margin-bottom: 18px;
   font-size: 34px;
   font-weight: 400;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
 }
 
 .term-grid p,
@@ -625,7 +316,7 @@ a:hover {
 .tool-ladder strong {
   font-size: 28px;
   font-weight: 400;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
 }
 
 .tool-ladder em {
@@ -650,7 +341,7 @@ a:hover {
   font-size: clamp(88px, 10vw, 128px);
   font-weight: 400;
   line-height: 0.85;
-  letter-spacing: -0.065em;
+  letter-spacing: 0;
 }
 
 .page-title span {
@@ -970,7 +661,7 @@ a:hover {
   font-size: clamp(23px, 2.25vw, 31px);
   font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
 }
 
 .row-main span {
@@ -999,7 +690,7 @@ a:hover {
   color: #343034;
   font-size: 18px;
   line-height: 1.42;
-  letter-spacing: -0.012em;
+  letter-spacing: 0;
 }
 
 .row-detail a {
@@ -1022,7 +713,7 @@ a:hover {
   font-size: 31px;
   font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
 }
 
 .article-copy ul {
@@ -1041,102 +732,69 @@ a:hover {
   font-size: 12px !important;
 }
 
-.workflow-map {
-  display: grid;
-  grid-template-columns: 160px 46px 180px 46px 160px;
-  grid-template-rows: auto auto;
-  gap: 18px 10px;
-  align-items: center;
-  max-width: 780px;
+.project-flow {
+  display: block;
+  width: 100%;
+  max-width: 920px;
+  height: auto;
   margin: 22px 0;
-  padding: 24px;
   border: 1px solid #d8d3d8;
-  background:
-    radial-gradient(#d8d3d8 1px, transparent 1px),
-    rgba(251, 248, 251, 0.64);
-  background-size: 18px 18px;
+  background: rgba(251, 248, 251, 0.76);
 }
 
-.flow-node,
-.flow-branch {
-  position: relative;
-  min-height: 82px;
-  padding: 14px;
-  border: 2px solid #9b969b;
-  border-radius: 8px;
-  background: rgba(251, 248, 251, 0.92);
-  text-align: center;
+.project-flow pattern path {
+  fill: none;
+  stroke: rgba(30, 30, 30, 0.08);
+  stroke-width: 1;
 }
 
-.flow-node b,
-.flow-branch b {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 14px;
+.project-flow .flow-line {
+  fill: none;
+  stroke: #9b969b;
+  stroke-width: 2;
+  stroke-linecap: square;
 }
 
-.flow-node span,
-.flow-branch span {
-  display: block;
-  color: var(--muted);
+.project-flow .flow-dash {
+  stroke-dasharray: 6 7;
+}
+
+.project-flow .flow-box {
+  fill: rgba(251, 248, 251, 0.94);
+  stroke: #8f8a90;
+  stroke-width: 2;
+}
+
+.project-flow .flow-start {
+  stroke: #24bd75;
+}
+
+.project-flow .flow-dark {
+  fill: var(--ink);
+  stroke: var(--ink);
+}
+
+.project-flow .flow-dashed {
+  stroke-dasharray: 7 6;
+}
+
+.project-flow text {
   font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
-  font-size: 10px;
-  line-height: 1.3;
 }
 
-.flow-node.trigger {
-  border-color: #2fbf71;
+.project-flow .flow-title {
+  fill: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
 }
 
-.flow-node.agent {
-  grid-column: 3;
+.project-flow .flow-small {
+  fill: var(--muted);
+  font-size: 11px;
 }
 
-.flow-node.agent::before {
-  content: "☻";
-  display: block;
-  margin-bottom: 4px;
-  font-size: 20px;
-}
-
-.flow-node.output {
-  grid-column: 5;
-}
-
-.workflow-map > i {
-  height: 2px;
-  background: #9b969b;
-  animation: rowPulse 2.2s infinite ease-in-out;
-}
-
-.flow-branch {
-  min-height: 72px;
-  border-style: dashed;
-}
-
-.flow-branch.model {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-.flow-branch.memory {
-  grid-column: 3;
-  grid-row: 2;
-}
-
-.flow-branch.tool {
-  grid-column: 4;
-  grid-row: 2;
-}
-
-.flow-branch::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -20px;
-  width: 1px;
-  height: 18px;
-  border-left: 1px dashed #8f8a90;
+.project-flow .flow-light {
+  fill: var(--white);
 }
 
 .row-detail a:hover,
@@ -1228,6 +886,20 @@ a:hover {
   color: var(--ink);
 }
 
+.site-signature {
+  margin: 0 64px 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.site-signature span {
+  color: var(--muted);
+}
+
 @media (max-width: 900px) {
   .topbar {
     flex-wrap: wrap;
@@ -1238,13 +910,13 @@ a:hover {
     padding: 30px 16px 56px;
   }
 
+  .site-signature {
+    margin: 0 16px 34px;
+  }
+
   .home-hero {
     grid-template-columns: 1fr;
     gap: 36px;
-  }
-
-  .home-machine {
-    min-height: auto;
   }
 
   .home-grid {
@@ -1268,7 +940,7 @@ a:hover {
 
   .page-title h1 {
     font-size: 78px;
-    letter-spacing: -4px;
+    letter-spacing: 0;
   }
 
   .page-title {
@@ -1525,151 +1197,6 @@ a:hover {
   }
 }
 
-/* Final mascot + workflow polish overrides */
-.retro-bot {
-  width: min(440px, 100%);
-  height: auto;
-  aspect-ratio: 1;
-  margin: 18px auto 0;
-  perspective: none;
-  transform-style: flat;
-  animation: none;
-}
-
-.retro-bot canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 34px 34px rgba(30, 30, 30, 0.18));
-}
-
-.robot3d {
-  width: 100%;
-  height: 100%;
-  min-height: 320px;
-}
-
-.robot3d canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-  cursor: crosshair;
-}
-
-.robot3d span {
-  display: grid;
-  place-items: center;
-  width: 100%;
-  height: 100%;
-  color: var(--muted);
-  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
-  font-size: 12px;
-}
-
-.bot-caption {
-  margin-top: 18px;
-}
-
-.workflow-map {
-  grid-template-columns: 180px 64px 220px 64px 180px;
-  grid-template-rows: 108px 96px;
-  gap: 28px 0;
-  max-width: 900px;
-  padding: 30px;
-}
-
-.flow-node.trigger {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.flow-node.agent {
-  grid-column: 3;
-  grid-row: 1;
-}
-
-.flow-node.output {
-  grid-column: 5;
-  grid-row: 1;
-}
-
-.workflow-map > i:first-of-type {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-.workflow-map > i:last-of-type {
-  grid-column: 4;
-  grid-row: 1;
-}
-
-.workflow-map > i {
-  align-self: center;
-  height: 2px;
-  background: #9b969b;
-  animation: rowPulse 2.2s infinite ease-in-out;
-}
-
-.workflow-map > i::after {
-  content: "";
-  position: absolute;
-  right: -4px;
-  top: -3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #9b969b;
-}
-
-.flow-branch.model {
-  grid-column: 2;
-  grid-row: 2;
-}
-
-.flow-branch.memory {
-  grid-column: 3;
-  grid-row: 2;
-}
-
-.flow-branch.tool {
-  grid-column: 4;
-  grid-row: 2;
-}
-
-.flow-node,
-.flow-branch {
-  box-shadow: 0 10px 0 rgba(30, 30, 30, 0.04);
-}
-
-@media (max-width: 760px) {
-  .workflow-map {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
-  }
-
-  .flow-node.trigger,
-  .flow-node.agent,
-  .flow-node.output,
-  .flow-branch.model,
-  .flow-branch.memory,
-  .flow-branch.tool,
-  .workflow-map > i:first-of-type,
-  .workflow-map > i:last-of-type {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .workflow-map > i {
-    width: 2px;
-    height: 24px;
-    margin: 0 auto;
-  }
-
-  .flow-branch::before {
-    display: none;
-  }
-}
-
 @media (max-width: 560px) {
   .tab,
   .console-link {
@@ -1685,27 +1212,6 @@ a:hover {
   .term-grid {
     grid-template-columns: 1fr;
   }
-
-  .bot-caption,
-  .workflow-map {
-    grid-template-columns: 1fr;
-  }
-
-  .workflow-map > i {
-    width: 2px;
-    height: 24px;
-    margin: 0 auto;
-  }
-
-  .flow-node.agent,
-  .flow-node.output,
-  .flow-branch.model,
-  .flow-branch.memory,
-  .flow-branch.tool {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
   .table-head {
     display: none;
   }

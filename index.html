@@ -44,7 +44,6 @@
       <section class="view active" id="home" data-view-panel="home">
         <div class="home-hero">
           <div class="home-copy">
-            <p class="kicker">/ FIRST BLOG IN THE SERIES</p>
             <h1>Where to start with AI</h1>
             <p>
               The.AI.Blog is a daily AI builder desk: learn the basics, follow useful agent trends,
@@ -54,23 +53,6 @@
               <button type="button" data-view-jump="blog">OPEN BLOG</button>
               <button type="button" data-view-jump="projects">PROJECT IDEAS</button>
               <button type="button" data-view-jump="github">GITHUB REPOS</button>
-            </div>
-          </div>
-
-          <div class="home-machine" aria-label="AI beginner path animation">
-            <div class="machine-head">
-              <span><i></i> Mars-grade AI co-pilot</span>
-              <b>live</b>
-            </div>
-            <div class="retro-bot" aria-hidden="true">
-              <div id="robot3d" class="robot3d" aria-label="Animated 3D Mars AI robot mascot">
-                <span>Loading 3D co-pilot</span>
-              </div>
-            </div>
-            <div class="bot-caption">
-              <span>Prompt in</span>
-              <span>Tools connected</span>
-              <span>Automation out</span>
             </div>
           </div>
         </div>
@@ -163,9 +145,6 @@
           <h1>Blog</h1>
           <span>(01)</span>
           <p>Daily AI trend notes, agents, tools, and automation ideas.</p>
-          <div class="tech-widget feed-widget" aria-hidden="true">
-            <i></i><i></i><i></i><i></i>
-          </div>
         </div>
 
         <div class="index-layout">
@@ -286,16 +265,34 @@
             </button>
             <div class="row-detail">
               <p>Build a tiny app where you paste messy notes and AI turns them into a clean summary, task list, and title. Beginner version: one text box, one AI call, one saved result.</p>
-              <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>User saves note</span></div>
-                <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Clean + organize</span></div>
-                <div class="flow-branch model"><b>Model</b><span>ChatGPT / Claude</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>Saved notes</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>Browser storage</span></div>
-                <i></i>
-                <div class="flow-node output"><b>Output</b><span>Summary + tasks</span></div>
-              </div>
+              <svg class="project-flow" viewBox="0 0 920 320" role="img" aria-label="Simple AI notes app workflow">
+                <title>Simple AI notes app workflow</title>
+                <defs>
+                  <pattern id="grid-notes" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M 22 0 L 0 0 0 22" />
+                  </pattern>
+                </defs>
+                <rect class="flow-bg" width="920" height="320" fill="url(#grid-notes)" />
+                <path class="flow-line" d="M 194 94 H 310 M 490 94 H 635 M 430 140 V 202 M 322 237 H 390 M 550 237 H 635" />
+                <rect class="flow-box flow-start" x="38" y="48" width="156" height="92" rx="8" />
+                <rect class="flow-box flow-dark" x="310" y="48" width="180" height="92" rx="8" />
+                <rect class="flow-box" x="635" y="48" width="180" height="92" rx="8" />
+                <rect class="flow-box flow-dashed" x="182" y="202" width="140" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="390" y="202" width="160" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="635" y="202" width="140" height="70" rx="6" />
+                <text class="flow-title" x="116" y="84" text-anchor="middle">Capture note</text>
+                <text class="flow-small" x="116" y="111" text-anchor="middle">messy text in</text>
+                <text class="flow-title flow-light" x="400" y="84" text-anchor="middle">AI cleaner</text>
+                <text class="flow-small flow-light" x="400" y="111" text-anchor="middle">title, tasks, summary</text>
+                <text class="flow-title" x="725" y="84" text-anchor="middle">Saved result</text>
+                <text class="flow-small" x="725" y="111" text-anchor="middle">clean note out</text>
+                <text class="flow-title" x="252" y="230" text-anchor="middle">Prompt</text>
+                <text class="flow-small" x="252" y="251" text-anchor="middle">template</text>
+                <text class="flow-title" x="470" y="230" text-anchor="middle">Storage</text>
+                <text class="flow-small" x="470" y="251" text-anchor="middle">browser or sheet</text>
+                <text class="flow-title" x="705" y="230" text-anchor="middle">Export</text>
+                <text class="flow-small" x="705" y="251" text-anchor="middle">copy or PDF</text>
+              </svg>
               <p class="project-note">Why it works: everyone has messy notes. AI turns “meeting chaos soup” into something your future self can survive.</p>
             </div>
           </article>
@@ -307,16 +304,37 @@
             </button>
             <div class="row-detail">
               <p>Create a daily reminder that checks your habit list, writes a friendly nudge, and sends it by email, Telegram, or Teams. Beginner version: Google Sheet + n8n schedule + AI message.</p>
-              <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>Every morning</span></div>
-                <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Write reminder</span></div>
-                <div class="flow-branch model"><b>Model</b><span>GPT / Claude</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>Habit sheet</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>Email / Telegram</span></div>
-                <i></i>
-                <div class="flow-node output"><b>Output</b><span>Daily nudge</span></div>
-              </div>
+              <svg class="project-flow" viewBox="0 0 920 320" role="img" aria-label="Daily reminder and habit coach workflow">
+                <title>Daily reminder and habit coach workflow</title>
+                <defs>
+                  <pattern id="grid-reminder" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M 22 0 L 0 0 0 22" />
+                  </pattern>
+                </defs>
+                <rect class="flow-bg" width="920" height="320" fill="url(#grid-reminder)" />
+                <path class="flow-line" d="M 178 88 H 250 M 410 88 H 470 M 650 88 H 728 M 330 134 V 198 M 410 233 H 470 M 560 134 V 198 M 650 233 H 728" />
+                <rect class="flow-box flow-start" x="38" y="42" width="140" height="92" rx="8" />
+                <rect class="flow-box" x="250" y="42" width="160" height="92" rx="8" />
+                <rect class="flow-box flow-dark" x="470" y="42" width="180" height="92" rx="8" />
+                <rect class="flow-box" x="728" y="42" width="150" height="92" rx="8" />
+                <rect class="flow-box flow-dashed" x="250" y="198" width="160" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="470" y="198" width="180" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="728" y="198" width="150" height="70" rx="6" />
+                <text class="flow-title" x="108" y="78" text-anchor="middle">Schedule</text>
+                <text class="flow-small" x="108" y="105" text-anchor="middle">every morning</text>
+                <text class="flow-title" x="330" y="78" text-anchor="middle">Habit sheet</text>
+                <text class="flow-small" x="330" y="105" text-anchor="middle">what to track</text>
+                <text class="flow-title flow-light" x="560" y="78" text-anchor="middle">AI coach</text>
+                <text class="flow-small flow-light" x="560" y="105" text-anchor="middle">writes the nudge</text>
+                <text class="flow-title" x="803" y="78" text-anchor="middle">Message</text>
+                <text class="flow-small" x="803" y="105" text-anchor="middle">email or Teams</text>
+                <text class="flow-title" x="330" y="226" text-anchor="middle">Check log</text>
+                <text class="flow-small" x="330" y="247" text-anchor="middle">done or missed</text>
+                <text class="flow-title" x="560" y="226" text-anchor="middle">Tone rules</text>
+                <text class="flow-small" x="560" y="247" text-anchor="middle">kind, not bossy</text>
+                <text class="flow-title" x="803" y="226" text-anchor="middle">Reply</text>
+                <text class="flow-small" x="803" y="247" text-anchor="middle">mark complete</text>
+              </svg>
               <p class="project-note">Why it works: your calendar nags you. This one can at least be charming about it.</p>
             </div>
           </article>
@@ -328,16 +346,38 @@
             </button>
             <div class="row-detail">
               <p>Watch a product, stock, crypto token, flight, or hotel price and send an alert when it crosses your target. Beginner version: scheduled scraper/API + condition + notification.</p>
-              <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>Every 30 min</span></div>
-                <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Check + explain</span></div>
-                <div class="flow-branch model"><b>Model</b><span>Optional summary</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>Target price</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>API / scraper</span></div>
-                <i></i>
-                <div class="flow-node output"><b>Output</b><span>Price alert</span></div>
-              </div>
+              <svg class="project-flow" viewBox="0 0 920 320" role="img" aria-label="Live price monitoring alert workflow">
+                <title>Live price monitoring alert workflow</title>
+                <defs>
+                  <pattern id="grid-price" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M 22 0 L 0 0 0 22" />
+                  </pattern>
+                </defs>
+                <rect class="flow-bg" width="920" height="320" fill="url(#grid-price)" />
+                <path class="flow-line" d="M 166 82 H 230 M 390 82 H 445 M 625 82 H 715 M 310 128 V 196 M 445 231 H 390 M 535 128 V 196 M 625 231 H 715" />
+                <path class="flow-line flow-dash" d="M 795 128 V 196 M 715 231 H 625" />
+                <rect class="flow-box flow-start" x="38" y="40" width="128" height="84" rx="8" />
+                <rect class="flow-box" x="230" y="40" width="160" height="84" rx="8" />
+                <rect class="flow-box flow-dark" x="445" y="40" width="180" height="84" rx="8" />
+                <rect class="flow-box" x="715" y="40" width="150" height="84" rx="8" />
+                <rect class="flow-box flow-dashed" x="230" y="196" width="160" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="445" y="196" width="180" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="715" y="196" width="150" height="70" rx="6" />
+                <text class="flow-title" x="102" y="73" text-anchor="middle">Timer</text>
+                <text class="flow-small" x="102" y="99" text-anchor="middle">every 30 min</text>
+                <text class="flow-title" x="310" y="73" text-anchor="middle">Price source</text>
+                <text class="flow-small" x="310" y="99" text-anchor="middle">API or scraper</text>
+                <text class="flow-title flow-light" x="535" y="73" text-anchor="middle">Compare</text>
+                <text class="flow-small flow-light" x="535" y="99" text-anchor="middle">target vs live</text>
+                <text class="flow-title" x="790" y="73" text-anchor="middle">Alert</text>
+                <text class="flow-small" x="790" y="99" text-anchor="middle">deal detected</text>
+                <text class="flow-title" x="310" y="224" text-anchor="middle">Watchlist</text>
+                <text class="flow-small" x="310" y="245" text-anchor="middle">items + targets</text>
+                <text class="flow-title" x="535" y="224" text-anchor="middle">History</text>
+                <text class="flow-small" x="535" y="245" text-anchor="middle">price changes</text>
+                <text class="flow-title" x="790" y="224" text-anchor="middle">Summary</text>
+                <text class="flow-small" x="790" y="245" text-anchor="middle">why it matters</text>
+              </svg>
               <p class="project-note">Why it works: refreshing a page 80 times a day is not a personality trait. Automate it.</p>
             </div>
           </article>
@@ -349,16 +389,34 @@
             </button>
             <div class="row-detail">
               <p>Create a small quiz game where AI generates questions from any topic and explains the answer when you miss. Beginner version: topic input + question generator + score counter.</p>
-              <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>Choose topic</span></div>
-                <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Generate quiz</span></div>
-                <div class="flow-branch model"><b>Model</b><span>GPT / Gemini</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>Score + level</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>Question UI</span></div>
-                <i></i>
-                <div class="flow-node output"><b>Output</b><span>Quiz round</span></div>
-              </div>
+              <svg class="project-flow" viewBox="0 0 920 320" role="img" aria-label="AI quiz game workflow">
+                <title>AI quiz game workflow</title>
+                <defs>
+                  <pattern id="grid-quiz" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M 22 0 L 0 0 0 22" />
+                  </pattern>
+                </defs>
+                <rect class="flow-bg" width="920" height="320" fill="url(#grid-quiz)" />
+                <path class="flow-line" d="M 180 86 H 258 M 438 86 H 520 M 610 134 V 194 M 700 229 H 760 M 520 229 H 438 M 348 194 V 132" />
+                <rect class="flow-box flow-start" x="38" y="42" width="142" height="88" rx="8" />
+                <rect class="flow-box flow-dark" x="258" y="42" width="180" height="88" rx="8" />
+                <rect class="flow-box" x="520" y="42" width="180" height="88" rx="8" />
+                <rect class="flow-box" x="520" y="194" width="180" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="760" y="194" width="122" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="258" y="194" width="180" height="70" rx="6" />
+                <text class="flow-title" x="109" y="76" text-anchor="middle">Topic</text>
+                <text class="flow-small" x="109" y="102" text-anchor="middle">anything you like</text>
+                <text class="flow-title flow-light" x="348" y="76" text-anchor="middle">Question AI</text>
+                <text class="flow-small flow-light" x="348" y="102" text-anchor="middle">creates quiz cards</text>
+                <text class="flow-title" x="610" y="76" text-anchor="middle">Question</text>
+                <text class="flow-small" x="610" y="102" text-anchor="middle">multiple choice</text>
+                <text class="flow-title" x="610" y="222" text-anchor="middle">Answer</text>
+                <text class="flow-small" x="610" y="243" text-anchor="middle">player chooses</text>
+                <text class="flow-title" x="821" y="222" text-anchor="middle">Score</text>
+                <text class="flow-small" x="821" y="243" text-anchor="middle">level up</text>
+                <text class="flow-title" x="348" y="222" text-anchor="middle">Explain</text>
+                <text class="flow-small" x="348" y="243" text-anchor="middle">why it is right</text>
+              </svg>
               <p class="project-note">Why it works: learning becomes less “textbook dungeon” and more “tiny game with receipts.”</p>
             </div>
           </article>
@@ -370,16 +428,37 @@
             </button>
             <div class="row-detail">
               <p>Upload or paste a document and get a summary, key points, questions, and action items. Beginner version: file text + AI prompt + downloadable result.</p>
-              <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>Paste document</span></div>
-                <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Summarize</span></div>
-                <div class="flow-branch model"><b>Model</b><span>Claude / GPT</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>Past summaries</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>File reader</span></div>
-                <i></i>
-                <div class="flow-node output"><b>Output</b><span>Clean brief</span></div>
-              </div>
+              <svg class="project-flow" viewBox="0 0 920 320" role="img" aria-label="Simple document summarizer workflow">
+                <title>Simple document summarizer workflow</title>
+                <defs>
+                  <pattern id="grid-docs" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M 22 0 L 0 0 0 22" />
+                  </pattern>
+                </defs>
+                <rect class="flow-bg" width="920" height="320" fill="url(#grid-docs)" />
+                <path class="flow-line" d="M 178 84 H 240 M 405 84 H 468 M 648 84 H 718 M 322 128 V 198 M 405 233 H 468 M 558 128 V 198 M 648 233 H 718" />
+                <rect class="flow-box flow-start" x="38" y="40" width="140" height="88" rx="8" />
+                <rect class="flow-box" x="240" y="40" width="165" height="88" rx="8" />
+                <rect class="flow-box flow-dark" x="468" y="40" width="180" height="88" rx="8" />
+                <rect class="flow-box" x="718" y="40" width="150" height="88" rx="8" />
+                <rect class="flow-box flow-dashed" x="240" y="198" width="165" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="468" y="198" width="180" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="718" y="198" width="150" height="70" rx="6" />
+                <text class="flow-title" x="108" y="74" text-anchor="middle">Upload</text>
+                <text class="flow-small" x="108" y="100" text-anchor="middle">PDF or paste</text>
+                <text class="flow-title" x="322" y="74" text-anchor="middle">Extract text</text>
+                <text class="flow-small" x="322" y="100" text-anchor="middle">clean chunks</text>
+                <text class="flow-title flow-light" x="558" y="74" text-anchor="middle">AI reader</text>
+                <text class="flow-small flow-light" x="558" y="100" text-anchor="middle">summary + risks</text>
+                <text class="flow-title" x="793" y="74" text-anchor="middle">Brief</text>
+                <text class="flow-small" x="793" y="100" text-anchor="middle">downloadable</text>
+                <text class="flow-title" x="322" y="226" text-anchor="middle">Chunks</text>
+                <text class="flow-small" x="322" y="247" text-anchor="middle">sections saved</text>
+                <text class="flow-title" x="558" y="226" text-anchor="middle">Ask it</text>
+                <text class="flow-small" x="558" y="247" text-anchor="middle">Q and A mode</text>
+                <text class="flow-title" x="793" y="226" text-anchor="middle">Actions</text>
+                <text class="flow-small" x="793" y="247" text-anchor="middle">next steps</text>
+              </svg>
               <p class="project-note">Why it works: long PDFs are where enthusiasm goes to slowly become dust.</p>
             </div>
           </article>
@@ -391,16 +470,37 @@
             </button>
             <div class="row-detail">
               <p>Create a simple personal site that explains who you are, what you do, and how to contact you. Beginner version: ask Codex to build a one-page portfolio, then deploy it to Render.</p>
-              <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>Your profile text</span></div>
-                <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Design + code</span></div>
-                <div class="flow-branch model"><b>Model</b><span>Codex / GPT</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>Brand notes</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>GitHub + Render</span></div>
-                <i></i>
-                <div class="flow-node output"><b>Output</b><span>Live website</span></div>
-              </div>
+              <svg class="project-flow" viewBox="0 0 920 320" role="img" aria-label="Personal portfolio landing page workflow">
+                <title>Personal portfolio landing page workflow</title>
+                <defs>
+                  <pattern id="grid-portfolio" width="22" height="22" patternUnits="userSpaceOnUse">
+                    <path d="M 22 0 L 0 0 0 22" />
+                  </pattern>
+                </defs>
+                <rect class="flow-bg" width="920" height="320" fill="url(#grid-portfolio)" />
+                <path class="flow-line" d="M 178 86 H 240 M 400 86 H 462 M 642 86 H 705 M 780 130 V 200 M 400 235 H 462 M 552 200 V 132" />
+                <rect class="flow-box flow-start" x="38" y="42" width="140" height="88" rx="8" />
+                <rect class="flow-box" x="240" y="42" width="160" height="88" rx="8" />
+                <rect class="flow-box flow-dark" x="462" y="42" width="180" height="88" rx="8" />
+                <rect class="flow-box" x="705" y="42" width="150" height="88" rx="8" />
+                <rect class="flow-box flow-dashed" x="240" y="200" width="160" height="70" rx="6" />
+                <rect class="flow-box flow-dashed" x="462" y="200" width="180" height="70" rx="6" />
+                <rect class="flow-box" x="705" y="200" width="150" height="70" rx="6" />
+                <text class="flow-title" x="108" y="76" text-anchor="middle">Profile</text>
+                <text class="flow-small" x="108" y="102" text-anchor="middle">who you are</text>
+                <text class="flow-title" x="320" y="76" text-anchor="middle">AI copy</text>
+                <text class="flow-small" x="320" y="102" text-anchor="middle">headline + sections</text>
+                <text class="flow-title flow-light" x="552" y="76" text-anchor="middle">Codex</text>
+                <text class="flow-small flow-light" x="552" y="102" text-anchor="middle">builds the page</text>
+                <text class="flow-title" x="780" y="76" text-anchor="middle">GitHub</text>
+                <text class="flow-small" x="780" y="102" text-anchor="middle">save code</text>
+                <text class="flow-title" x="320" y="228" text-anchor="middle">Theme</text>
+                <text class="flow-small" x="320" y="249" text-anchor="middle">fonts + colors</text>
+                <text class="flow-title" x="552" y="228" text-anchor="middle">Preview</text>
+                <text class="flow-small" x="552" y="249" text-anchor="middle">fix layout</text>
+                <text class="flow-title" x="780" y="228" text-anchor="middle">Render</text>
+                <text class="flow-small" x="780" y="249" text-anchor="middle">live website</text>
+              </svg>
               <p class="project-note">Why it works: having a homepage beats saying “just DM me bro” like the internet is still 2014.</p>
             </div>
           </article>
@@ -412,9 +512,6 @@
           <h1>Github</h1>
           <span>(31)</span>
           <p>Public repos builders can use for agents, automations, RAG, tools, and evaluation.</p>
-          <div class="tech-widget code-widget" aria-hidden="true">
-            <i></i><i></i><i></i><i></i><i></i><i></i>
-          </div>
         </div>
 
         <div class="repo-grid">
@@ -476,9 +573,6 @@
           <h1>Resources</h1>
           <span>(10)</span>
           <p>Official learning links and credits to original owners.</p>
-          <div class="tech-widget source-widget" aria-hidden="true">
-            <i></i><i></i><i></i><i></i>
-          </div>
         </div>
 
         <div class="list-only">
@@ -495,16 +589,18 @@
           <a class="resource-row" href="https://huggingface.co/learn/agents-course"><span>Hugging Face</span><strong>Agents course</strong></a>
         </div>
 
-        <footer class="credits">
-          <span>~/the-ai-blog $ echo "live coded by Roshan Arun"</span>
+        <div class="credits">
           Original credit: OpenAI, Anthropic, Google, Perplexity, Microsoft, Hugging Face, n8n,
           Dify, Flowise, LangChain, and the open-source community retain ownership of their
           respective products, repositories, posts, names, and trademarks.
-        </footer>
+        </div>
       </section>
     </main>
 
-    <script type="module" src="robot3d.js"></script>
+    <footer class="site-signature" aria-label="Site credit">
+      <span>~/the-ai-blog $</span> echo "live coded by Roshan Arun"
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>
