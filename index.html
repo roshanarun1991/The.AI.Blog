@@ -63,7 +63,9 @@
               <b>live</b>
             </div>
             <div class="retro-bot" aria-hidden="true">
-              <canvas id="marsBotCanvas" width="640" height="640" aria-label="Animated Mars AI robot mascot"></canvas>
+              <div id="robot3d" class="robot3d" aria-label="Animated 3D Mars AI robot mascot">
+                <span>Loading 3D co-pilot</span>
+              </div>
             </div>
             <div class="bot-caption">
               <span>Prompt in</span>
@@ -269,9 +271,6 @@
           <h1>Projects</h1>
           <span>(06)</span>
           <p>Project ideas that can become B2B or B2C automations.</p>
-          <div class="tech-widget flow-widget" aria-hidden="true">
-            <i></i><i></i><i></i><i></i>
-          </div>
         </div>
 
         <div class="list-only">
@@ -386,23 +385,23 @@
           </article>
           <article class="post-row">
             <button class="row-main" type="button" aria-expanded="false">
-              <time>LOCAL</time>
-              <strong>Small business review and reply assistant</strong>
+              <time>WEB</time>
+              <strong>Personal portfolio landing page</strong>
               <span>+</span>
             </button>
             <div class="row-detail">
-              <p>Summarize reviews, detect complaints, draft polite replies, and suggest fixes. Beginner version: export reviews, ask AI for themes, reply drafts, and action items.</p>
+              <p>Create a simple personal site that explains who you are, what you do, and how to contact you. Beginner version: ask Codex to build a one-page portfolio, then deploy it to Render.</p>
               <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>New reviews</span></div>
+                <div class="flow-node trigger"><b>Trigger</b><span>Your profile text</span></div>
                 <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Find themes</span></div>
-                <div class="flow-branch model"><b>Model</b><span>OpenAI Chat Model</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>Past replies</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>Review export</span></div>
+                <div class="flow-node agent"><b>AI Agent</b><span>Design + code</span></div>
+                <div class="flow-branch model"><b>Model</b><span>Codex / GPT</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>Brand notes</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>GitHub + Render</span></div>
                 <i></i>
-                <div class="flow-node output"><b>Output</b><span>Replies + fix list</span></div>
+                <div class="flow-node output"><b>Output</b><span>Live website</span></div>
               </div>
-              <p class="project-note">The AI reads the angry reviews so the owner can keep their blood pressure in the normal range.</p>
+              <p class="project-note">Why it works: having a homepage beats saying “just DM me bro” like the internet is still 2014.</p>
             </div>
           </article>
         </div>
@@ -505,6 +504,7 @@
       </section>
     </main>
 
+    <script type="module" src="robot3d.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
