@@ -6,7 +6,7 @@ Goal:
 
 1. Research the latest useful AI trends, tools, agent launches, and public GitHub repositories.
 2. Prefer primary sources: official product blogs, docs, changelogs, GitHub repositories, and release notes.
-3. Add one concise daily post card to `index.html` inside:
+3. Add one concise daily post row to `index.html` inside:
 
 ```html
 <!-- DAILY_POSTS_START -->
@@ -14,12 +14,31 @@ Goal:
 <!-- DAILY_POSTS_END -->
 ```
 
-Post style:
+Post row style:
 
 - Practical, builder-focused, and current.
 - Mention why the update matters for B2B, B2C, creators, or automation builders.
 - Include clickable links to official sources or GitHub repos.
-- Keep the card short enough for the homepage.
+- Keep the row title short enough for the homepage.
+- Place the newest row first.
+
+Use this HTML format:
+
+```html
+<article class="post-row" data-topics="AI Agents, Automation, GitHub Repos">
+  <button class="row-main" type="button" aria-expanded="false">
+    <time>YYYY.M.DD</time>
+    <strong>Daily topic title goes here</strong>
+    <span>+</span>
+  </button>
+  <div class="row-detail">
+    <p>
+      Short practical summary with a builder angle and clear usefulness.
+    </p>
+    <a href="https://example.com">Source label</a>
+  </div>
+</article>
+```
 
 After updating:
 

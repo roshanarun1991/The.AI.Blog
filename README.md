@@ -31,7 +31,7 @@ In Render, create a new Blueprint or Static Site from:
 
 ## Daily updates
 
-Daily posts should be added inside the `DAILY_POSTS_START` and `DAILY_POSTS_END` markers in `index.html`.
+Daily posts should be added as expandable blog rows inside the `DAILY_POSTS_START` and `DAILY_POSTS_END` markers in `index.html`.
 
 Each post should include:
 
@@ -40,3 +40,10 @@ Each post should include:
 - Practical AI trend summary
 - Useful public GitHub links when relevant
 - Credit to original tool/project owners
+
+The homepage is split into tabs:
+
+- Blog: daily trend posts
+- Projects: B2B/B2C project ideas
+- GitHub: public repositories
+- Resources: official learning links and credits
