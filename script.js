@@ -1,6 +1,8 @@
 const tabs = Array.from(document.querySelectorAll("[data-view]"));
 const panels = Array.from(document.querySelectorAll("[data-view-panel]"));
 const rows = Array.from(document.querySelectorAll(".post-row"));
+const filterChips = Array.from(document.querySelectorAll("[data-filter]"));
+const viewJumps = Array.from(document.querySelectorAll("[data-view-jump]"));
 let audioContext;
 
 function playTone(type = "click") {
@@ -48,7 +50,7 @@ setPanelCount("github", document.querySelectorAll("#github .repo-grid a").length
 setPanelCount("resources", document.querySelectorAll("#resources .resource-row").length);
 
 function showView(view) {
-  tabs.forEach((tab) => {
+  document.querySelectorAll("[data-view]").forEach((tab) => {
     tab.classList.toggle("active", tab.dataset.view === view);
   });
 
@@ -65,6 +67,26 @@ tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     playTone("tab");
     showView(tab.dataset.view);
+  });
+});
+
+viewJumps.forEach((button) => {
+  button.addEventListener("click", () => {
+    playTone("tab");
+    showView(button.dataset.viewJump);
+  });
+});
+
+filterChips.forEach((chip) => {
+  chip.addEventListener("click", () => {
+    playTone("click");
+    const filter = chip.dataset.filter;
+    filterChips.forEach((item) => item.classList.toggle("active", item === chip));
+
+    document.querySelectorAll("#blog .post-row").forEach((row) => {
+      const topics = row.dataset.topics || "";
+      row.classList.toggle("hidden", filter !== "all" && !topics.includes(filter));
+    });
   });
 });
 
@@ -89,4 +111,6 @@ updateScrollTint();
 const initialView = window.location.hash.replace("#", "");
 if (tabs.some((tab) => tab.dataset.view === initialView)) {
   showView(initialView);
+} else {
+  showView("home");
 }
