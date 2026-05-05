@@ -4,7 +4,7 @@ Static AI trends blog by Roshan Arun.
 
 Live link text convention:
 
-[The.AI.blog](https://the-ai-blog.onrender.com)
+[The.AI.Blog](https://the-ai-blog-0ltv.onrender.com/)
 
 ## Local preview
 
@@ -17,7 +17,7 @@ This repo includes `render.yaml` for a Render static site.
 - Service name: `the-ai-blog`
 - Static publish path: `.`
 - Build command: none
-- Expected Render URL after creation: `https://the-ai-blog.onrender.com`
+- Render URL: `https://the-ai-blog-0ltv.onrender.com/`
 
 In Render, create a new Blueprint or Static Site from:
 
@@ -34,4 +34,3 @@ Each post should include:
 - Practical AI trend summary
 - Useful public GitHub links when relevant
 - Credit to original tool/project owners
-

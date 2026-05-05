@@ -29,3 +29,6 @@ After updating:
 
 Render will redeploy automatically from GitHub after each push.
 
+When sharing the live site, use:
+
+[The.AI.Blog](https://the-ai-blog-0ltv.onrender.com/)
