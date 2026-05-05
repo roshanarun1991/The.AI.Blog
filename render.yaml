@@ -2,10 +2,12 @@ services:
   - type: web
     name: the-ai-blog
     runtime: static
+    plan: free
     buildCommand: ""
     staticPublishPath: .
     autoDeploy: true
-    pullRequestPreviewsEnabled: true
+    previews:
+      generation: automatic
     headers:
       - path: /*
         name: X-Frame-Options
