@@ -6,6 +6,12 @@ Live link text convention:
 
 [The.AI.Blog](https://the-ai-blog-0ltv.onrender.com/)
 
+For social media, paste the raw URL instead of Markdown:
+
+`https://the-ai-blog-0ltv.onrender.com/`
+
+The site includes Open Graph and Twitter metadata so social previews can show `The.AI.Blog`.
+
 ## Local preview
 
 Open `index.html` directly or serve the folder with any static file server.

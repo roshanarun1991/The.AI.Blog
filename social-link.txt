@@ -1,0 +1,11 @@
+Paste this raw URL on social media:
+
+https://the-ai-blog-0ltv.onrender.com/
+
+Many social platforms do not support Markdown links like:
+
+[The.AI.Blog](https://the-ai-blog-0ltv.onrender.com/)
+
+After the page preview loads, it should display the site title as:
+
+The.AI.Blog
