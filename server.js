@@ -38,14 +38,18 @@ const server = http.createServer((request, response) => {
           return;
         }
 
-        response.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+        response.writeHead(200, {
+          "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-store, max-age=0"
+        });
         response.end(fallbackData);
       });
       return;
     }
 
     response.writeHead(200, {
-      "Content-Type": mimeTypes[path.extname(safePath).toLowerCase()] || "application/octet-stream"
+      "Content-Type": mimeTypes[path.extname(safePath).toLowerCase()] || "application/octet-stream",
+      "Cache-Control": "no-store, max-age=0"
     });
     response.end(data);
   });
