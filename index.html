@@ -63,28 +63,7 @@
               <b>live</b>
             </div>
             <div class="retro-bot" aria-hidden="true">
-              <div class="bot-halo"></div>
-              <div class="bot-core">
-                <div class="bot-face">
-                  <span class="bot-eye left"></span>
-                  <span class="bot-eye right"></span>
-                  <span class="bot-scan"></span>
-                </div>
-              </div>
-              <div class="bot-neck"></div>
-              <div class="bot-torso">
-                <span>MARS-AI</span>
-                <i></i><i></i><i></i>
-              </div>
-              <div class="bot-shoulder left"></div>
-              <div class="bot-shoulder right"></div>
-              <div class="bot-arm left"></div>
-              <div class="bot-arm right"></div>
-              <div class="bot-leg left"></div>
-              <div class="bot-leg right"></div>
-              <div class="bot-foot left"></div>
-              <div class="bot-foot right"></div>
-              <div class="bot-shadow"></div>
+              <canvas id="marsBotCanvas" width="640" height="640" aria-label="Animated Mars AI robot mascot"></canvas>
             </div>
             <div class="bot-caption">
               <span>Prompt in</span>
@@ -302,107 +281,107 @@
           </div>
           <article class="post-row open">
             <button class="row-main" type="button" aria-expanded="true">
-              <time>B2B</time>
-              <strong>AI competitor and market trend monitor</strong>
+              <time>APP</time>
+              <strong>Simple AI notes app</strong>
               <span>+</span>
             </button>
             <div class="row-detail">
-              <p>Collect launches, summarize competitor moves, score opportunities, and send a weekly brief. Beginner version: Google Sheet + Perplexity + ChatGPT + n8n.</p>
+              <p>Build a tiny app where you paste messy notes and AI turns them into a clean summary, task list, and title. Beginner version: one text box, one AI call, one saved result.</p>
               <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>New AI link saved</span></div>
+                <div class="flow-node trigger"><b>Trigger</b><span>User saves note</span></div>
                 <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Summarize + classify</span></div>
-                <div class="flow-branch model"><b>Model</b><span>OpenAI / Claude</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>Trend database</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>Perplexity / Firecrawl</span></div>
+                <div class="flow-node agent"><b>AI Agent</b><span>Clean + organize</span></div>
+                <div class="flow-branch model"><b>Model</b><span>ChatGPT / Claude</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>Saved notes</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>Browser storage</span></div>
                 <i></i>
-                <div class="flow-node output"><b>Output</b><span>Weekly brief</span></div>
+                <div class="flow-node output"><b>Output</b><span>Summary + tasks</span></div>
               </div>
-              <p class="project-note">Why it works: businesses want signal without doom-scrolling LinkedIn like it is an Olympic sport.</p>
+              <p class="project-note">Why it works: everyone has messy notes. AI turns “meeting chaos soup” into something your future self can survive.</p>
             </div>
           </article>
           <article class="post-row">
             <button class="row-main" type="button" aria-expanded="false">
-              <time>B2B</time>
-              <strong>Lead research and outreach draft agent</strong>
+              <time>AUTO</time>
+              <strong>Daily reminder and habit coach</strong>
               <span>+</span>
             </button>
             <div class="row-detail">
-              <p>Research prospects, score fit, and draft outreach emails. Beginner version: paste company URLs into a sheet, ask AI for summary + pain points + email draft.</p>
+              <p>Create a daily reminder that checks your habit list, writes a friendly nudge, and sends it by email, Telegram, or Teams. Beginner version: Google Sheet + n8n schedule + AI message.</p>
               <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>New lead added</span></div>
+                <div class="flow-node trigger"><b>Trigger</b><span>Every morning</span></div>
                 <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Research + qualify</span></div>
+                <div class="flow-node agent"><b>AI Agent</b><span>Write reminder</span></div>
                 <div class="flow-branch model"><b>Model</b><span>GPT / Claude</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>CRM notes</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>Website search</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>Habit sheet</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>Email / Telegram</span></div>
                 <i></i>
-                <div class="flow-node output"><b>Output</b><span>Email draft</span></div>
+                <div class="flow-node output"><b>Output</b><span>Daily nudge</span></div>
               </div>
-              <p class="project-note">Keep it ethical: no spam cannon. You are building a polite assistant, not a digital leaf blower.</p>
+              <p class="project-note">Why it works: your calendar nags you. This one can at least be charming about it.</p>
             </div>
           </article>
           <article class="post-row">
             <button class="row-main" type="button" aria-expanded="false">
-              <time>B2B</time>
-              <strong>Support ticket triage and summary assistant</strong>
+              <time>PRICE</time>
+              <strong>Live price monitoring alert</strong>
               <span>+</span>
             </button>
             <div class="row-detail">
-              <p>Classify support messages, summarize the problem, suggest a reply, and flag urgent cases. Beginner version: form submissions + AI summary + email notification.</p>
+              <p>Watch a product, stock, crypto token, flight, or hotel price and send an alert when it crosses your target. Beginner version: scheduled scraper/API + condition + notification.</p>
               <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>Support form</span></div>
+                <div class="flow-node trigger"><b>Trigger</b><span>Every 30 min</span></div>
                 <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Classify + draft</span></div>
-                <div class="flow-branch model"><b>Model</b><span>OpenAI Chat Model</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>FAQ buffer</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>Ticket router</span></div>
+                <div class="flow-node agent"><b>AI Agent</b><span>Check + explain</span></div>
+                <div class="flow-branch model"><b>Model</b><span>Optional summary</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>Target price</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>API / scraper</span></div>
                 <i></i>
-                <div class="flow-node output"><b>Output</b><span>Reply + escalation</span></div>
+                <div class="flow-node output"><b>Output</b><span>Price alert</span></div>
               </div>
-              <p class="project-note">Great for small businesses drowning in “hi, quick question” messages that are never quick.</p>
+              <p class="project-note">Why it works: refreshing a page 80 times a day is not a personality trait. Automate it.</p>
             </div>
           </article>
           <article class="post-row">
             <button class="row-main" type="button" aria-expanded="false">
-              <time>B2C</time>
-              <strong>Personal shopping and deal scout</strong>
+              <time>GAME</time>
+              <strong>AI quiz game for learning anything</strong>
               <span>+</span>
             </button>
             <div class="row-detail">
-              <p>Compare products, summarize reviews, and recommend the best option for a budget. Beginner version: paste product links and let AI build a simple comparison table.</p>
+              <p>Create a small quiz game where AI generates questions from any topic and explains the answer when you miss. Beginner version: topic input + question generator + score counter.</p>
               <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>Shopping request</span></div>
+                <div class="flow-node trigger"><b>Trigger</b><span>Choose topic</span></div>
                 <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Compare products</span></div>
-                <div class="flow-branch model"><b>Model</b><span>Claude / Gemini</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>User preferences</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>Review scraper</span></div>
+                <div class="flow-node agent"><b>AI Agent</b><span>Generate quiz</span></div>
+                <div class="flow-branch model"><b>Model</b><span>GPT / Gemini</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>Score + level</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>Question UI</span></div>
                 <i></i>
-                <div class="flow-node output"><b>Output</b><span>Best pick</span></div>
+                <div class="flow-node output"><b>Output</b><span>Quiz round</span></div>
               </div>
-              <p class="project-note">Useful because nobody wants to read 900 reviews to buy a kettle. We are adults. We have limits.</p>
+              <p class="project-note">Why it works: learning becomes less “textbook dungeon” and more “tiny game with receipts.”</p>
             </div>
           </article>
           <article class="post-row">
             <button class="row-main" type="button" aria-expanded="false">
-              <time>B2C</time>
-              <strong>Creator idea-to-video studio</strong>
+              <time>TOOL</time>
+              <strong>Simple document summarizer</strong>
               <span>+</span>
             </button>
             <div class="row-detail">
-              <p>Find trends, write hooks, create scripts, and generate storyboard prompts. Beginner version: one topic in, five video ideas out.</p>
+              <p>Upload or paste a document and get a summary, key points, questions, and action items. Beginner version: file text + AI prompt + downloadable result.</p>
               <div class="workflow-map">
-                <div class="flow-node trigger"><b>Trigger</b><span>Creator topic</span></div>
+                <div class="flow-node trigger"><b>Trigger</b><span>Paste document</span></div>
                 <i></i>
-                <div class="flow-node agent"><b>AI Agent</b><span>Hooks + script</span></div>
-                <div class="flow-branch model"><b>Model</b><span>GPT / Claude</span></div>
-                <div class="flow-branch memory"><b>Memory</b><span>Brand voice</span></div>
-                <div class="flow-branch tool"><b>Tool</b><span>Trend source</span></div>
+                <div class="flow-node agent"><b>AI Agent</b><span>Summarize</span></div>
+                <div class="flow-branch model"><b>Model</b><span>Claude / GPT</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>Past summaries</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>File reader</span></div>
                 <i></i>
-                <div class="flow-node output"><b>Output</b><span>Storyboard</span></div>
+                <div class="flow-node output"><b>Output</b><span>Clean brief</span></div>
               </div>
-              <p class="project-note">This is for creators who need ideas before their coffee remembers how to work.</p>
+              <p class="project-note">Why it works: long PDFs are where enthusiasm goes to slowly become dust.</p>
             </div>
           </article>
           <article class="post-row">
