@@ -59,52 +59,37 @@
 
           <div class="home-machine" aria-label="AI beginner path animation">
             <div class="machine-head">
-              <span><i></i> Beginner path</span>
-              <b>4 steps</b>
+              <span><i></i> Mars-grade AI co-pilot</span>
+              <b>live</b>
             </div>
             <div class="retro-bot" aria-hidden="true">
-              <span class="bot-orbit orbit-one">LLM</span>
-              <span class="bot-orbit orbit-two">API</span>
-              <span class="bot-orbit orbit-three">RAG</span>
-              <div class="bot-antenna"></div>
-              <div class="bot-head">
-                <span class="bot-eye"></span>
-                <span class="bot-eye"></span>
-                <span class="bot-mouth"></span>
+              <div class="bot-halo"></div>
+              <div class="bot-core">
+                <div class="bot-face">
+                  <span class="bot-eye left"></span>
+                  <span class="bot-eye right"></span>
+                  <span class="bot-scan"></span>
+                </div>
               </div>
-              <div class="bot-body">
-                <span>AI-05</span>
-                <i></i>
-                <i></i>
-                <i></i>
+              <div class="bot-neck"></div>
+              <div class="bot-torso">
+                <span>MARS-AI</span>
+                <i></i><i></i><i></i>
               </div>
+              <div class="bot-shoulder left"></div>
+              <div class="bot-shoulder right"></div>
               <div class="bot-arm left"></div>
               <div class="bot-arm right"></div>
-              <div class="bot-base"></div>
+              <div class="bot-leg left"></div>
+              <div class="bot-leg right"></div>
+              <div class="bot-foot left"></div>
+              <div class="bot-foot right"></div>
               <div class="bot-shadow"></div>
             </div>
-            <div class="machine-flow">
-              <section>
-                <small>01</small>
-                <strong>Use</strong>
-              </section>
-              <section class="active">
-                <small>02</small>
-                <strong>Learn</strong>
-              </section>
-              <section>
-                <small>03</small>
-                <strong>Build</strong>
-              </section>
-              <section>
-                <small>04</small>
-                <strong>Share</strong>
-              </section>
-            </div>
-            <div class="machine-lines">
-              <span>Daily AI practice</span>
-              <span>One repeatable workflow</span>
-              <span>First useful automation</span>
+            <div class="bot-caption">
+              <span>Prompt in</span>
+              <span>Tools connected</span>
+              <span>Automation out</span>
             </div>
           </div>
         </div>
@@ -323,7 +308,16 @@
             </button>
             <div class="row-detail">
               <p>Collect launches, summarize competitor moves, score opportunities, and send a weekly brief. Beginner version: Google Sheet + Perplexity + ChatGPT + n8n.</p>
-              <div class="project-map"><span>Links</span><i></i><span>AI summary</span><i></i><span>Score</span><i></i><span>Weekly brief</span></div>
+              <div class="workflow-map">
+                <div class="flow-node trigger"><b>Trigger</b><span>New AI link saved</span></div>
+                <i></i>
+                <div class="flow-node agent"><b>AI Agent</b><span>Summarize + classify</span></div>
+                <div class="flow-branch model"><b>Model</b><span>OpenAI / Claude</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>Trend database</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>Perplexity / Firecrawl</span></div>
+                <i></i>
+                <div class="flow-node output"><b>Output</b><span>Weekly brief</span></div>
+              </div>
               <p class="project-note">Why it works: businesses want signal without doom-scrolling LinkedIn like it is an Olympic sport.</p>
             </div>
           </article>
@@ -335,7 +329,16 @@
             </button>
             <div class="row-detail">
               <p>Research prospects, score fit, and draft outreach emails. Beginner version: paste company URLs into a sheet, ask AI for summary + pain points + email draft.</p>
-              <div class="project-map"><span>Company URL</span><i></i><span>Research</span><i></i><span>Email draft</span><i></i><span>Human approve</span></div>
+              <div class="workflow-map">
+                <div class="flow-node trigger"><b>Trigger</b><span>New lead added</span></div>
+                <i></i>
+                <div class="flow-node agent"><b>AI Agent</b><span>Research + qualify</span></div>
+                <div class="flow-branch model"><b>Model</b><span>GPT / Claude</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>CRM notes</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>Website search</span></div>
+                <i></i>
+                <div class="flow-node output"><b>Output</b><span>Email draft</span></div>
+              </div>
               <p class="project-note">Keep it ethical: no spam cannon. You are building a polite assistant, not a digital leaf blower.</p>
             </div>
           </article>
@@ -347,7 +350,16 @@
             </button>
             <div class="row-detail">
               <p>Classify support messages, summarize the problem, suggest a reply, and flag urgent cases. Beginner version: form submissions + AI summary + email notification.</p>
-              <div class="project-map"><span>Message</span><i></i><span>Category</span><i></i><span>Reply draft</span><i></i><span>Escalate</span></div>
+              <div class="workflow-map">
+                <div class="flow-node trigger"><b>Trigger</b><span>Support form</span></div>
+                <i></i>
+                <div class="flow-node agent"><b>AI Agent</b><span>Classify + draft</span></div>
+                <div class="flow-branch model"><b>Model</b><span>OpenAI Chat Model</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>FAQ buffer</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>Ticket router</span></div>
+                <i></i>
+                <div class="flow-node output"><b>Output</b><span>Reply + escalation</span></div>
+              </div>
               <p class="project-note">Great for small businesses drowning in “hi, quick question” messages that are never quick.</p>
             </div>
           </article>
@@ -359,7 +371,16 @@
             </button>
             <div class="row-detail">
               <p>Compare products, summarize reviews, and recommend the best option for a budget. Beginner version: paste product links and let AI build a simple comparison table.</p>
-              <div class="project-map"><span>Product links</span><i></i><span>Review summary</span><i></i><span>Compare</span><i></i><span>Best pick</span></div>
+              <div class="workflow-map">
+                <div class="flow-node trigger"><b>Trigger</b><span>Shopping request</span></div>
+                <i></i>
+                <div class="flow-node agent"><b>AI Agent</b><span>Compare products</span></div>
+                <div class="flow-branch model"><b>Model</b><span>Claude / Gemini</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>User preferences</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>Review scraper</span></div>
+                <i></i>
+                <div class="flow-node output"><b>Output</b><span>Best pick</span></div>
+              </div>
               <p class="project-note">Useful because nobody wants to read 900 reviews to buy a kettle. We are adults. We have limits.</p>
             </div>
           </article>
@@ -371,7 +392,16 @@
             </button>
             <div class="row-detail">
               <p>Find trends, write hooks, create scripts, and generate storyboard prompts. Beginner version: one topic in, five video ideas out.</p>
-              <div class="project-map"><span>Topic</span><i></i><span>Hooks</span><i></i><span>Script</span><i></i><span>Storyboard</span></div>
+              <div class="workflow-map">
+                <div class="flow-node trigger"><b>Trigger</b><span>Creator topic</span></div>
+                <i></i>
+                <div class="flow-node agent"><b>AI Agent</b><span>Hooks + script</span></div>
+                <div class="flow-branch model"><b>Model</b><span>GPT / Claude</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>Brand voice</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>Trend source</span></div>
+                <i></i>
+                <div class="flow-node output"><b>Output</b><span>Storyboard</span></div>
+              </div>
               <p class="project-note">This is for creators who need ideas before their coffee remembers how to work.</p>
             </div>
           </article>
@@ -383,7 +413,16 @@
             </button>
             <div class="row-detail">
               <p>Summarize reviews, detect complaints, draft polite replies, and suggest fixes. Beginner version: export reviews, ask AI for themes, reply drafts, and action items.</p>
-              <div class="project-map"><span>Reviews</span><i></i><span>Themes</span><i></i><span>Replies</span><i></i><span>Fix list</span></div>
+              <div class="workflow-map">
+                <div class="flow-node trigger"><b>Trigger</b><span>New reviews</span></div>
+                <i></i>
+                <div class="flow-node agent"><b>AI Agent</b><span>Find themes</span></div>
+                <div class="flow-branch model"><b>Model</b><span>OpenAI Chat Model</span></div>
+                <div class="flow-branch memory"><b>Memory</b><span>Past replies</span></div>
+                <div class="flow-branch tool"><b>Tool</b><span>Review export</span></div>
+                <i></i>
+                <div class="flow-node output"><b>Output</b><span>Replies + fix list</span></div>
+              </div>
               <p class="project-note">The AI reads the angry reviews so the owner can keep their blood pressure in the normal range.</p>
             </div>
           </article>
@@ -479,6 +518,7 @@
         </div>
 
         <footer class="credits">
+          <span>~/the-ai-blog $ echo "live coded by Roshan Arun"</span>
           Original credit: OpenAI, Anthropic, Google, Perplexity, Microsoft, Hugging Face, n8n,
           Dify, Flowise, LangChain, and the open-source community retain ownership of their
           respective products, repositories, posts, names, and trademarks.
