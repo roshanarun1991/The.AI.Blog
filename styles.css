@@ -132,10 +132,10 @@ a:hover {
 
 .home-hero {
   display: grid;
-  grid-template-columns: minmax(0, 980px);
-  gap: 36px;
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 0.68fr);
+  gap: 72px;
   align-items: center;
-  min-height: auto;
+  min-height: calc(100vh - 130px);
   padding: 72px 0 36px;
 }
 
@@ -188,6 +188,118 @@ a:hover {
   background: var(--ink);
   color: var(--white);
   transform: translateY(-1px);
+}
+
+.hero-console {
+  width: 100%;
+  max-width: 680px;
+  justify-self: end;
+  border: 1px solid #d8d3d8;
+  background: rgba(251, 248, 251, 0.78);
+  overflow: hidden;
+}
+
+.hero-game {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-game pattern path {
+  fill: none;
+  stroke: rgba(30, 30, 30, 0.08);
+  stroke-width: 1;
+}
+
+.game-grid {
+  fill: rgba(251, 248, 251, 0.58);
+}
+
+.hero-game text {
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+  fill: var(--ink);
+}
+
+.game-label {
+  font-size: 12px;
+}
+
+.game-live,
+.game-packet {
+  fill: #c4e817;
+  animation: gamePulse 1.6s infinite ease-in-out;
+}
+
+.game-line {
+  fill: none;
+  stroke: #8f8a90;
+  stroke-width: 2;
+  stroke-linecap: square;
+}
+
+.game-dashed {
+  stroke-dasharray: 7 7;
+}
+
+.game-card {
+  fill: rgba(251, 248, 251, 0.94);
+  stroke: #8f8a90;
+  stroke-width: 2;
+}
+
+.game-start {
+  stroke: #24bd75;
+}
+
+.game-dark {
+  fill: var(--ink);
+  stroke: var(--ink);
+}
+
+.game-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.game-small {
+  fill: var(--muted);
+  font-size: 11px;
+}
+
+.game-light {
+  fill: var(--white);
+}
+
+.game-mini {
+  stroke-dasharray: 7 6;
+}
+
+.game-square {
+  fill: #f58f72;
+}
+
+.game-log rect:first-child {
+  fill: rgba(30, 30, 30, 0.04);
+  stroke: #d8d3d8;
+}
+
+.game-log text {
+  font-size: 11px;
+}
+
+.game-caret {
+  fill: var(--ink);
+  animation: cursorBlink 0.82s steps(1, end) infinite;
+}
+
+@keyframes gamePulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .home-grid {
@@ -896,8 +1008,58 @@ a:hover {
   line-height: 1.5;
 }
 
-.site-signature span {
+.signature-prompt {
   color: var(--muted);
+}
+
+.signature-command {
+  color: var(--ink);
+}
+
+.signature-typed {
+  display: inline-block;
+  width: 0;
+  max-width: 24ch;
+  overflow: hidden;
+  white-space: nowrap;
+  vertical-align: bottom;
+  animation: typeSignature 7.4s steps(24, end) infinite;
+}
+
+.signature-cursor {
+  display: inline-block;
+  width: 7px;
+  height: 1.1em;
+  margin-left: 2px;
+  background: var(--ink);
+  vertical-align: -2px;
+  animation: cursorBlink 0.82s steps(1, end) infinite;
+}
+
+@keyframes typeSignature {
+  0%,
+  8% {
+    width: 0;
+  }
+  38%,
+  68% {
+    width: 24ch;
+  }
+  96%,
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes cursorBlink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1194,6 +1356,19 @@ a:hover {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
+  }
+
+  .signature-typed {
+    width: 24ch;
+    animation: none !important;
+  }
+
+  .signature-cursor {
+    display: none;
+  }
+
+  .game-packet {
+    display: none;
   }
 }
 

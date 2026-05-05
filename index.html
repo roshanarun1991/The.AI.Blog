@@ -55,6 +55,74 @@
               <button type="button" data-view-jump="github">GITHUB REPOS</button>
             </div>
           </div>
+
+          <div class="hero-console" aria-label="Live AI learning workflow animation">
+            <svg class="hero-game" viewBox="0 0 680 460" role="img" aria-labelledby="hero-game-title">
+              <title id="hero-game-title">Retro AI workflow animation</title>
+              <defs>
+                <pattern id="hero-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+                  <path d="M 24 0 L 0 0 0 24" />
+                </pattern>
+                <path id="hero-route-main" d="M 160 136 H 228 H 296 H 364 H 432 H 500" />
+                <path id="hero-route-source" d="M 266 172 V 250 H 178" />
+                <path id="hero-route-human" d="M 432 172 V 250 H 340" />
+              </defs>
+
+              <rect class="game-grid" x="0" y="0" width="680" height="460" fill="url(#hero-grid)" />
+              <text class="game-label" x="32" y="42">[ LIVE AI STARTER LOOP ]</text>
+              <circle class="game-live" cx="572" cy="38" r="6" />
+              <text class="game-label" x="590" y="42">running</text>
+
+              <path class="game-line" d="M 160 136 H 500" />
+              <path class="game-line game-dashed" d="M 266 172 V 250 H 178" />
+              <path class="game-line game-dashed" d="M 432 172 V 250 H 340" />
+
+              <rect class="game-card game-start" x="40" y="96" width="120" height="80" rx="2" />
+              <rect class="game-card" x="206" y="96" width="120" height="80" rx="2" />
+              <rect class="game-card game-dark" x="372" y="96" width="120" height="80" rx="2" />
+              <rect class="game-card" x="520" y="96" width="120" height="80" rx="2" />
+
+              <text class="game-title" x="100" y="128" text-anchor="middle">Prompt</text>
+              <text class="game-small" x="100" y="153" text-anchor="middle">messy idea</text>
+              <text class="game-title" x="266" y="128" text-anchor="middle">Research</text>
+              <text class="game-small" x="266" y="153" text-anchor="middle">links + facts</text>
+              <text class="game-title game-light" x="432" y="128" text-anchor="middle">Agent</text>
+              <text class="game-small game-light" x="432" y="153" text-anchor="middle">plan + build</text>
+              <text class="game-title" x="580" y="128" text-anchor="middle">Output</text>
+              <text class="game-small" x="580" y="153" text-anchor="middle">useful tool</text>
+
+              <rect class="game-card game-mini" x="92" y="250" width="86" height="56" rx="2" />
+              <rect class="game-card game-mini" x="297" y="250" width="86" height="56" rx="2" />
+              <rect class="game-card game-mini" x="502" y="250" width="86" height="56" rx="2" />
+              <text class="game-small" x="135" y="282" text-anchor="middle">sources</text>
+              <text class="game-small" x="340" y="282" text-anchor="middle">human OK</text>
+              <text class="game-small" x="545" y="282" text-anchor="middle">saved</text>
+
+              <circle class="game-packet" r="6">
+                <animateMotion dur="4.4s" repeatCount="indefinite">
+                  <mpath href="#hero-route-main" />
+                </animateMotion>
+              </circle>
+              <rect class="game-packet game-square" width="10" height="10">
+                <animateMotion dur="5.8s" begin="0.7s" repeatCount="indefinite">
+                  <mpath href="#hero-route-source" />
+                </animateMotion>
+              </rect>
+              <rect class="game-packet game-square" width="10" height="10">
+                <animateMotion dur="6.4s" begin="1.1s" repeatCount="indefinite">
+                  <mpath href="#hero-route-human" />
+                </animateMotion>
+              </rect>
+
+              <g class="game-log">
+                <rect x="40" y="350" width="600" height="72" rx="2" />
+                <text x="62" y="377">&gt; read tools</text>
+                <text x="248" y="377">&gt; score idea</text>
+                <text x="434" y="377">&gt; ship tiny workflow</text>
+                <rect class="game-caret" x="600" y="390" width="10" height="16" />
+              </g>
+            </svg>
+          </div>
         </div>
 
         <div class="home-grid">
@@ -597,8 +665,10 @@
       </section>
     </main>
 
-    <footer class="site-signature" aria-label="Site credit">
-      <span>~/the-ai-blog $</span> echo "live coded by Roshan Arun"
+    <footer class="site-signature" aria-label="Site credit: Powered by Roshan Arun">
+      <span class="signature-prompt">~/the-ai-blog $</span>
+      <span class="signature-command">echo&nbsp;</span>
+      <span class="signature-typed">"Powered by Roshan Arun"</span><span class="signature-cursor" aria-hidden="true"></span>
     </footer>
 
     <script src="script.js"></script>
