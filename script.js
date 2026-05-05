@@ -3,6 +3,7 @@ const panels = Array.from(document.querySelectorAll("[data-view-panel]"));
 const rows = Array.from(document.querySelectorAll(".post-row"));
 const filterChips = Array.from(document.querySelectorAll("[data-filter]"));
 const viewJumps = Array.from(document.querySelectorAll("[data-view-jump]"));
+const homeMachine = document.querySelector(".home-machine");
 let audioContext;
 
 function playTone(type = "click") {
@@ -107,6 +108,25 @@ document.querySelectorAll(".repo-grid a, .resource-row, .mark, .console-link, .r
 
 window.addEventListener("scroll", updateScrollTint, { passive: true });
 updateScrollTint();
+
+if (homeMachine) {
+  homeMachine.addEventListener("pointermove", (event) => {
+    const rect = homeMachine.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    homeMachine.style.setProperty("--bot-x", `${(x * 18).toFixed(1)}px`);
+    homeMachine.style.setProperty("--bot-y", `${(y * 12).toFixed(1)}px`);
+    homeMachine.style.setProperty("--bot-tilt", `${(x * 5).toFixed(1)}deg`);
+    homeMachine.style.transform = `translateY(${(y * -5).toFixed(1)}px)`;
+  });
+
+  homeMachine.addEventListener("pointerleave", () => {
+    homeMachine.style.setProperty("--bot-x", "0px");
+    homeMachine.style.setProperty("--bot-y", "0px");
+    homeMachine.style.setProperty("--bot-tilt", "0deg");
+    homeMachine.style.transform = "translateY(0)";
+  });
+}
 
 const initialView = window.location.hash.replace("#", "");
 if (tabs.some((tab) => tab.dataset.view === initialView)) {
