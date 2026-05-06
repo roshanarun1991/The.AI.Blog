@@ -260,6 +260,11 @@ a:hover {
   stroke: var(--ink);
 }
 
+.game-build {
+  fill: rgba(196, 232, 23, 0.16);
+  stroke: var(--ink);
+}
+
 .game-title {
   font-size: 14px;
   font-weight: 700;
