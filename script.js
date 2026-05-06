@@ -108,9 +108,4 @@ document.querySelectorAll(".repo-grid a, .resource-row, .mark, .console-link, .r
 window.addEventListener("scroll", updateScrollTint, { passive: true });
 updateScrollTint();
 
-const initialView = window.location.hash.replace("#", "");
-if (tabs.some((tab) => tab.dataset.view === initialView)) {
-  showView(initialView);
-} else {
-  showView("home");
-}
+showView("home");

@@ -229,8 +229,7 @@ a:hover {
   font-size: 12px;
 }
 
-.game-live,
-.game-packet {
+.game-live {
   fill: #c4e817;
   animation: gamePulse 1.6s infinite ease-in-out;
 }
@@ -283,6 +282,63 @@ a:hover {
   fill: #f58f72;
 }
 
+.maze-wall {
+  fill: none;
+  stroke: #1e1e1e;
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.maze-accent {
+  stroke: rgba(196, 232, 23, 0.86);
+  stroke-width: 5;
+  stroke-dasharray: 2 18;
+  animation: mazeTrace 4.8s linear infinite;
+}
+
+.maze-dot {
+  fill: #c4e817;
+  stroke: var(--ink);
+  stroke-width: 1;
+  animation: mazeDot 1.9s infinite ease-in-out;
+}
+
+.maze-dot:nth-of-type(2n) {
+  animation-delay: 0.28s;
+}
+
+.maze-dot:nth-of-type(3n) {
+  animation-delay: 0.56s;
+}
+
+.maze-chip,
+.maze-output {
+  fill: rgba(251, 248, 251, 0.94);
+  stroke: #8f8a90;
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+}
+
+.maze-output {
+  fill: #c4e817;
+  stroke-dasharray: none;
+  animation: outputPop 1.8s infinite ease-in-out;
+}
+
+.ai-chaser circle {
+  fill: #c4e817;
+  stroke: var(--ink);
+  stroke-width: 2;
+  filter: drop-shadow(0 6px 0 rgba(30, 30, 30, 0.12));
+}
+
+.ai-mouth {
+  fill: #fbf8fb;
+  animation: chomp 0.32s steps(2, end) infinite;
+  transform-origin: center;
+}
+
 .game-log rect:first-child {
   fill: rgba(30, 30, 30, 0.04);
   stroke: #d8d3d8;
@@ -301,6 +357,47 @@ a:hover {
   0%,
   100% {
     opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes mazeTrace {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -80;
+  }
+}
+
+@keyframes mazeDot {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: scale(0.86);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes chomp {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.28);
+  }
+}
+
+@keyframes outputPop {
+  0%,
+  100% {
+    opacity: 0.72;
   }
   50% {
     opacity: 1;
@@ -1411,7 +1508,7 @@ a:hover {
     display: none;
   }
 
-  .game-packet {
+  .ai-chaser {
     display: none;
   }
 }
