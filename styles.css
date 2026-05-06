@@ -298,18 +298,44 @@ a:hover {
 }
 
 .maze-dot {
-  fill: #c4e817;
+  fill: #ff7a59;
   stroke: var(--ink);
   stroke-width: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: opacity 120ms steps(2, end), transform 120ms steps(2, end);
   animation: mazeDot 1.9s infinite ease-in-out;
 }
 
-.maze-dot:nth-of-type(2n) {
-  animation-delay: 0.28s;
+.maze-dot[data-eat-step="2"],
+.maze-dot[data-eat-step="6"],
+.maze-dot[data-eat-step="10"],
+.maze-dot[data-eat-step="14"] {
+  fill: #50dce9;
 }
 
-.maze-dot:nth-of-type(3n) {
-  animation-delay: 0.56s;
+.maze-dot[data-eat-step="3"],
+.maze-dot[data-eat-step="7"],
+.maze-dot[data-eat-step="11"] {
+  fill: #c4e817;
+}
+
+.maze-dot[data-eat-step="4"],
+.maze-dot[data-eat-step="8"],
+.maze-dot[data-eat-step="12"] {
+  fill: #ffd166;
+}
+
+.maze-dot[data-eat-step="5"],
+.maze-dot[data-eat-step="9"],
+.maze-dot[data-eat-step="13"] {
+  fill: #b892ff;
+}
+
+.maze-dot.eaten {
+  opacity: 0;
+  transform: scale(0);
+  animation: none;
 }
 
 .maze-chip,

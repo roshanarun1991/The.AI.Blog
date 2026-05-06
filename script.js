@@ -108,4 +108,22 @@ document.querySelectorAll(".repo-grid a, .resource-row, .mark, .console-link, .r
 window.addEventListener("scroll", updateScrollTint, { passive: true });
 updateScrollTint();
 
+const mazeDots = Array.from(document.querySelectorAll(".maze-dot"));
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+function runMazeEating() {
+  mazeDots.forEach((dot) => dot.classList.remove("eaten"));
+
+  mazeDots.forEach((dot, index) => {
+    window.setTimeout(() => {
+      dot.classList.add("eaten");
+    }, 620 + index * 390);
+  });
+}
+
+if (mazeDots.length && !reduceMotion) {
+  runMazeEating();
+  window.setInterval(runMazeEating, 7200);
+}
+
 showView("home");
