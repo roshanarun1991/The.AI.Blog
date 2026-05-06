@@ -109,21 +109,46 @@ window.addEventListener("scroll", updateScrollTint, { passive: true });
 updateScrollTint();
 
 const mazeDots = Array.from(document.querySelectorAll(".maze-dot"));
+const mazeRoute = document.querySelector("#maze-route");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-function runMazeEating() {
-  mazeDots.forEach((dot) => dot.classList.remove("eaten"));
+function getDotEatProgress(dot, route, routeLength) {
+  const dotX = Number(dot.getAttribute("cx"));
+  const dotY = Number(dot.getAttribute("cy"));
+  let bestLength = 0;
+  let bestDistance = Infinity;
 
-  mazeDots.forEach((dot, index) => {
-    window.setTimeout(() => {
-      dot.classList.add("eaten");
-    }, 620 + index * 390);
-  });
+  for (let length = 0; length <= routeLength; length += 4) {
+    const point = route.getPointAtLength(length);
+    const distance = Math.hypot(point.x - dotX, point.y - dotY);
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestLength = length;
+    }
+  }
+
+  return bestLength / routeLength;
 }
 
-if (mazeDots.length && !reduceMotion) {
-  runMazeEating();
-  window.setInterval(runMazeEating, 7200);
+if (mazeDots.length && mazeRoute && !reduceMotion) {
+  const mazeDuration = 7200;
+  const routeLength = mazeRoute.getTotalLength();
+  const pelletTimeline = mazeDots.map((dot) => ({
+    dot,
+    eatAt: getDotEatProgress(dot, mazeRoute, routeLength)
+  }));
+  let mazeStartedAt;
+
+  function syncMazeEating(timestamp) {
+    mazeStartedAt ??= timestamp;
+    const progress = ((timestamp - mazeStartedAt) % mazeDuration) / mazeDuration;
+    pelletTimeline.forEach(({ dot, eatAt }) => {
+      dot.classList.toggle("eaten", progress >= eatAt);
+    });
+    window.requestAnimationFrame(syncMazeEating);
+  }
+
+  window.requestAnimationFrame(syncMazeEating);
 }
 
 showView("home");

@@ -309,6 +309,7 @@ a:hover {
   transform-box: fill-box;
   transform-origin: center;
   transition: opacity 120ms steps(2, end), transform 120ms steps(2, end);
+  filter: drop-shadow(0 0 5px rgba(255, 122, 89, 0.9));
   animation: mazeDot 1.9s infinite ease-in-out;
 }
 
@@ -317,29 +318,34 @@ a:hover {
 .maze-dot[data-eat-step="10"],
 .maze-dot[data-eat-step="14"] {
   fill: #50dce9;
+  filter: drop-shadow(0 0 5px rgba(80, 220, 233, 0.9));
 }
 
 .maze-dot[data-eat-step="3"],
 .maze-dot[data-eat-step="7"],
 .maze-dot[data-eat-step="11"] {
   fill: #c4e817;
+  filter: drop-shadow(0 0 5px rgba(196, 232, 23, 0.9));
 }
 
 .maze-dot[data-eat-step="4"],
 .maze-dot[data-eat-step="8"],
 .maze-dot[data-eat-step="12"] {
   fill: #ffd166;
+  filter: drop-shadow(0 0 5px rgba(255, 209, 102, 0.9));
 }
 
 .maze-dot[data-eat-step="5"],
 .maze-dot[data-eat-step="9"],
 .maze-dot[data-eat-step="13"] {
   fill: #b892ff;
+  filter: drop-shadow(0 0 5px rgba(184, 146, 255, 0.9));
 }
 
 .maze-dot.eaten {
   opacity: 0;
   transform: scale(0);
+  filter: none;
   animation: none;
 }
 
