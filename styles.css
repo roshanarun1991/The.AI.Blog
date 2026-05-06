@@ -860,12 +860,91 @@ a:hover {
   text-align: center;
 }
 
-.figure-lines {
-  height: 138px;
+.blog-ai-figure {
   background:
-    repeating-linear-gradient(154deg, transparent 0 8px, rgba(30, 30, 30, 0.32) 9px 10px),
-    repeating-linear-gradient(22deg, transparent 0 18px, rgba(30, 30, 30, 0.18) 19px 20px);
-  opacity: 0.42;
+    linear-gradient(90deg, rgba(30, 30, 30, 0.07) 1px, transparent 1px),
+    linear-gradient(rgba(30, 30, 30, 0.05) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.blog-scan {
+  position: relative;
+  height: 138px;
+}
+
+.scan-node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 66px;
+  height: 28px;
+  border: 1px solid #8f8a90;
+  background: rgba(251, 248, 251, 0.92);
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 10px;
+}
+
+.scan-source {
+  left: 14px;
+  top: 28px;
+  border-color: #24bd75;
+}
+
+.scan-score {
+  left: 106px;
+  top: 28px;
+}
+
+.scan-agent {
+  left: 106px;
+  top: 82px;
+  background: var(--ink);
+  color: var(--white);
+  border-color: var(--ink);
+}
+
+.scan-post {
+  right: 14px;
+  top: 82px;
+  border-color: #f58f72;
+}
+
+.scan-link {
+  position: absolute;
+  display: block;
+  height: 2px;
+  background: #8f8a90;
+  transform-origin: left center;
+}
+
+.scan-link-a {
+  left: 80px;
+  top: 42px;
+  width: 26px;
+}
+
+.scan-link-b {
+  left: 138px;
+  top: 58px;
+  width: 54px;
+  transform: rotate(90deg);
+}
+
+.scan-link-c {
+  left: 172px;
+  top: 96px;
+  width: 34px;
+}
+
+.scan-pulse {
+  position: absolute;
+  left: 22px;
+  top: 36px;
+  width: 10px;
+  height: 10px;
+  background: #c4e817;
+  box-shadow: 0 0 0 1px var(--ink), 0 0 12px rgba(196, 232, 23, 0.9);
+  animation: blogPipelinePulse 4.8s infinite steps(1, end);
 }
 
 .table-head {
@@ -1388,6 +1467,26 @@ a:hover {
   }
 }
 
+@keyframes blogPipelinePulse {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    background: #c4e817;
+  }
+  25% {
+    transform: translate(92px, 0);
+    background: #50dce9;
+  }
+  50% {
+    transform: translate(92px, 54px);
+    background: #b892ff;
+  }
+  75% {
+    transform: translate(182px, 54px);
+    background: #f58f72;
+  }
+}
+
 @keyframes botBob {
   0%, 100% {
     transform: translate(var(--bot-x), var(--bot-y)) rotate(var(--bot-tilt)) rotateY(-4deg);
@@ -1547,6 +1646,10 @@ a:hover {
 
   .ai-chaser {
     display: none;
+  }
+
+  .scan-pulse {
+    animation: none !important;
   }
 }
 
