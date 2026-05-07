@@ -1,0 +1,57 @@
+name: Daily AI blog update
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Run mode
+        required: true
+        default: daily
+        type: choice
+        options:
+          - daily
+          - fallback
+          - scheduled
+  schedule:
+    # UTC slots that match 21:00 and 07:00 Europe/Stockholm across daylight saving time.
+    - cron: "0 19 * * *"
+    - cron: "0 20 * * *"
+    - cron: "0 5 * * *"
+    - cron: "0 6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-ai-blog-update
+  cancel-in-progress: false
+
+jobs:
+  update-blog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Generate daily AI blog post
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ vars.OPENAI_MODEL || 'gpt-4.1-mini' }}
+          WORKFLOW_MODE: ${{ github.event.inputs.mode || 'scheduled' }}
+        run: python scripts/daily_ai_blog.py --mode "$WORKFLOW_MODE"
+      - name: Commit and push if changed
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No blog update needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html automation-log.md
+          git commit -m "Add daily AI blog update"
+          git push
