@@ -215,7 +215,7 @@
       <section class="view" id="blog" data-view-panel="blog">
         <div class="page-title">
           <h1>Blog</h1>
-          <span>(01)</span>
+          <span>(02)</span>
           <p>Daily AI trend notes, agents, tools, and automation ideas.</p>
         </div>
 
@@ -224,13 +224,13 @@
             <p>/ FILTERS</p>
             <div class="folder">⌄ ▱ Topic</div>
             <ul>
-              <li><button type="button" class="filter-chip active" data-filter="all"><span></span>All topics (01)</button></li>
-              <li><button type="button" class="filter-chip" data-filter="AI Agents"><span></span>AI Agents (01)</button></li>
+              <li><button type="button" class="filter-chip active" data-filter="all"><span></span>All topics (02)</button></li>
+              <li><button type="button" class="filter-chip" data-filter="AI Agents"><span></span>AI Agents (02)</button></li>
               <li><button type="button" class="filter-chip" data-filter="Getting Started"><span></span>Getting Started (01)</button></li>
-              <li><button type="button" class="filter-chip" data-filter="GitHub Repos"><span></span>GitHub Repos (01)</button></li>
-              <li><button type="button" class="filter-chip" data-filter="Automation"><span></span>Automation (01)</button></li>
-              <li><button type="button" class="filter-chip" data-filter="B2B Ideas"><span></span>B2B Ideas (00)</button></li>
-              <li><button type="button" class="filter-chip" data-filter="B2C Ideas"><span></span>B2C Ideas (01)</button></li>
+              <li><button type="button" class="filter-chip" data-filter="GitHub Repos"><span></span>GitHub Repos (02)</button></li>
+              <li><button type="button" class="filter-chip" data-filter="Automation"><span></span>Automation (02)</button></li>
+              <li><button type="button" class="filter-chip" data-filter="B2B Ideas"><span></span>B2B Ideas (01)</button></li>
+              <li><button type="button" class="filter-chip" data-filter="B2C Ideas"><span></span>B2C Ideas (02)</button></li>
               <li><button type="button" class="filter-chip" data-filter="Research Tools"><span></span>Research Tools (01)</button></li>
               <li><button type="button" class="filter-chip" data-filter="Video + Copy"><span></span>Video + Copy (00)</button></li>
             </ul>
@@ -257,6 +257,106 @@
 
             <div class="rows">
               <!-- DAILY_POSTS_START -->
+              <article class="post-row" data-topics="Automation, AI Agents, GitHub Repos, B2B Ideas, B2C Ideas">
+                <button class="row-main" type="button" aria-expanded="false">
+                  <time>2026.5.06</time>
+                  <strong>GitHub makes Copilot CLI plugins easier for teams to trust</strong>
+                  <span>+</span>
+                </button>
+                <div class="row-detail">
+                  <div class="metadata">
+                    <b>/ METADATA</b>
+                    <dl>
+                      <dt>Date:</dt><dd>2026.5.06</dd>
+                      <dt>Author:</dt><dd>Roshan Arun</dd>
+                      <dt>Reading time:</dt><dd>7 min read</dd>
+                      <dt>Categories:</dt><dd>AI Agents, GitHub Copilot CLI, Trusted Tool Stacks</dd>
+                    </dl>
+                    <b>/ ARTICLE</b>
+                  </div>
+                  <div class="article-copy">
+                    <h4>The simple version</h4>
+                    <p>
+                      GitHub announced that enterprise-managed plugins for GitHub Copilot CLI are now in public preview.
+                      In normal human language: a company can decide which AI plugins its developers should have, publish
+                      those choices from one central place, and have Copilot CLI pick them up automatically when people sign in.
+                    </p>
+                    <p>
+                      A plugin is a small package of extra abilities for an AI coding assistant. It might add a company-approved
+                      agent, a repeatable skill, a trusted marketplace, a hook that runs before a risky action, or MCP settings
+                      that connect the assistant to approved tools. Instead of every developer building their own messy toolkit,
+                      the organization can hand everyone the same starter kit.
+                    </p>
+                    <h4>Why this matters for safer agents</h4>
+                    <p>
+                      AI agents become more useful when they can use tools. They can inspect code, call services, scan files,
+                      open pull requests, and help with real work. That is also why the tool list matters. Giving an agent random
+                      tools is like giving a new employee a badge, a laptop, and no rules about which systems are allowed.
+                    </p>
+                    <p>
+                      Managed plugins make the setup more repeatable. GitHub says administrators can define known plugin
+                      marketplaces, default-enabled plugins, hooks, and MCP configurations in a version-controlled settings file
+                      inside the enterprise's private GitHub configuration repository. That means the policy can be reviewed,
+                      changed through pull requests, audited later, and applied consistently across Copilot CLI clients.
+                    </p>
+                    <h4>The security pieces around it</h4>
+                    <p>
+                      The same week, GitHub also moved secret scanning with GitHub MCP Server to general availability. That lets
+                      an MCP-compatible AI coding agent or IDE scan current changes for exposed secrets before a commit or pull
+                      request. This is useful because leaked API keys and tokens are often expensive mistakes, and the best time
+                      to catch them is before they leave the developer's machine.
+                    </p>
+                    <p>
+                      GitHub also put dependency scanning with GitHub MCP Server into public preview. In plain terms, an agent can
+                      check whether packages added or changed in your branch have known vulnerabilities, then return structured
+                      results such as the affected package, severity, and a recommended fixed version. That turns security from a
+                      late surprise into an earlier conversation while code is still being written.
+                    </p>
+                    <h4>Why B2B builders should care</h4>
+                    <p>
+                      If you build for businesses, buyers do not only ask, "Can the AI do the task?" They ask, "Can we govern it,
+                      audit it, onboard people safely, and prove what tools it was allowed to use?" Enterprise-managed plugin
+                      standards point toward that answer. They make the AI assistant feel less like a personal experiment and more
+                      like managed workplace software.
+                    </p>
+                    <p>
+                      This is especially important for agencies, SaaS teams, IT consultancies, and internal platform teams. A
+                      trusted plugin stack can package the approved workflow: company coding rules, security checks, deployment
+                      steps, documentation style, support runbooks, and approved data sources. New team members get the same path,
+                      and experienced team members spend less time rebuilding setup instructions.
+                    </p>
+                    <h4>Why B2C builders should care</h4>
+                    <p>
+                      Consumer AI products need trust too, just in a different shape. A creator tool, finance helper, learning app,
+                      or personal productivity agent should be clear about what tools it can use and what it cannot do. The lesson
+                      from enterprise-managed plugins is simple: the future is not one giant agent with every permission. The future
+                      is smaller, trusted tool stacks for specific jobs.
+                    </p>
+                    <p>
+                      For a B2C app, that might mean a "research stack" that only reads public sources, a "content stack" that can
+                      draft and format but not publish without approval, or a "shopping stack" that can compare options but cannot
+                      buy anything until the user confirms. Boundaries make AI products easier to understand and easier to trust.
+                    </p>
+                    <h4>How to think about trusted AI tool stacks</h4>
+                    <ul>
+                      <li><strong>Start with the job:</strong> decide what the agent is actually supposed to help with.</li>
+                      <li><strong>Limit the tools:</strong> give it the few approved tools needed for that job, not every integration available.</li>
+                      <li><strong>Add checks:</strong> use hooks, secret scanning, dependency scanning, reviews, and human approval for risky steps.</li>
+                      <li><strong>Make it repeatable:</strong> keep the setup in version control so changes can be reviewed and rolled back.</li>
+                      <li><strong>Credit the source:</strong> this update comes from GitHub's changelog and GitHub Docs, owned by GitHub, Inc.</li>
+                    </ul>
+                    <p>
+                      The big idea is boring in the best way: good AI work is not just about smarter models. It is about trusted
+                      defaults, clear permissions, repeatable setup, and source-backed tools that help people move faster without
+                      making the same preventable mistakes again and again.
+                    </p>
+                  </div>
+                  <a href="https://github.blog/changelog/2026-05-06-enterprise-managed-plugins-in-github-copilot-cli-are-now-in-public-preview/">GitHub Changelog: enterprise-managed plugins</a>
+                  <a href="https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-enterprise-plugin-standards">GitHub Docs: enterprise plugin standards</a>
+                  <a href="https://github.blog/changelog/2026-05-05-secret-scanning-with-github-mcp-server-is-now-generally-available/">GitHub Changelog: MCP secret scanning</a>
+                  <a href="https://github.blog/changelog/2026-05-05-dependency-scanning-with-github-mcp-server-is-in-public-preview/">GitHub Changelog: MCP dependency scanning</a>
+                </div>
+              </article>
               <article class="post-row" data-topics="Getting Started, Automation, AI Agents, GitHub Repos, Research Tools, B2C Ideas">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.05</time>
