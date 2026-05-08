@@ -25,9 +25,9 @@ def mode_target(mode):
     if mode=='daily': return 'daily',n.date()
     if mode=='fallback': return 'fallback',n.date()-dt.timedelta(days=1)
     if mode!='scheduled': raise SystemExit('Bad mode: '+mode)
-    if n.hour==21: return 'daily',n.date()
-    if n.hour==7: return 'fallback',n.date()-dt.timedelta(days=1)
-    log(f'Scheduled run skipped at local hour {n.hour}.')
+    if 19<=n.hour<=23: return 'daily',n.date()
+    if 5<=n.hour<=10: return 'fallback',n.date()-dt.timedelta(days=1)
+    log(f'Scheduled run skipped at local hour {n.hour}; outside daily/fallback windows.')
     return None
 
 def get(url):
