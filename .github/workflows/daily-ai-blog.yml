@@ -13,11 +13,9 @@ on:
           - fallback
           - scheduled
   schedule:
-    # UTC slots that match 21:00 and 07:00 Europe/Stockholm across daylight saving time.
-    - cron: "0 19 * * *"
-    - cron: "0 20 * * *"
-    - cron: "0 5 * * *"
-    - cron: "0 6 * * *"
+    # Retry hourly during the publishing window: 21:00-07:00 Europe/Stockholm.
+    # The script checks local Stockholm time and avoids duplicate posts.
+    - cron: "0 0-6,19-23 * * *"
 
 permissions:
   contents: write

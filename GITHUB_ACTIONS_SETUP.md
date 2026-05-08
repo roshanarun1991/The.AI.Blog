@@ -13,8 +13,8 @@ GitHub Actions -> update index.html -> commit to main -> Render auto-deploys
 
 ## Schedule
 
-- 21:00 Europe/Stockholm: add today's post.
-- 07:00 Europe/Stockholm: fallback check for yesterday.
+- 21:00-23:59 Europe/Stockholm: add today's post if it is missing.
+- 00:00-07:59 Europe/Stockholm: fallback check for yesterday if it is missing.
 - Manual: GitHub -> Actions -> Daily AI blog update -> Run workflow.
 
 ## Required setup
