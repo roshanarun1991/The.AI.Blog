@@ -153,11 +153,23 @@ def counts(txt):
 def validate(txt):
     if txt.count('<article')!=txt.count('</article>'): raise SystemExit('Article tags unbalanced')
     if 'DAILY_POSTS_START' not in txt or 'DAILY_POSTS_END' not in txt: raise SystemExit('Markers missing')
+def existing_dates(block):
+    dates=[]
+    for y,m,d in re.findall(r'<time>(\d{4})\.(\d{1,2})\.(\d{2})</time>',block):
+        try: dates.append(dt.date(int(y),int(m),int(d)))
+        except ValueError: pass
+    return sorted(set(dates))
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--mode',default=os.getenv('WORKFLOW_MODE','scheduled'),choices=['daily','fallback','scheduled']); args=ap.parse_args(); target=mode_target(args.mode)
     if not target: return
     mode,d=target; dl=label(d); txt=INDEX.read_text(encoding='utf-8'); before,block,after=split_posts(txt)
+    if args.mode=='scheduled':
+        dates=existing_dates(block)
+        if dates:
+            next_missing=dates[-1]+dt.timedelta(days=1)
+            if next_missing<=d:
+                d=next_missing; dl=label(d)
     if f'<time>{dl}</time>' in block: log(f'No update needed: {dl} already exists ({mode}).'); return
     cand=pick(); cats=infer(cand); post=ai_write(cand,dl,cats) or fallback(cand,cats); row=render(post,cand,dl,cats)
     new=counts(before+'\n'+row+block+after); validate(new); INDEX.write_text(new,encoding='utf-8',newline='\n'); log(f'Added {dl} from {cand.source}: {cand.title}\nSource: {cand.url}',True)
