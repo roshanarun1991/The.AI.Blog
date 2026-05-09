@@ -71,12 +71,20 @@ def parse_feed(src,url):
         if title and link: out.append(Candidate(src,title,link,summ[:900],pub,score(src,title,summ,pub)))
     return out
 
-def pick():
+def used_sources(block):
+    urls=set(html.unescape(u).strip() for u in re.findall(r'<a href="([^"]+)"',block))
+    titles=set(clean(t).lower() for t in re.findall(r'<strong>([\s\S]*?)</strong>',block))
+    return urls,titles
+
+def pick(block=''):
     items=[]
     for src,url in FEEDS: items+=parse_feed(src,url)
+    used_urls,used_titles=used_sources(block)
     items=[i for i in items if i.score>0]
     items.sort(key=lambda c:(c.score,c.published or dt.datetime(1970,1,1,tzinfo=TZ)),reverse=True)
-    return items[0] if items else Candidate('GitHub AI topics','Build one tiny AI workflow before chasing every new tool','https://github.com/topics/ai-agents','Pick one repeated task, connect one AI model, add one human approval step, and ship a tiny workflow before expanding the stack.',now(),1)
+    fresh=[i for i in items if i.url not in used_urls and clean(i.title).lower() not in used_titles]
+    choices=fresh or items
+    return choices[0] if choices else Candidate('GitHub AI topics','Build one tiny AI workflow before chasing every new tool','https://github.com/topics/ai-agents','Pick one repeated task, connect one AI model, add one human approval step, and ship a tiny workflow before expanding the stack.',now(),1)
 
 def infer(c):
     b=f'{c.source} {c.title} {c.summary}'.lower(); cats=[]
@@ -171,6 +179,6 @@ def main():
             if next_missing<=d:
                 d=next_missing; dl=label(d)
     if f'<time>{dl}</time>' in block: log(f'No update needed: {dl} already exists ({mode}).'); return
-    cand=pick(); cats=infer(cand); post=ai_write(cand,dl,cats) or fallback(cand,cats); row=render(post,cand,dl,cats)
+    cand=pick(block); cats=infer(cand); post=ai_write(cand,dl,cats) or fallback(cand,cats); row=render(post,cand,dl,cats)
     new=counts(before+'\n'+row+block+after); validate(new); INDEX.write_text(new,encoding='utf-8',newline='\n'); log(f'Added {dl} from {cand.source}: {cand.title}\nSource: {cand.url}',True)
 if __name__=='__main__': main()
