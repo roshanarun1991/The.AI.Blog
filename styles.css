@@ -18,6 +18,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background:
     linear-gradient(120deg, rgba(247, 142, 112, var(--scroll-tint, 0)), rgba(196, 232, 23, calc(var(--scroll-tint, 0) * 0.3))),
     radial-gradient(circle at 0 100%, rgba(218, 242, 244, 0.55), transparent 34%),
@@ -361,6 +362,11 @@ a:hover {
   fill: #c4e817;
   stroke-dasharray: none;
   animation: outputPop 1.8s infinite ease-in-out;
+}
+
+.maze-output-node .game-small {
+  fill: var(--ink);
+  font-size: 10px;
 }
 
 .ai-chaser circle {
@@ -1667,6 +1673,30 @@ a:hover {
   .home-copy p {
     padding-left: 14px;
     font-size: 18px;
+  }
+
+  .page-title {
+    margin: 20px 0 28px;
+  }
+
+  .page-title h1 {
+    max-width: 100%;
+    font-size: clamp(46px, 15vw, 64px);
+    line-height: 0.9;
+    word-break: normal;
+  }
+
+  .page-title span {
+    top: -20px;
+    margin-left: 4px;
+    font-size: 13px;
+  }
+
+  .page-title p {
+    max-width: 100%;
+    margin-top: 18px;
+    font-size: 10.5px;
+    line-height: 1.6;
   }
 
   .home-grid,
