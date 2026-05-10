@@ -11,6 +11,7 @@ TZ=ZoneInfo('Europe/Stockholm')
 CATS=['AI Agents','Getting Started','GitHub Repos','Automation','B2B Ideas','B2C Ideas','Research Tools','Video + Copy']
 FEEDS=[('OpenAI News','https://openai.com/news/rss.xml'),('Anthropic News','https://www.anthropic.com/news/rss.xml'),('GitHub Changelog','https://github.blog/changelog/feed/'),('Hugging Face Blog','https://huggingface.co/blog/feed.xml'),('LangChain Blog','https://blog.langchain.com/rss/'),('n8n Blog','https://blog.n8n.io/rss/')]
 KEYS={'agent':7,'agents':7,'mcp':7,'model context protocol':7,'codex':7,'copilot':6,'claude':6,'openai':6,'chatgpt':6,'gemini':6,'perplexity':5,'automation':6,'workflow':5,'github':5,'repository':4,'api':4,'tool':4,'tools':4,'rag':4,'eval':4,'security':4,'preview':2,'generally available':2}
+STOP_TOPIC_WORDS={'the','and','with','from','into','about','using','use','uses','what','when','where','more','less','new','latest','update','updates','introducing','learn','build','building','make','makes','easier','guide','guides','today','release','released'}
 @dataclass
 class Candidate:
     source:str; title:str; url:str; summary:str; published:dt.datetime|None; score:int
@@ -71,6 +72,25 @@ def parse_feed(src,url):
         if title and link: out.append(Candidate(src,title,link,summ[:900],pub,score(src,title,summ,pub)))
     return out
 
+def topic_tokens(title):
+    toks=set()
+    for w in re.findall(r'[a-z0-9]+',clean(title).lower()):
+        if len(w)<4 or w in STOP_TOPIC_WORDS: continue
+        if w.endswith('ies') and len(w)>5: w=w[:-3]+'y'
+        elif w.endswith('s') and len(w)>4: w=w[:-1]
+        toks.add(w)
+    return toks
+
+def too_similar(title,used_titles):
+    toks=topic_tokens(title)
+    if not toks: return False
+    for old in used_titles:
+        old_toks=topic_tokens(old)
+        shared=toks & old_toks
+        if len(shared)>=2 and len(shared)/max(1,min(len(toks),len(old_toks)))>=0.6:
+            return True
+    return False
+
 def used_sources(block):
     urls=set(html.unescape(u).strip() for u in re.findall(r'<a href="([^"]+)"',block))
     titles=set(clean(t).lower() for t in re.findall(r'<strong>([\s\S]*?)</strong>',block))
@@ -82,8 +102,8 @@ def pick(block=''):
     used_urls,used_titles=used_sources(block)
     items=[i for i in items if i.score>0]
     items.sort(key=lambda c:(c.score,c.published or dt.datetime(1970,1,1,tzinfo=TZ)),reverse=True)
-    fresh=[i for i in items if i.url not in used_urls and clean(i.title).lower() not in used_titles]
-    choices=fresh or items
+    fresh=[i for i in items if i.url not in used_urls and clean(i.title).lower() not in used_titles and not too_similar(i.title,used_titles)]
+    choices=fresh or [i for i in items if i.url not in used_urls and clean(i.title).lower() not in used_titles] or items
     return choices[0] if choices else Candidate('GitHub AI topics','Build one tiny AI workflow before chasing every new tool','https://github.com/topics/ai-agents','Pick one repeated task, connect one AI model, add one human approval step, and ship a tiny workflow before expanding the stack.',now(),1)
 
 def infer(c):
@@ -112,9 +132,19 @@ def ai_write(c,date,cats):
     except Exception as ex:
         log('OpenAI generation failed, using fallback: '+str(ex)); return None
 
+def joke_line(c):
+    jokes=[
+        'AI is not a wizard. It is more like an extremely confident spreadsheet that discovered theatre. Useful, dramatic, occasionally needs supervision.',
+        'Do not give the workflow your whole business and a vague blessing. Give it one job, one tool, and a very small fenced yard.',
+        'If a task needs eleven browser tabs and three sighs before lunch, that is not a personality trait. That is automation food.',
+        'The goal is not to look futuristic. The goal is to delete one boring repeat task from your life without summoning chaos in a hoodie.',
+        'Treat the model like a clever teammate, not a vending machine for truth. Ask, verify, then let it do the boring typing.'
+    ]
+    return jokes[sum(ord(ch) for ch in c.title)%len(jokes)]
+
 def fallback(c,cats):
     t=c.title if len(c.title)<=95 else c.title[:92].rstrip()+'...'
-    return {'title':t,'reading_time':'5 min read','categories':cats,'sections':[{'heading':'The simple version','paragraphs':[f"Today's useful AI signal comes from {c.source}: {c.title}.",c.summary or 'The source points to a real product, release, repository, or workflow instead of vague hype.']},{'heading':'Why it matters','paragraphs':['For a beginner, the trick is not to learn every AI buzzword before breakfast. Pick one thing this update helps with: research, writing, coding, automation, security, support, learning, or saving time.','Think of AI like a very fast intern with a suspicious amount of confidence. It can draft and organize, but you still need sources, checks, and approval.']},{'heading':'How to use the idea','paragraphs':['Turn the update into one tiny workflow: input, AI processing, saved result, and one approval step. That is the smallest useful automation pattern.','Example: collect three links, ask AI to summarize them, score which one is useful, then save the best one into notes or a GitHub issue.']},{'heading':'B2B and B2C angle','paragraphs':['B2B users care about repeatability, permissions, audit trails, and team onboarding. B2C users care about clarity, trust, speed, and not needing a PhD to press a button.','A good AI product explains what it can access, what it will do, what it will not do, and where the user approves the final action.']},{'heading':'Credit','paragraphs':[f'Credit to {c.source} for the original source. This blog adds a beginner-friendly builder explanation and links back below.']}],'links':[{'label':c.source+': original source','url':c.url}]}
+    return {'title':t,'reading_time':'5 min read','categories':cats,'sections':[{'heading':'The simple version','paragraphs':[f"Today's useful AI signal comes from {c.source}: {c.title}.",c.summary or 'The source points to a real product, release, repository, or workflow instead of vague hype.']},{'heading':'Why it matters','paragraphs':['The useful question is simple: can this help a normal person save time, avoid copy-paste misery, learn faster, or build something small that actually works?',joke_line(c)]},{'heading':'How to use the idea','paragraphs':['Turn the update into one tiny workflow: input, AI processing, saved result, and one approval step. That is the smallest useful automation pattern.','Example: collect three links, ask AI to summarize them, score which one is useful, then save the best one into notes, a spreadsheet, or a GitHub issue.']},{'heading':'B2B and B2C angle','paragraphs':['B2B users care about repeatability, permissions, audit trails, and team onboarding. B2C users care about clarity, trust, speed, and not needing a PhD to press a button.','A good AI product explains what it can access, what it will do, what it will not do, and where the user approves the final action.']},{'heading':'Credit','paragraphs':[f'Credit to {c.source} for the original source. This blog adds a beginner-friendly builder explanation and links back below.']}],'links':[{'label':c.source+': original source','url':c.url}]}
 
 def safe_cats(v,fb):
     return [str(x).strip() for x in v if str(x).strip() in CATS] if isinstance(v,list) and any(str(x).strip() in CATS for x in v) else fb
