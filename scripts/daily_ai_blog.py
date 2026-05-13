@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import argparse, datetime as dt, email.utils, html, json, os, re, urllib.request, xml.etree.ElementTree as ET
+import argparse, datetime as dt, email.utils, html, json, os, re, urllib.parse, urllib.request, xml.etree.ElementTree as ET
 from dataclasses import dataclass
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -12,6 +12,8 @@ CATS=['AI Agents','Getting Started','GitHub Repos','Automation','B2B Ideas','B2C
 FEEDS=[('OpenAI News','https://openai.com/news/rss.xml'),('Anthropic News','https://www.anthropic.com/news/rss.xml'),('GitHub Changelog','https://github.blog/changelog/feed/'),('Hugging Face Blog','https://huggingface.co/blog/feed.xml'),('LangChain Blog','https://blog.langchain.com/rss/'),('n8n Blog','https://blog.n8n.io/rss/')]
 KEYS={'agent':7,'agents':7,'mcp':7,'model context protocol':7,'codex':7,'copilot':6,'claude':6,'openai':6,'chatgpt':6,'gemini':6,'perplexity':5,'automation':6,'workflow':5,'github':5,'repository':4,'api':4,'tool':4,'tools':4,'rag':4,'eval':4,'security':4,'preview':2,'generally available':2}
 STOP_TOPIC_WORDS={'the','and','with','from','into','about','using','use','uses','what','when','where','more','less','new','latest','update','updates','introducing','learn','build','building','make','makes','easier','guide','guides','today','release','released'}
+BANNED_FALLBACK_LINES={'The useful question is simple: can this help a normal person save time, avoid copy-paste misery, learn faster, or build something small that actually works?','AI is not a wizard. It is more like an extremely confident spreadsheet that discovered theatre. Useful, dramatic, occasionally needs supervision.','Think of AI like a very fast intern with a suspicious amount of confidence. It can draft and organize, but you still need sources, checks, and approval.'}
+REPO_QUERIES=[('GitHub AI agents','topic:ai-agents stars:>100 pushed:>2026-04-01'),('GitHub MCP tools','mcp server stars:>100 pushed:>2026-04-01'),('GitHub RAG apps','rag llm stars:>300 pushed:>2026-04-01'),('GitHub coding agents','coding agent stars:>100 pushed:>2026-04-01'),('GitHub agent frameworks','agent framework llm stars:>100 pushed:>2026-04-01')]
 @dataclass
 class Candidate:
     source:str; title:str; url:str; summary:str; published:dt.datetime|None; score:int
@@ -43,6 +45,11 @@ def pdate(s):
         return x.astimezone(TZ)
     except Exception: return None
 
+def iso_date(s):
+    if not s: return None
+    try: return dt.datetime.fromisoformat(s.replace('Z','+00:00')).astimezone(TZ)
+    except Exception: return None
+
 def score(src,title,summary,pub):
     blob=f'{src} {title} {summary}'.lower(); val=sum(v for k,v in KEYS.items() if k in blob)
     if pub: val+=max(0,12-max(0,(now().date()-pub.date()).days))
@@ -72,6 +79,25 @@ def parse_feed(src,url):
         if title and link: out.append(Candidate(src,title,link,summ[:900],pub,score(src,title,summ,pub)))
     return out
 
+def github_candidates():
+    out=[]
+    for src,q in REPO_QUERIES:
+        url='https://api.github.com/search/repositories?q='+urllib.parse.quote(q)+'&sort=updated&order=desc&per_page=4'
+        try: data=json.loads(get(url))
+        except Exception as ex:
+            log(f'GitHub search failed: {src}: {ex}'); continue
+        for r in data.get('items',[]):
+            title=clean(r.get('full_name',''))
+            repo_url=r.get('html_url','')
+            if not title or not repo_url: continue
+            desc=clean(r.get('description') or 'Open-source AI builder repository')
+            stars=int(r.get('stargazers_count') or 0)
+            lang=r.get('language') or 'mixed'
+            pushed=iso_date(r.get('pushed_at') or r.get('updated_at'))
+            summary=f'{desc} Language: {lang}. Stars: {stars}. Useful signal: active public repo developers can inspect, fork, or learn from.'
+            out.append(Candidate(src,title,repo_url,summary,pushed,score(src,title,summary,pushed)+min(10,stars//4000)+5))
+    return out
+
 def topic_tokens(title):
     toks=set()
     for w in re.findall(r'[a-z0-9]+',clean(title).lower()):
@@ -99,6 +125,7 @@ def used_sources(block):
 def pick(block=''):
     items=[]
     for src,url in FEEDS: items+=parse_feed(src,url)
+    items+=github_candidates()
     used_urls,used_titles=used_sources(block)
     items=[i for i in items if i.score>0]
     items.sort(key=lambda c:(c.score,c.published or dt.datetime(1970,1,1,tzinfo=TZ)),reverse=True)
@@ -120,7 +147,7 @@ def extract_json(s):
     try: return json.loads(m.group(0) if m else s)
     except Exception: return None
 
-def ai_write(c,date,cats):
+def ai_write(c,date,cats,block=''):
     key=os.getenv('OPENAI_API_KEY')
     if not key: return None
     prompt=f"""Date: {date}\nSource owner: {c.source}\nSource title: {c.title}\nSource URL: {c.url}\nSource summary: {c.summary}\nCategories: {', '.join(cats)}\nReturn JSON only with title, reading_time, categories, sections array of 5-7 objects with heading and paragraphs array, and links array. Explain in layman terms, add useful humor, B2B/B2C angles, beginner action steps, and credit the source owner. Do not invent facts."""
@@ -134,17 +161,42 @@ def ai_write(c,date,cats):
 
 def joke_line(c):
     jokes=[
-        'AI is not a wizard. It is more like an extremely confident spreadsheet that discovered theatre. Useful, dramatic, occasionally needs supervision.',
-        'Do not give the workflow your whole business and a vague blessing. Give it one job, one tool, and a very small fenced yard.',
-        'If a task needs eleven browser tabs and three sighs before lunch, that is not a personality trait. That is automation food.',
-        'The goal is not to look futuristic. The goal is to delete one boring repeat task from your life without summoning chaos in a hoodie.',
-        'Treat the model like a clever teammate, not a vending machine for truth. Ask, verify, then let it do the boring typing.'
+        'A good automation is like a tiny employee who loves checklists, never asks for coffee, and still needs a manager before touching production.',
+        'If the workflow needs eleven tabs, two exports, and a small emotional reset, congratulations: you have found automation compost.',
+        'The best AI tool is not the loudest one. It is the one that removes a boring step so quietly you almost miss complaining about it.',
+        'Give the agent one job and a short leash. The leash is not rude. The leash is architecture.',
+        'Do not build a spaceship for a sandwich run. One trigger, one model call, one saved result. Luxury comes later.'
     ]
-    return jokes[sum(ord(ch) for ch in c.title)%len(jokes)]
+    return jokes[sum(ord(ch) for ch in c.title+c.source)%len(jokes)]
+
+def builder_angle(c):
+    blob=f'{c.source} {c.title} {c.summary}'.lower()
+    if any(x in blob for x in ['github','repo','copilot','codex','code']):
+        return ('Developer angle','Use this as a reason to make your AI stack swappable and testable: keep prompts, model choice, tool permissions, and output checks in separate places. Repos to explore: vercel/ai, BerriAI/litellm, promptfoo, Langfuse, and OpenAI Agents SDK.')
+    if any(x in blob for x in ['mcp','tool','connector','api']):
+        return ('Tool angle','The value is not the model alone. The value is the tool connection: calendar, files, CRM, browser, database, or GitHub. Add one permission boundary and one approval step before the agent can do anything expensive.')
+    if any(x in blob for x in ['rag','search','research','crawl','browser']):
+        return ('Research angle','This is useful for research workflows: collect sources, summarize them, score usefulness, and save citations. Try Firecrawl, Crawl4AI, Perplexity, LlamaIndex, or Haystack before inventing your own search circus.')
+    if any(x in blob for x in ['agent','workflow','automation']):
+        return ('Agent angle','Think in loops: trigger, context, model decision, tool call, memory, human approval, output. That pattern can become a support bot, lead researcher, price watcher, learning coach, or internal team assistant.')
+    return ('Builder angle','Turn the update into one tiny product idea: one input, one AI transformation, one saved output, and one human approval. If it cannot fit on a napkin, it is probably version three pretending to be version one.')
+
+def tiny_project(c):
+    blob=f'{c.source} {c.title} {c.summary}'.lower()
+    if 'security' in blob or 'secret' in blob:
+        return 'Build a secrets-safe agent checklist: scan a project, list which keys are needed, explain where each key should live, and block anything that looks pasted into code.'
+    if 'repo' in blob or 'github' in blob or 'code' in blob:
+        return 'Build a GitHub issue assistant: read one issue, summarize the likely cause, suggest files to inspect, and draft a pull-request checklist for a human to approve.'
+    if 'research' in blob or 'search' in blob or 'crawl' in blob:
+        return 'Build a daily research scout: read three trusted sources, summarize what changed, rank usefulness, and save the top item to your blog or notes.'
+    if 'agent' in blob or 'workflow' in blob:
+        return 'Build a tiny workflow bot: scheduled trigger, one model call, one tool connection, one approval step, and a saved result. No 47-node dashboard drama.'
+    return 'Build a one-page learning assistant: paste a confusing article, get a plain-English summary, three action steps, and links worth reading next.'
 
 def fallback(c,cats):
     t=c.title if len(c.title)<=95 else c.title[:92].rstrip()+'...'
-    return {'title':t,'reading_time':'5 min read','categories':cats,'sections':[{'heading':'The simple version','paragraphs':[f"Today's useful AI signal comes from {c.source}: {c.title}.",c.summary or 'The source points to a real product, release, repository, or workflow instead of vague hype.']},{'heading':'Why it matters','paragraphs':['The useful question is simple: can this help a normal person save time, avoid copy-paste misery, learn faster, or build something small that actually works?',joke_line(c)]},{'heading':'How to use the idea','paragraphs':['Turn the update into one tiny workflow: input, AI processing, saved result, and one approval step. That is the smallest useful automation pattern.','Example: collect three links, ask AI to summarize them, score which one is useful, then save the best one into notes, a spreadsheet, or a GitHub issue.']},{'heading':'B2B and B2C angle','paragraphs':['B2B users care about repeatability, permissions, audit trails, and team onboarding. B2C users care about clarity, trust, speed, and not needing a PhD to press a button.','A good AI product explains what it can access, what it will do, what it will not do, and where the user approves the final action.']},{'heading':'Credit','paragraphs':[f'Credit to {c.source} for the original source. This blog adds a beginner-friendly builder explanation and links back below.']}],'links':[{'label':c.source+': original source','url':c.url}]}
+    heading,angle=builder_angle(c)
+    return {'title':t,'reading_time':'5 min read','categories':cats,'sections':[{'heading':'What changed','paragraphs':[f"Today's useful AI signal comes from {c.source}: {c.title}.",c.summary or 'The source points to a real product, release, repository, or workflow instead of vague hype.']},{'heading':'Why it is useful','paragraphs':[angle,joke_line(c)]},{'heading':'Tiny project idea','paragraphs':[tiny_project(c),'Keep the first version tiny: one input, one AI step, one output, and one place where you approve the result. Small workflows grow up better than overbuilt monsters.']},{'heading':'Tools to explore','paragraphs':['Useful builder tools to keep nearby: Codex or Claude Code for coding help, Vercel AI SDK or Pydantic AI for app structure, MCP for tool connections, n8n or Dify for low-code workflows, and Langfuse or Phoenix for tracing.','Pick only what the project needs. Tool collecting is fun, but so is buying gym clothes; neither counts as doing the work.']},{'heading':'Credit','paragraphs':[f'Credit to {c.source} for the original source. This blog adds a beginner-friendly builder explanation and links back below.']}],'links':[{'label':c.source+': original source','url':c.url}]}
 
 def safe_cats(v,fb):
     return [str(x).strip() for x in v if str(x).strip() in CATS] if isinstance(v,list) and any(str(x).strip() in CATS for x in v) else fb
@@ -209,6 +261,6 @@ def main():
             if next_missing<=d:
                 d=next_missing; dl=label(d)
     if f'<time>{dl}</time>' in block: log(f'No update needed: {dl} already exists ({mode}).'); return
-    cand=pick(block); cats=infer(cand); post=ai_write(cand,dl,cats) or fallback(cand,cats); row=render(post,cand,dl,cats)
+    cand=pick(block); cats=infer(cand); post=ai_write(cand,dl,cats,block) or fallback(cand,cats); row=render(post,cand,dl,cats)
     new=counts(before+'\n'+row+block+after); validate(new); INDEX.write_text(new,encoding='utf-8',newline='\n'); log(f'Added {dl} from {cand.source}: {cand.title}\nSource: {cand.url}',True)
 if __name__=='__main__': main()

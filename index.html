@@ -229,11 +229,11 @@
               <li><button type="button" class="filter-chip active" data-filter="all"><span></span>All topics (08)</button></li>
               <li><button type="button" class="filter-chip" data-filter="AI Agents"><span></span>AI Agents (08)</button></li>
               <li><button type="button" class="filter-chip" data-filter="Getting Started"><span></span>Getting Started (01)</button></li>
-              <li><button type="button" class="filter-chip" data-filter="GitHub Repos"><span></span>GitHub Repos (04)</button></li>
-              <li><button type="button" class="filter-chip" data-filter="Automation"><span></span>Automation (06)</button></li>
+              <li><button type="button" class="filter-chip" data-filter="GitHub Repos"><span></span>GitHub Repos (05)</button></li>
+              <li><button type="button" class="filter-chip" data-filter="Automation"><span></span>Automation (08)</button></li>
               <li><button type="button" class="filter-chip" data-filter="B2B Ideas"><span></span>B2B Ideas (07)</button></li>
-              <li><button type="button" class="filter-chip" data-filter="B2C Ideas"><span></span>B2C Ideas (07)</button></li>
-              <li><button type="button" class="filter-chip" data-filter="Research Tools"><span></span>Research Tools (01)</button></li>
+              <li><button type="button" class="filter-chip" data-filter="B2C Ideas"><span></span>B2C Ideas (04)</button></li>
+              <li><button type="button" class="filter-chip" data-filter="Research Tools"><span></span>Research Tools (02)</button></li>
               <li><button type="button" class="filter-chip" data-filter="Video + Copy"><span></span>Video + Copy (00)</button></li>
             </ul>
             <div class="figure-box blog-ai-figure" aria-label="AI blog pipeline animation">
@@ -259,10 +259,10 @@
 
             <div class="rows">
               <!-- DAILY_POSTS_START -->
-              <article class="post-row" data-topics="AI Agents, B2B Ideas, B2C Ideas">
+              <article class="post-row" data-topics="AI Agents, Automation, B2B Ideas, GitHub Repos">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.12</time>
-                  <strong>The next phase of enterprise AI</strong>
+                  <strong>Enterprise AI is turning into a workflow layer, not a fancy chat box</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -271,52 +271,47 @@
                     <dl>
                       <dt>Date:</dt><dd>2026.5.12</dd>
                       <dt>Author:</dt><dd>Roshan Arun</dd>
-                      <dt>Reading time:</dt><dd>5 min read</dd>
-                      <dt>Categories:</dt><dd>AI Agents, B2B Ideas, B2C Ideas</dd>
+                      <dt>Reading time:</dt><dd>6 min read</dd>
+                      <dt>Categories:</dt><dd>AI Agents, Automation, B2B Ideas, GitHub Repos</dd>
                     </dl>
                     <b>/ ARTICLE</b>
                   </div>
                   <div class="article-copy">
                     <h4>The simple version</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from OpenAI News: The next phase of enterprise AI.
+                      OpenAI's enterprise AI update is not just another "look, chatbot got smarter" announcement. The signal is that companies are moving AI into real workflows: internal assistants, coding agents, research desks, support tools, and agents that sit closer to actual business systems.
                     </p>
                     <p>
-                      OpenAI outlines the next phase of enterprise AI, as adoption accelerates across industries with Frontier, ChatGPT Enterprise, Codex, and company-wide AI agents.
+                      In plain words: AI is becoming less like a clever text box and more like a junior operations layer. It can draft, search, summarize, create tickets, inspect code, and hand work to tools. Still needs supervision, because giving a model a company login and saying "be creative" is how villains are born in compliance training videos.
                     </p>
-                    <h4>Why it matters</h4>
+                    <h4>Why builders should care</h4>
                     <p>
-                      The useful question is simple: can this help a normal person save time, avoid copy-paste misery, learn faster, or build something small that actually works?
-                    </p>
-                    <p>
-                      AI is not a wizard. It is more like an extremely confident spreadsheet that discovered theatre. Useful, dramatic, occasionally needs supervision.
-                    </p>
-                    <h4>How to use the idea</h4>
-                    <p>
-                      Turn the update into one tiny workflow: input, AI processing, saved result, and one approval step. That is the smallest useful automation pattern.
+                      The useful opportunity is not "build a general AI assistant." Everyone and their uncle's toaster is doing that. The opportunity is to pick one painful workflow and make it boringly reliable: sales call notes to CRM, support tickets to fixes, product updates to internal summaries, or invoices to approval queues.
                     </p>
                     <p>
-                      Example: collect three links, ask AI to summarize them, score which one is useful, then save the best one into notes, a spreadsheet, or a GitHub issue.
+                      Developers should watch the tooling around agents: Codex for coding tasks, OpenAI Agents SDK for tool-calling apps, LangGraph or Mastra for orchestrated workflows, and Langfuse or Phoenix for tracing what the agent actually did when it started acting like it had a side quest.
                     </p>
-                    <h4>B2B and B2C angle</h4>
+                    <h4>Tiny project to try</h4>
                     <p>
-                      B2B users care about repeatability, permissions, audit trails, and team onboarding. B2C users care about clarity, trust, speed, and not needing a PhD to press a button.
+                      Build a "company update digest" bot. Input: five links from product, sales, engineering, or competitors. Agent step: summarize each link, tag the business impact, and score urgency. Human step: approve the final summary. Output: send to email, Teams, Notion, or a simple HTML page.
                     </p>
                     <p>
-                      A good AI product explains what it can access, what it will do, what it will not do, and where the user approves the final action.
+                      Start small: one source, one summary, one approval button. Then add memory, search, and scheduled runs. Do not start with a 19-node monster workflow unless your hobby is debugging spaghetti with a flashlight.
                     </p>
                     <h4>Credit</h4>
                     <p>
-                      Credit to OpenAI News for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      Credit to OpenAI for the original enterprise AI update. This post adds the beginner builder angle: turn enterprise AI hype into one practical workflow people would actually use on a Monday morning.
                     </p>
                   </div>
-                  <a href="https://openai.com/index/next-phase-of-enterprise-ai">OpenAI News: original source</a>
+                  <a href="https://openai.com/index/next-phase-of-enterprise-ai">OpenAI: original source</a>
+                  <a href="https://github.com/openai/openai-agents-python">OpenAI Agents SDK: GitHub repo</a>
+                  <a href="https://github.com/langfuse/langfuse">Langfuse: agent tracing repo</a>
                 </div>
               </article>
-              <article class="post-row" data-topics="AI Agents, GitHub Repos, B2B Ideas, B2C Ideas">
+              <article class="post-row" data-topics="AI Agents, GitHub Repos, Automation, B2B Ideas">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.11</time>
-                  <strong>Claude Sonnet 4 deprecated</strong>
+                  <strong>Model deprecations are annoying, but they teach a useful builder lesson</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -326,51 +321,47 @@
                       <dt>Date:</dt><dd>2026.5.11</dd>
                       <dt>Author:</dt><dd>Roshan Arun</dd>
                       <dt>Reading time:</dt><dd>5 min read</dd>
-                      <dt>Categories:</dt><dd>AI Agents, GitHub Repos, B2B Ideas, B2C Ideas</dd>
+                      <dt>Categories:</dt><dd>AI Agents, GitHub Repos, Automation, B2B Ideas</dd>
                     </dl>
                     <b>/ ARTICLE</b>
                   </div>
                   <div class="article-copy">
                     <h4>The simple version</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from GitHub Changelog: Claude Sonnet 4 deprecated.
+                      GitHub's Claude Sonnet 4 deprecation note is not glamorous. Nobody is throwing confetti because a model name changed. But it matters because real AI products cannot depend on one model forever. Models move, prices change, providers rename things, and suddenly your app is standing there holding a broken dropdown.
                     </p>
                     <p>
-                      We have deprecated the following model across all GitHub Copilot experiences (including Copilot Chat, inline edits, ask and agent modes, and code completions) on May 6, 2026. Model Deprecation date… The post Claude Sonnet 4 deprecated appeared first on The GitHub Blog .
+                      The beginner lesson: build your AI app so the model can be swapped. If your entire product collapses because one model leaves the menu, that is not an AI strategy. That is a house of cards wearing a hoodie.
                     </p>
-                    <h4>Why it matters</h4>
+                    <h4>How developers handle this</h4>
                     <p>
-                      The useful question is simple: can this help a normal person save time, avoid copy-paste misery, learn faster, or build something small that actually works?
-                    </p>
-                    <p>
-                      AI is not a wizard. It is more like an extremely confident spreadsheet that discovered theatre. Useful, dramatic, occasionally needs supervision.
-                    </p>
-                    <h4>How to use the idea</h4>
-                    <p>
-                      Turn the update into one tiny workflow: input, AI processing, saved result, and one approval step. That is the smallest useful automation pattern.
+                      Use a model gateway or adapter layer. LiteLLM, Vercel AI SDK, Pydantic AI, LangChain, and the OpenAI-compatible provider pattern all help you write the app once and change the model behind it later. Your UI should care about "summarize this ticket," not whether the engine is Claude, GPT, Gemini, or whatever shiny model name lands next Thursday.
                     </p>
                     <p>
-                      Example: collect three links, ask AI to summarize them, score which one is useful, then save the best one into notes, a spreadsheet, or a GitHub issue.
+                      Also add evals. Before switching models, run the same prompts through your test cases: does it still summarize correctly, call tools safely, cite sources, and avoid inventing a fake roadmap? A model swap without evals is basically changing airplane engines mid-flight because the new one has a nicer logo.
                     </p>
-                    <h4>B2B and B2C angle</h4>
+                    <h4>Tiny project to try</h4>
                     <p>
-                      B2B users care about repeatability, permissions, audit trails, and team onboarding. B2C users care about clarity, trust, speed, and not needing a PhD to press a button.
+                      Build a "model taste test" page. Give it one task, such as summarizing a support ticket. Run the same input through two models. Show output quality, speed, cost estimate, and whether the answer followed your format. This is beginner-friendly and secretly very professional.
                     </p>
                     <p>
-                      A good AI product explains what it can access, what it will do, what it will not do, and where the user approves the final action.
+                      Repos to explore: Vercel AI SDK for TypeScript apps, LiteLLM for routing providers, promptfoo for prompt tests, and Langfuse or Phoenix for tracing outputs over time.
                     </p>
                     <h4>Credit</h4>
                     <p>
-                      Credit to GitHub Changelog for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      Credit to GitHub for the original changelog note. This post turns the boring-sounding deprecation into the practical lesson: serious AI products need swappable models, tests, and boring little safety rails. Boring rails save weekends.
                     </p>
                   </div>
                   <a href="https://github.blog/changelog/2026-05-07-claude-sonnet-4-deprecated">GitHub Changelog: original source</a>
+                  <a href="https://github.com/vercel/ai">Vercel AI SDK: GitHub repo</a>
+                  <a href="https://github.com/BerriAI/litellm">LiteLLM: GitHub repo</a>
+                  <a href="https://github.com/promptfoo/promptfoo">promptfoo: GitHub repo</a>
                 </div>
               </article>
-              <article class="post-row" data-topics="AI Agents, Automation, B2B Ideas, B2C Ideas">
+              <article class="post-row" data-topics="AI Agents, Automation, B2B Ideas, Research Tools">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.10</time>
-                  <strong>Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI</strong>
+                  <strong>Agent Cloud shows why AI apps need memory, schedules, and tools</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -379,46 +370,42 @@
                     <dl>
                       <dt>Date:</dt><dd>2026.5.10</dd>
                       <dt>Author:</dt><dd>Roshan Arun</dd>
-                      <dt>Reading time:</dt><dd>5 min read</dd>
-                      <dt>Categories:</dt><dd>AI Agents, Automation, B2B Ideas, B2C Ideas</dd>
+                      <dt>Reading time:</dt><dd>6 min read</dd>
+                      <dt>Categories:</dt><dd>AI Agents, Automation, B2B Ideas, Research Tools</dd>
                     </dl>
                     <b>/ ARTICLE</b>
                   </div>
                   <div class="article-copy">
                     <h4>The simple version</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from OpenAI News: Enterprises power agentic workflows in Cloudflare Agent Cloud with OpenAI.
+                      The OpenAI and Cloudflare Agent Cloud story points to a bigger trend: agents are moving from demo chats into hosted systems that remember state, call tools, run on schedules, and stay connected to users. That is the difference between "write me a paragraph" and "watch this process, take action, and tell me what changed."
                     </p>
                     <p>
-                      Cloudflare brings OpenAI’s GPT-5.4 and Codex to Agent Cloud, enabling enterprises to build, deploy, and scale AI agents for real-world tasks with speed and security.
+                      Cloudflare's own Agents docs describe agents as stateful TypeScript classes running on Durable Objects, with storage, WebSockets, scheduling, and tool calls. Translation: your agent gets a little home, a notebook, a calendar, and a phone line. Finally, a digital coworker with better infrastructure than most side projects.
                     </p>
-                    <h4>Why it matters</h4>
+                    <h4>Why this is useful</h4>
                     <p>
-                      The useful question is simple: can this help a normal person save time, avoid copy-paste misery, learn faster, or build something small that actually works?
-                    </p>
-                    <p>
-                      Do not give the workflow your whole business and a vague blessing. Give it one job, one tool, and a very small fenced yard.
-                    </p>
-                    <h4>How to use the idea</h4>
-                    <p>
-                      Turn the update into one tiny workflow: input, AI processing, saved result, and one approval step. That is the smallest useful automation pattern.
+                      Most useful AI products are not pure chat. They are loops: check something, decide if it matters, call a tool, save the result, and notify a human. Price monitors, support triage bots, product research scouts, calendar helpers, bug report classifiers, and learning coaches all fit this pattern.
                     </p>
                     <p>
-                      Example: collect three links, ask AI to summarize them, score which one is useful, then save the best one into notes, a spreadsheet, or a GitHub issue.
+                      The cool part for beginners: you do not need to build a giant platform. Start with a scheduled worker, one API, one model call, and one output. Add memory only when the agent actually needs to remember something besides its own dramatic backstory.
                     </p>
-                    <h4>B2B and B2C angle</h4>
+                    <h4>Tiny project to try</h4>
                     <p>
-                      B2B users care about repeatability, permissions, audit trails, and team onboarding. B2C users care about clarity, trust, speed, and not needing a PhD to press a button.
+                      Build a "daily product watcher." Every morning it checks three product pages or RSS feeds, summarizes what changed, tags the update as feature, pricing, docs, or bug fix, and sends you a short brief. Useful for founders, sales teams, students, and anyone who has ever opened 14 tabs and called it research.
                     </p>
                     <p>
-                      A good AI product explains what it can access, what it will do, what it will not do, and where the user approves the final action.
+                      Tool stack: Firecrawl or Crawl4AI for fetching pages, OpenAI or Claude for summarizing, Cloudflare Workers or GitHub Actions for scheduling, and a plain GitHub Pages site as the output. Fancy enough to be useful, simple enough to not eat your weekend.
                     </p>
                     <h4>Credit</h4>
                     <p>
-                      Credit to OpenAI News for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      Credit to OpenAI and Cloudflare for the original update and platform docs. This post adds the beginner-friendly view: agent products are just useful loops with memory, tools, and adult supervision.
                     </p>
                   </div>
-                  <a href="https://openai.com/index/cloudflare-openai-agent-cloud">OpenAI News: original source</a>
+                  <a href="https://openai.com/index/cloudflare-openai-agent-cloud">OpenAI: original source</a>
+                  <a href="https://developers.cloudflare.com/agents/">Cloudflare Agents docs</a>
+                  <a href="https://github.com/firecrawl/firecrawl">Firecrawl: GitHub repo</a>
+                  <a href="https://github.com/unclecode/crawl4ai">Crawl4AI: GitHub repo</a>
                 </div>
               </article>
               <article class="post-row" data-topics="AI Agents, GitHub Repos, Automation, B2B Ideas">
@@ -478,7 +465,7 @@
               <article class="post-row" data-topics="AI Agents, Automation, B2B Ideas, B2C Ideas">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.08</time>
-                  <strong>Introducing workspace agents in ChatGPT</strong>
+                  <strong>Workspace agents in ChatGPT: delegate the boring parts, keep the steering wheel</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -487,7 +474,7 @@
                     <dl>
                       <dt>Date:</dt><dd>2026.5.08</dd>
                       <dt>Author:</dt><dd>Roshan Arun</dd>
-                      <dt>Reading time:</dt><dd>5 min read</dd>
+                      <dt>Reading time:</dt><dd>6 min read</dd>
                       <dt>Categories:</dt><dd>AI Agents, Automation, B2B Ideas, B2C Ideas</dd>
                     </dl>
                     <b>/ ARTICLE</b>
@@ -495,38 +482,40 @@
                   <div class="article-copy">
                     <h4>The simple version</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from OpenAI News: Introducing workspace agents in ChatGPT.
+                      OpenAI's workspace agents update is about moving from "ask one chat a question" to "delegate a contained chunk of work." The agent can work in the background, use tools, and help teams handle repeatable tasks instead of making one human copy-paste between apps until their soul starts buffering.
                     </p>
                     <p>
-                      Workspace agents in ChatGPT are Codex-powered agents that automate complex workflows, run in the cloud, and help teams scale work across tools securely.
+                      The important word is workspace. This is not a random toy prompt floating in space. It points toward AI that understands a work context, follows a task, and returns something useful for a team to review.
                     </p>
-                    <h4>Why it matters</h4>
+                    <h4>What this means for beginners</h4>
                     <p>
-                      For a beginner, the trick is not to learn every AI buzzword before breakfast. Pick one thing this update helps with: research, writing, coding, automation, security, support, learning, or saving time.
-                    </p>
-                    <p>
-                      Think of AI like a very fast intern with a suspicious amount of confidence. It can draft and organize, but you still need sources, checks, and approval.
-                    </p>
-                    <h4>How to use the idea</h4>
-                    <p>
-                      Turn the update into one tiny workflow: input, AI processing, saved result, and one approval step. That is the smallest useful automation pattern.
+                      Think of a workspace agent as a project helper with a job description. Give it a clear mission: summarize feedback, compare vendor pages, draft release notes, inspect a small code issue, or turn research links into a decision memo. Do not ask it to "improve the business." That prompt has the nutritional value of packing peanuts.
                     </p>
                     <p>
-                      Example: collect three links, ask AI to summarize them, score which one is useful, then save the best one into notes or a GitHub issue.
+                      Your job is to define the task, sources, tools, constraints, and approval point. The agent does the heavy lifting; you decide what ships. That is the healthy version of AI automation: speed without surrendering judgment.
                     </p>
-                    <h4>B2B and B2C angle</h4>
+                    <h4>Tiny project to try</h4>
                     <p>
-                      B2B users care about repeatability, permissions, audit trails, and team onboarding. B2C users care about clarity, trust, speed, and not needing a PhD to press a button.
+                      Build a "weekly project scout." Input: GitHub issues, product docs, or competitor links. Agent step: summarize what changed, extract action items, and score urgency. Output: a short brief in your site, Notion, Teams, or email.
                     </p>
                     <p>
-                      A good AI product explains what it can access, what it will do, what it will not do, and where the user approves the final action.
+                      Useful tools: Codex for code tasks, OpenAI Agents SDK for agent apps, MCP for safe tool connections, n8n for quick workflow wiring, and Langfuse for seeing what happened when the agent proudly took a scenic route.
+                    </p>
+                    <h4>Business angle</h4>
+                    <p>
+                      B2B teams can sell this as a monitoring or operations assistant: sales intelligence, support triage, QA summaries, onboarding helpers, or compliance checklists. B2C builders can turn the same pattern into personal learning assistants, job-search trackers, finance reminders, or shopping research bots.
+                    </p>
+                    <p>
+                      The product rule is simple: one painful repeat task beats one vague futuristic platform. People pay for relief, not fog machines.
                     </p>
                     <h4>Credit</h4>
                     <p>
-                      Credit to OpenAI News for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      Credit to OpenAI for the original workspace agents announcement. This post adds the beginner translation and practical builder path for people turning agent ideas into real products.
                     </p>
                   </div>
-                  <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt">OpenAI News: original source</a>
+                  <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt">OpenAI: original source</a>
+                  <a href="https://github.com/openai/codex">OpenAI Codex: GitHub repo</a>
+                  <a href="https://github.com/openai/openai-agents-python">OpenAI Agents SDK: GitHub repo</a>
                 </div>
               </article>
               <article class="post-row" data-topics="AI Agents, Automation, B2B Ideas, B2C Ideas">
@@ -1016,8 +1005,8 @@
 
       <section class="view" id="github" data-view-panel="github">
         <div class="page-title">
-          <h1>Github</h1>
-          <span>(31)</span>
+          <h1>GitHub</h1>
+          <span>(39)</span>
           <p>Public repos builders can use for agents, automations, RAG, tools, and evaluation.</p>
         </div>
 
@@ -1028,6 +1017,8 @@
             <a href="https://github.com/anthropics/claude-code">anthropics/claude-code</a>
             <a href="https://github.com/google-gemini/gemini-cli">google-gemini/gemini-cli</a>
             <a href="https://github.com/OpenHands/OpenHands">OpenHands/OpenHands</a>
+            <a href="https://github.com/sst/opencode">sst/opencode</a>
+            <a href="https://github.com/letta-ai/letta-code">letta-ai/letta-code</a>
           </section>
           <section>
             <h2>/ AGENT FRAMEWORKS</h2>
@@ -1037,6 +1028,10 @@
             <a href="https://github.com/google/adk-python">google/adk-python</a>
             <a href="https://github.com/microsoft/agent-framework">microsoft/agent-framework</a>
             <a href="https://github.com/huggingface/smolagents">huggingface/smolagents</a>
+            <a href="https://github.com/pydantic/pydantic-ai">pydantic/pydantic-ai</a>
+            <a href="https://github.com/mastra-ai/mastra">mastra-ai/mastra</a>
+            <a href="https://github.com/agno-agi/agno">agno-agi/agno</a>
+            <a href="https://github.com/microsoft/autogen">microsoft/autogen</a>
           </section>
           <section>
             <h2>/ LOW-CODE BUILDERS</h2>
@@ -1071,6 +1066,7 @@
             <a href="https://github.com/vibrantlabsai/ragas">vibrantlabsai/ragas</a>
             <a href="https://github.com/promptfoo/promptfoo">promptfoo/promptfoo</a>
             <a href="https://github.com/BerriAI/litellm">BerriAI/litellm</a>
+            <a href="https://github.com/vercel/ai">vercel/ai</a>
           </section>
         </div>
       </section>
@@ -1078,7 +1074,7 @@
       <section class="view" id="resources" data-view-panel="resources">
         <div class="page-title">
           <h1>Resources</h1>
-          <span>(10)</span>
+          <span>(17)</span>
           <p>Official learning links and credits to original owners.</p>
         </div>
 
@@ -1089,17 +1085,27 @@
           </div>
           <a class="resource-row" href="https://academy.openai.com/"><span>OpenAI</span><strong>Academy beginner resources</strong></a>
           <a class="resource-row" href="https://platform.openai.com/docs/guides/prompt-engineering"><span>OpenAI</span><strong>Prompt engineering guide</strong></a>
-          <a class="resource-row" href="https://platform.openai.com/docs/guides/agents-sdk"><span>OpenAI</span><strong>Agents SDK documentation</strong></a>
+          <a class="resource-row" href="https://platform.openai.com/docs/guides/agents-sdk/"><span>OpenAI</span><strong>Agents SDK documentation</strong></a>
+          <a class="resource-row" href="https://github.com/openai/codex"><span>OpenAI</span><strong>Codex GitHub repository</strong></a>
+          <a class="resource-row" href="https://docs.anthropic.com/en/docs/claude-code/overview"><span>Anthropic</span><strong>Claude Code documentation</strong></a>
           <a class="resource-row" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"><span>Anthropic</span><strong>Claude prompting docs</strong></a>
           <a class="resource-row" href="https://ai.google.dev/gemini-api/docs"><span>Google</span><strong>Gemini API documentation</strong></a>
+          <a class="resource-row" href="https://google.github.io/adk-docs/"><span>Google</span><strong>Agent Development Kit docs</strong></a>
+          <a class="resource-row" href="https://modelcontextprotocol.io/docs"><span>MCP</span><strong>Model Context Protocol docs</strong></a>
+          <a class="resource-row" href="https://developers.cloudflare.com/agents/"><span>Cloudflare</span><strong>Agents platform docs</strong></a>
+          <a class="resource-row" href="https://ai-sdk.dev/docs"><span>Vercel</span><strong>AI SDK docs</strong></a>
+          <a class="resource-row" href="https://mastra.ai/en/docs"><span>Mastra</span><strong>TypeScript agent framework docs</strong></a>
+          <a class="resource-row" href="https://pydantic.dev/docs/ai/overview/"><span>Pydantic</span><strong>Pydantic AI documentation</strong></a>
+          <a class="resource-row" href="https://docs.agno.com/"><span>Agno</span><strong>Agent platform docs</strong></a>
+          <a class="resource-row" href="https://docs.letta.com/"><span>Letta</span><strong>Stateful agents and memory docs</strong></a>
           <a class="resource-row" href="https://www.perplexity.ai/hub"><span>Perplexity</span><strong>Product updates and research tools</strong></a>
           <a class="resource-row" href="https://huggingface.co/learn/agents-course"><span>Hugging Face</span><strong>Agents course</strong></a>
-        </div>
+        </div>        </div>
 
         <div class="credits">
           Original credit: OpenAI, Anthropic, Google, Perplexity, Microsoft, Hugging Face, n8n,
-          Dify, Flowise, LangChain, and the open-source community retain ownership of their
-          respective products, repositories, posts, names, and trademarks.
+          Dify, Flowise, LangChain, Vercel, Cloudflare, Mastra, Pydantic, Agno, Letta, and
+          the open-source community retain ownership of their respective products, repositories, posts, names, and trademarks.
         </div>
       </section>
     </main>
