@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-05-16 21:53:07 CEST
+Last run: 2026-05-17 21:57:40 CEST
 
-Added 2026.5.16 from GitHub MCP tools: elara-labs/code-context-engine
-Source: https://github.com/elara-labs/code-context-engine
+Added 2026.5.17 from GitHub MCP tools: mobile-next/mobile-mcp
+Source: https://github.com/mobile-next/mobile-mcp
