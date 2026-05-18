@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-05-17 21:57:40 CEST
+Last run: 2026-05-18 22:21:04 CEST
 
-Added 2026.5.17 from GitHub MCP tools: mobile-next/mobile-mcp
-Source: https://github.com/mobile-next/mobile-mcp
+Added 2026.5.18 from GitHub coding agents: hashgraph-online/hol-guard
+Source: https://github.com/hashgraph-online/hol-guard
