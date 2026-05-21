@@ -150,8 +150,8 @@ def extract_json(s):
 def ai_write(c,date,cats,block=''):
     key=os.getenv('OPENAI_API_KEY')
     if not key: return None
-    prompt=f"""Date: {date}\nSource owner: {c.source}\nSource title: {c.title}\nSource URL: {c.url}\nSource summary: {c.summary}\nCategories: {', '.join(cats)}\nReturn JSON only with title, reading_time, categories, sections array of 5-7 objects with heading and paragraphs array, and links array. Explain in layman terms, add useful humor, B2B/B2C angles, beginner action steps, and credit the source owner. Do not invent facts."""
-    data={'model':os.getenv('OPENAI_MODEL','gpt-4.1-mini'),'messages':[{'role':'system','content':'You write The.AI.Blog by Roshan Arun. Practical, beginner-friendly, source-backed, slightly playful. JSON only.'},{'role':'user','content':prompt}],'response_format':{'type':'json_object'},'temperature':0.7}
+    prompt=f"""Date: {date}\nSource owner: {c.source}\nSource title: {c.title}\nSource URL: {c.url}\nSource summary: {c.summary}\nCategories: {', '.join(cats)}\nReturn JSON only with title, reading_time, categories, sections array of 5-7 objects with heading and paragraphs array, and links array. Explain like you are teaching a smart 10-year-old. Use short sentences and plain English. Define hard words. Do not reuse old jokes, generic tiny project ideas, or generic tool lists. Add one source-specific beginner build, one B2B or B2C angle, useful tools when relevant, and credit the source owner. Do not invent facts."""
+    data={'model':os.getenv('OPENAI_MODEL','gpt-4.1-mini'),'messages':[{'role':'system','content':'You write The.AI.Blog by Roshan Arun. Practical, source-backed, funny, and simple enough for a 10-year-old to understand. Do not repeat prior wording. JSON only.'},{'role':'user','content':prompt}],'response_format':{'type':'json_object'},'temperature':0.7}
     try:
         req=urllib.request.Request('https://api.openai.com/v1/chat/completions',data=json.dumps(data).encode(),headers={'Authorization':'Bearer '+key,'Content-Type':'application/json'},method='POST')
         with urllib.request.urlopen(req,timeout=60) as r: res=json.loads(r.read().decode())
@@ -194,9 +194,51 @@ def tiny_project(c):
     return 'Build a one-page learning assistant: paste a confusing article, get a plain-English summary, three action steps, and links worth reading next.'
 
 def fallback(c,cats):
+    blob=f'{c.source} {c.title} {c.summary}'.lower()
     t=c.title if len(c.title)<=95 else c.title[:92].rstrip()+'...'
-    heading,angle=builder_angle(c)
-    return {'title':t,'reading_time':'5 min read','categories':cats,'sections':[{'heading':'What changed','paragraphs':[f"Today's useful AI signal comes from {c.source}: {c.title}.",c.summary or 'The source points to a real product, release, repository, or workflow instead of vague hype.']},{'heading':'Why it is useful','paragraphs':[angle,joke_line(c)]},{'heading':'Tiny project idea','paragraphs':[tiny_project(c),'Keep the first version tiny: one input, one AI step, one output, and one place where you approve the result. Small workflows grow up better than overbuilt monsters.']},{'heading':'Tools to explore','paragraphs':['Useful builder tools to keep nearby: Codex or Claude Code for coding help, Vercel AI SDK or Pydantic AI for app structure, MCP for tool connections, n8n or Dify for low-code workflows, and Langfuse or Phoenix for tracing.','Pick only what the project needs. Tool collecting is fun, but so is buying gym clothes; neither counts as doing the work.']},{'heading':'Credit','paragraphs':[f'Credit to {c.source} for the original source. This blog adds a beginner-friendly builder explanation and links back below.']}],'links':[{'label':c.source+': original source','url':c.url}]}
+    if any(x in blob for x in ['guard','security','secret','safe','protect','antivirus']):
+        angle='This helps keep AI helpers from doing unsafe things. Before AI touches files, tools, or money, it should explain the risk and ask for approval.'
+        idea='Build an AI safety checklist: show what the agent wants to do, explain each action in plain English, and let a human approve or block it.'
+        tools='Tools to try: hol-guard, GitHub Actions, pre-commit hooks, Codex, Claude Code, and a manual approval step.'
+        example='Think of it like a seatbelt for AI. The car can still go fast. You just prefer keeping your face attached.'
+    elif any(x in blob for x in ['mobile','android','ios','emulator','simulator']):
+        angle='This helps AI work with phone screens. It can turn boring app testing into a repeatable checklist.'
+        idea='Build a mobile test helper: open one app screen, take a screenshot, ask AI what looks broken, and save a short bug report.'
+        tools='Tools to try: mobile-mcp, Appium, Playwright, Codex, Claude Code, GitHub Issues, and a screenshot folder.'
+        example='Think of it like a tiny app tester who never gets bored tapping the login button.'
+    elif any(x in blob for x in ['context','token','codebase','index']):
+        angle='This helps AI read the right information instead of the whole codebase. Less noise usually means better answers.'
+        idea='Build a repo map: scan folder names and README text, then show which files a coding agent should read first.'
+        tools='Tools to try: lean-ctx, code-context-engine, Codex, Claude Code, Cursor, Gemini CLI, and GitHub search.'
+        example='Think of it like telling AI where the socks are instead of asking it to search the entire house.'
+    elif any(x in blob for x in ['notebooklm','notes','document']):
+        angle='This turns trusted notes into useful AI input. The big win is simple: the AI answers from your sources, not from vibes.'
+        idea='Build a study card maker: give it one topic and a few source links, then create a summary, five key words, and three quiz questions.'
+        tools='Tools to try: NotebookLM, notebooklm-py, Python, Codex, Claude Code, Google Drive, and a tiny HTML page.'
+        example='Think of it like a librarian turning messy notes into flashcards without judging your handwriting.'
+    elif any(x in blob for x in ['devops','deploy','github actions','cli']):
+        angle='This is about getting from demo to real project. A real project needs setup, checks, secrets, deploy steps, and logs.'
+        idea='Build a project launch checklist: list setup steps, secrets, tests, deployment notes, and one GitHub issue for each task.'
+        tools='Tools to try: GitHub Actions, Docker, Render, GitHub Pages, Codex, Claude Code, and OpenCode.'
+        example='Think of it like making the same cake again without setting off the smoke alarm.'
+    elif any(x in blob for x in ['mcp','tool','connector','api']):
+        angle='This gives AI a safe way to use tools. A model can write words, but tools let it do actions like read files, check calendars, or test apps.'
+        idea='Build a tool-connected assistant: ask one question, call one safe tool, show the result, and ask before taking action.'
+        tools='Tools to try: Codex, Claude Code, Gemini CLI, MCP servers, n8n, Dify, and GitHub Actions.'
+        example='Think of it like giving AI hands, then making it ask before touching the expensive stuff.'
+    else:
+        angle='This is useful if it helps someone save time, learn faster, avoid mistakes, or build a small working tool.'
+        idea='Build a tiny learning helper: paste a confusing article and get a child-simple summary, three action steps, and links to learn next.'
+        tools='Tools to try: Codex, Claude Code, Gemini CLI, n8n, Dify, GitHub Actions, and one simple database or spreadsheet.'
+        example='Think of it like giving AI one clear job instead of asking it to become CEO by lunch.'
+    return {'title':t,'reading_time':'5 min read','categories':cats,'sections':[
+        {'heading':'What it means','paragraphs':[f"Today's useful AI signal comes from {c.source}: {c.title}.",c.summary or 'This points to a real product, release, repository, or workflow instead of vague hype.']},
+        {'heading':'Why it matters','paragraphs':[angle]},
+        {'heading':'Tiny build you can try','paragraphs':[idea,'Start with one screen, one input, one AI action, and one saved result. Make it useful before making it fancy.']},
+        {'heading':'Tools that fit','paragraphs':[tools]},
+        {'heading':'Explain it to a 10-year-old','paragraphs':[example]},
+        {'heading':'Credit','paragraphs':[f'Credit to {c.source} for the original source. This blog adds a plain-English builder explanation and links back below.']}
+    ],'links':[{'label':c.source+': original source','url':c.url}]}
 
 def safe_cats(v,fb):
     return [str(x).strip() for x in v if str(x).strip() in CATS] if isinstance(v,list) and any(str(x).strip() in CATS for x in v) else fb
@@ -210,8 +252,11 @@ def render(post,c,date,cats):
         ps=sec.get('paragraphs'); ps=[ps] if isinstance(ps,str) else ps
         if isinstance(ps,list):
             for p in ps[:4]:
-                s=html.escape(str(p).strip())
-                if s: parts.append('                    <p>\n                      '+s+'\n                    </p>')
+                raw=str(p).strip()
+                if not raw or raw in BANNED_FALLBACK_LINES: continue
+                if any(raw.lower()==b.lower() for b in BANNED_FALLBACK_LINES): continue
+                s=html.escape(raw)
+                parts.append('                    <p>\n                      '+s+'\n                    </p>')
     links=post.get('links') if isinstance(post.get('links'),list) else []
     links.append({'label':c.source+': original source','url':c.url})
     link_html=[]; seen=set()

@@ -1727,3 +1727,126 @@ a:hover {
     padding: 14px 0;
   }
 }
+
+
+.agent-loop-figure {
+  min-height: 236px;
+  background:
+    linear-gradient(90deg, rgba(30, 30, 30, 0.055) 1px, transparent 1px),
+    linear-gradient(rgba(30, 30, 30, 0.045) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(80, 220, 233, 0.08), rgba(196, 232, 23, 0.08));
+  background-size: 18px 18px, 18px 18px, auto;
+}
+.agent-loop {
+  position: relative;
+  height: 174px;
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 10px;
+}
+.agent-shell {
+  position: absolute;
+  left: 12px;
+  top: 14px;
+  width: 190px;
+  height: 136px;
+  border: 1px dashed #8f8a90;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.32);
+}
+.agent-label {
+  position: absolute;
+  left: 132px;
+  top: 140px;
+  font-weight: 700;
+}
+.loop-node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 44px;
+  border: 1px solid #8f8a90;
+  background: rgba(251, 248, 251, 0.94);
+  text-align: center;
+  line-height: 1.25;
+  transition: transform 140ms ease, background 140ms ease;
+}
+.loop-node em {
+  color: #6f6a72;
+  font-style: normal;
+  font-size: 9px;
+}
+.loop-prompt { left: 20px; top: 28px; border-color: #24bd75; }
+.loop-llm { left: 54px; top: 78px; background: #fff8dc; }
+.loop-tools { left: 136px; top: 78px; background: #e9fff3; }
+.loop-memory { left: 54px; top: 124px; background: #e6fbff; }
+.loop-env { right: 14px; top: 82px; background: #e7eef2; }
+.agent-loop-figure:hover .loop-tools,
+.agent-loop-figure:focus .loop-tools {
+  background: #c4e817;
+  transform: translateY(-3px);
+}
+.agent-loop-figure:hover .loop-env,
+.agent-loop-figure:focus .loop-env {
+  background: #f58f72;
+  transform: translateX(3px);
+}
+.loop-line {
+  position: absolute;
+  height: 2px;
+  background: #8f8a90;
+  transform-origin: left center;
+}
+.line-prompt { left: 92px; top: 50px; width: 52px; transform: rotate(37deg); }
+.line-tools { left: 126px; top: 100px; width: 12px; }
+.line-result { right: 86px; top: 104px; width: 42px; }
+.line-memory { left: 88px; top: 126px; width: 52px; transform: rotate(-32deg); }
+.agent-packet,
+.agent-spark {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: #c4e817;
+  box-shadow: 0 0 0 1px #1e1e1e, 0 0 12px rgba(196, 232, 23, 0.9);
+}
+.agent-packet {
+  left: 0;
+  top: 0;
+  animation: agentLoopPacket 5.8s infinite steps(1, end);
+}
+.agent-spark {
+  opacity: 0.75;
+  animation: agentLoopSpark 1.8s infinite ease-in-out;
+}
+.spark-one { left: 154px; top: 92px; background: #50dce9; }
+.spark-two { left: 230px; top: 100px; background: #b892ff; animation-delay: 0.7s; }
+.agent-hint {
+  margin: 0 12px 12px;
+  padding: 8px 10px;
+  border: 1px solid rgba(30, 30, 30, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 9px;
+}
+@keyframes agentLoopPacket {
+  0%, 100% { transform: translate(57px, 96px); background: #c4e817; }
+  20% { transform: translate(152px, 96px); background: #50dce9; }
+  40% { transform: translate(245px, 100px); background: #f58f72; }
+  60% { transform: translate(152px, 136px); background: #b892ff; }
+  80% { transform: translate(62px, 136px); background: #c4e817; }
+}
+@keyframes agentLoopSpark {
+  0%, 100% { transform: scale(0.8); opacity: 0.35; }
+  50% { transform: scale(1.35); opacity: 1; }
+}
+@media (max-width: 560px) {
+  .agent-loop { transform: scale(0.9); transform-origin: left top; height: 160px; }
+  .agent-hint { font-size: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .agent-packet,
+  .agent-spark {
+    animation: none !important;
+  }
+}
+

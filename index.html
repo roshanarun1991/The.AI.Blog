@@ -236,19 +236,26 @@
               <li><button type="button" class="filter-chip" data-filter="Research Tools"><span></span>Research Tools (02)</button></li>
               <li><button type="button" class="filter-chip" data-filter="Video + Copy"><span></span>Video + Copy (00)</button></li>
             </ul>
-            <div class="figure-box blog-ai-figure" aria-label="AI blog pipeline animation">
-              <div class="figure-bar">[ AI BLOG PIPELINE ]</div>
-              <div class="blog-scan">
-                <span class="scan-node scan-source">Sources</span>
-                <span class="scan-node scan-score">Score</span>
-                <span class="scan-node scan-agent">Agent</span>
-                <span class="scan-node scan-post">Post</span>
-                <i class="scan-link scan-link-a"></i>
-                <i class="scan-link scan-link-b"></i>
-                <i class="scan-link scan-link-c"></i>
-                <b class="scan-pulse"></b>
-              </div>
+          <div class="figure-box agent-loop-figure" data-agent-loop tabindex="0" aria-label="Live AI agent loop animation">
+            <div class="figure-bar">[ LIVE AI AGENT LOOP ]</div>
+            <div class="agent-loop">
+              <span class="agent-shell"></span>
+              <span class="agent-label">AI Agent</span>
+              <span class="loop-node loop-prompt">Prompt<br><em>question</em></span>
+              <span class="loop-node loop-llm">LLM<br><em>thinks</em></span>
+              <span class="loop-node loop-tools">Tools<br><em>act</em></span>
+              <span class="loop-node loop-memory">Memory<br><em>learns</em></span>
+              <span class="loop-node loop-env">External<br>app</span>
+              <i class="loop-line line-prompt"></i>
+              <i class="loop-line line-tools"></i>
+              <i class="loop-line line-result"></i>
+              <i class="loop-line line-memory"></i>
+              <b class="agent-packet"></b>
+              <b class="agent-spark spark-one"></b>
+              <b class="agent-spark spark-two"></b>
             </div>
+            <div class="agent-hint">Prompt -> LLM thinks -> tools act -> result returns -> memory updates.</div>
+          </div>
           </aside>
 
           <section class="index-table" aria-label="Daily blog posts">
@@ -370,7 +377,7 @@
               <article class="post-row" data-topics="AI Agents, GitHub Repos, Automation, B2B Ideas, B2C Ideas">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.18</time>
-                  <strong>hashgraph-online/hol-guard</strong>
+                  <strong>hol-guard: a safety guard for AI coding agents</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -384,38 +391,32 @@
                     </dl>
                     <b>/ ARTICLE</b>
                   </div>
-                  <div class="article-copy">
-                    <h4>What changed</h4>
+                                    <div class="article-copy">
+                    <h4>What it means</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from GitHub coding agents: hashgraph-online/hol-guard.
+                      This is like antivirus for AI coding agents. Before an AI helper runs a command or touches your files, it tries to spot danger.
                     </p>
                     <p>
-                      AI antivirus for developer agents: protect Codex, Claude Code, Cursor, Gemini, OpenCode, plugins, skills, MCP servers, and AI harnesses before tools run. Language: Python. Stars: 321. Useful signal: active public repo developers can inspect, fork, or learn from.
+                      Simple version: it checks whether the robot is about to press the big red button before the robot gets a finger.
                     </p>
-                    <h4>Why it is useful</h4>
+                    <h4>Why it matters</h4>
                     <p>
-                      Use this as a reason to make your AI stack swappable and testable: keep prompts, model choice, tool permissions, and output checks in separate places. Repos to explore: vercel/ai, BerriAI/litellm, promptfoo, Langfuse, and OpenAI Agents SDK.
-                    </p>
-                    <p>
-                      Do not build a spaceship for a sandwich run. One trigger, one model call, one saved result. Luxury comes later.
-                    </p>
-                    <h4>Tiny project idea</h4>
-                    <p>
-                      Build a GitHub issue assistant: read one issue, summarize the likely cause, suggest files to inspect, and draft a pull-request checklist for a human to approve.
+                      Agents can now use real tools: files, terminals, browsers, cloud accounts, and code. That is powerful. It also needs adult supervision.
                     </p>
                     <p>
-                      Keep the first version tiny: one input, one AI step, one output, and one place where you approve the result. Small workflows grow up better than overbuilt monsters.
+                      For a normal user, this means safer AI helpers that can build things without accidentally breaking the kitchen.
                     </p>
-                    <h4>Tools to explore</h4>
+                    <h4>Tiny project you can build</h4>
                     <p>
-                      Useful builder tools to keep nearby: Codex or Claude Code for coding help, Vercel AI SDK or Pydantic AI for app structure, MCP for tool connections, n8n or Dify for low-code workflows, and Langfuse or Phoenix for tracing.
+                      Make a command approval helper. The AI writes the commands it wants to run. Your app explains each command in plain English. Then a human clicks yes or no.
                     </p>
+                    <h4>Tools that fit</h4>
                     <p>
-                      Pick only what the project needs. Tool collecting is fun, but so is buying gym clothes; neither counts as doing the work.
+                      Try hol-guard, Codex, Claude Code, Cursor, GitHub Actions, and simple pre-commit checks.
                     </p>
-                    <h4>Credit</h4>
+                    <h4>Explain it simply</h4>
                     <p>
-                      Credit to GitHub coding agents for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      It is like a seatbelt for AI. The car can still go fast. You just prefer keeping your face attached.
                     </p>
                   </div>
                   <a href="https://github.com/hashgraph-online/hol-guard">GitHub coding agents: original source</a>
@@ -424,7 +425,7 @@
               <article class="post-row" data-topics="AI Agents, GitHub Repos, Automation, B2B Ideas, B2C Ideas">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.17</time>
-                  <strong>mobile-next/mobile-mcp</strong>
+                  <strong>mobile-mcp: let AI test phone apps like a tiny QA helper</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -438,38 +439,29 @@
                     </dl>
                     <b>/ ARTICLE</b>
                   </div>
-                  <div class="article-copy">
-                    <h4>What changed</h4>
+                                    <div class="article-copy">
+                    <h4>What it means</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from GitHub MCP tools: mobile-next/mobile-mcp.
+                      mobile-mcp connects AI agents to mobile devices, emulators, and simulators. That means an agent can inspect screens, tap buttons, and help test app flows.
                     </p>
                     <p>
-                      Model Context Protocol Server for Mobile Automation and Scraping (iOS, Android, Emulators, Simulators and Real Devices) Language: TypeScript. Stars: 4926. Useful signal: active public repo developers can inspect, fork, or learn from.
+                      Simple version: it gives AI little robot thumbs for phone testing.
                     </p>
-                    <h4>Why it is useful</h4>
+                    <h4>Why it matters</h4>
                     <p>
-                      Use this as a reason to make your AI stack swappable and testable: keep prompts, model choice, tool permissions, and output checks in separate places. Repos to explore: vercel/ai, BerriAI/litellm, promptfoo, Langfuse, and OpenAI Agents SDK.
+                      Testing the same login or checkout screen again and again is boring. AI can repeat those checks and tell you what changed.
                     </p>
+                    <h4>Tiny project you can build</h4>
                     <p>
-                      If the workflow needs eleven tabs, two exports, and a small emotional reset, congratulations: you have found automation compost.
+                      Build a mobile screenshot checker. It opens one screen, takes a screenshot, asks AI what looks broken, and saves a short report.
                     </p>
-                    <h4>Tiny project idea</h4>
+                    <h4>Tools that fit</h4>
                     <p>
-                      Build a GitHub issue assistant: read one issue, summarize the likely cause, suggest files to inspect, and draft a pull-request checklist for a human to approve.
+                      Try mobile-mcp, Playwright, Appium, Codex, Claude Code, GitHub Issues, and a screenshot folder.
                     </p>
+                    <h4>Explain it simply</h4>
                     <p>
-                      Keep the first version tiny: one input, one AI step, one output, and one place where you approve the result. Small workflows grow up better than overbuilt monsters.
-                    </p>
-                    <h4>Tools to explore</h4>
-                    <p>
-                      Useful builder tools to keep nearby: Codex or Claude Code for coding help, Vercel AI SDK or Pydantic AI for app structure, MCP for tool connections, n8n or Dify for low-code workflows, and Langfuse or Phoenix for tracing.
-                    </p>
-                    <p>
-                      Pick only what the project needs. Tool collecting is fun, but so is buying gym clothes; neither counts as doing the work.
-                    </p>
-                    <h4>Credit</h4>
-                    <p>
-                      Credit to GitHub MCP tools for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      It is like asking a careful friend to test your app, except this friend never says looks fine after 0.7 seconds.
                     </p>
                   </div>
                   <a href="https://github.com/mobile-next/mobile-mcp">GitHub MCP tools: original source</a>
@@ -478,7 +470,7 @@
               <article class="post-row" data-topics="AI Agents, GitHub Repos, Automation, B2B Ideas, B2C Ideas">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.16</time>
-                  <strong>elara-labs/code-context-engine</strong>
+                  <strong>Code Context Engine: help AI find the right files faster</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -492,38 +484,29 @@
                     </dl>
                     <b>/ ARTICLE</b>
                   </div>
-                  <div class="article-copy">
-                    <h4>What changed</h4>
+                                    <div class="article-copy">
+                    <h4>What it means</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from GitHub MCP tools: elara-labs/code-context-engine.
+                      This tool helps coding agents search your codebase instead of reading everything. That saves tokens, time, and confusion.
                     </p>
                     <p>
-                      Save 94% on AI coding tokens. Index your codebase, agents search instead of reading files. Works with Claude Code, Codex, Copilot, Cursor, Gemini CLI. Local MCP server, free, open source. Language: Python. Stars: 121. Useful signal: active public repo developers can inspect, fork, or learn from.
+                      Simple version: instead of handing AI the whole library, you give it the exact book and page.
                     </p>
-                    <h4>Why it is useful</h4>
+                    <h4>Why it matters</h4>
                     <p>
-                      Use this as a reason to make your AI stack swappable and testable: keep prompts, model choice, tool permissions, and output checks in separate places. Repos to explore: vercel/ai, BerriAI/litellm, promptfoo, Langfuse, and OpenAI Agents SDK.
+                      AI coding tools are better when they see the right context. Too little context makes them guess. Too much context makes them wander around.
                     </p>
+                    <h4>Tiny project you can build</h4>
                     <p>
-                      Do not build a spaceship for a sandwich run. One trigger, one model call, one saved result. Luxury comes later.
+                      Build a repo map. Paste a GitHub link, scan the folders, and create a simple page saying where the login code, database code, and UI code probably live.
                     </p>
-                    <h4>Tiny project idea</h4>
+                    <h4>Tools that fit</h4>
                     <p>
-                      Build a GitHub issue assistant: read one issue, summarize the likely cause, suggest files to inspect, and draft a pull-request checklist for a human to approve.
+                      Try code-context-engine, lean-ctx, Codex, Claude Code, Cursor, Gemini CLI, and GitHub search.
                     </p>
+                    <h4>Explain it simply</h4>
                     <p>
-                      Keep the first version tiny: one input, one AI step, one output, and one place where you approve the result. Small workflows grow up better than overbuilt monsters.
-                    </p>
-                    <h4>Tools to explore</h4>
-                    <p>
-                      Useful builder tools to keep nearby: Codex or Claude Code for coding help, Vercel AI SDK or Pydantic AI for app structure, MCP for tool connections, n8n or Dify for low-code workflows, and Langfuse or Phoenix for tracing.
-                    </p>
-                    <p>
-                      Pick only what the project needs. Tool collecting is fun, but so is buying gym clothes; neither counts as doing the work.
-                    </p>
-                    <h4>Credit</h4>
-                    <p>
-                      Credit to GitHub MCP tools for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      It is like telling AI where the socks are instead of asking it to search the entire house.
                     </p>
                   </div>
                   <a href="https://github.com/elara-labs/code-context-engine">GitHub MCP tools: original source</a>
@@ -532,7 +515,7 @@
               <article class="post-row" data-topics="AI Agents, GitHub Repos, Automation, B2B Ideas, B2C Ideas">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.15</time>
-                  <strong>marcusquinn/aidevops</strong>
+                  <strong>AIDevOps: help AI-built projects grow up safely</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -546,38 +529,29 @@
                     </dl>
                     <b>/ ARTICLE</b>
                   </div>
-                  <div class="article-copy">
-                    <h4>What changed</h4>
+                                    <div class="article-copy">
+                    <h4>What it means</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from GitHub coding agents: marcusquinn/aidevops.
+                      AIDevOps focuses on the boring but important work around AI coding: setup, Git, tokens, security, automation, and keeping things running.
                     </p>
                     <p>
-                      Vibe-Coding is easy. DevOps is hard. OpenCode &amp; Git token-efficient AI agent automation for your app, business, and personal development. Opinionated tools, services, CLI &amp; API stack for speed, security, and 24/7 results. Open-source first. SOTA everything. Try on your repos for money-making magic. Language: Shell. Stars: 241. Useful signal: active public repo developers can inspect, fork, or learn from.
+                      Simple version: building the app is the fun Lego part. DevOps makes sure the Lego tower does not fall into your soup.
                     </p>
-                    <h4>Why it is useful</h4>
+                    <h4>Why it matters</h4>
                     <p>
-                      Use this as a reason to make your AI stack swappable and testable: keep prompts, model choice, tool permissions, and output checks in separate places. Repos to explore: vercel/ai, BerriAI/litellm, promptfoo, Langfuse, and OpenAI Agents SDK.
+                      Many AI demos work once. Real products must work tomorrow too. They need checks, secrets, logs, backups, and deployment steps.
                     </p>
+                    <h4>Tiny project you can build</h4>
                     <p>
-                      A good automation is like a tiny employee who loves checklists, never asks for coffee, and still needs a manager before touching production.
+                      Build a project starter checklist. Give it an app idea. It returns files needed, tools needed, secrets needed, test steps, and deploy steps.
                     </p>
-                    <h4>Tiny project idea</h4>
+                    <h4>Tools that fit</h4>
                     <p>
-                      Build a secrets-safe agent checklist: scan a project, list which keys are needed, explain where each key should live, and block anything that looks pasted into code.
+                      Try AIDevOps, Codex, Claude Code, OpenCode, GitHub Issues, GitHub Actions, Docker, and GitHub Pages.
                     </p>
+                    <h4>Explain it simply</h4>
                     <p>
-                      Keep the first version tiny: one input, one AI step, one output, and one place where you approve the result. Small workflows grow up better than overbuilt monsters.
-                    </p>
-                    <h4>Tools to explore</h4>
-                    <p>
-                      Useful builder tools to keep nearby: Codex or Claude Code for coding help, Vercel AI SDK or Pydantic AI for app structure, MCP for tool connections, n8n or Dify for low-code workflows, and Langfuse or Phoenix for tracing.
-                    </p>
-                    <p>
-                      Pick only what the project needs. Tool collecting is fun, but so is buying gym clothes; neither counts as doing the work.
-                    </p>
-                    <h4>Credit</h4>
-                    <p>
-                      Credit to GitHub coding agents for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      It is the difference between I made a cake and I can make the same cake again without setting off the smoke alarm.
                     </p>
                   </div>
                   <a href="https://github.com/marcusquinn/aidevops">GitHub coding agents: original source</a>
@@ -586,7 +560,7 @@
               <article class="post-row" data-topics="AI Agents, GitHub Repos, Automation, B2B Ideas, B2C Ideas">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.14</time>
-                  <strong>teng-lin/notebooklm-py</strong>
+                  <strong>NotebookLM from Python: turn research notes into useful AI fuel</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -600,38 +574,29 @@
                     </dl>
                     <b>/ ARTICLE</b>
                   </div>
-                  <div class="article-copy">
-                    <h4>What changed</h4>
+                                    <div class="article-copy">
+                    <h4>What it means</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from GitHub coding agents: teng-lin/notebooklm-py.
+                      NotebookLM is like a smart notebook that reads your sources. notebooklm-py lets Python and agents work with that notebook.
                     </p>
                     <p>
-                      Unofficial Python API and agentic skill for Google NotebookLM. Full programmatic access to NotebookLM&#x27;s features—including capabilities the web UI doesn&#x27;t expose—via Python, CLI, and AI agents like Claude Code, Codex, and OpenClaw. Language: Python. Stars: 13237. Useful signal: active public repo developers can inspect, fork, or learn from.
+                      Simple version: your notes become a clean lunchbox for AI instead of a backpack full of mystery papers.
                     </p>
-                    <h4>Why it is useful</h4>
+                    <h4>Why it matters</h4>
                     <p>
-                      Use this as a reason to make your AI stack swappable and testable: keep prompts, model choice, tool permissions, and output checks in separate places. Repos to explore: vercel/ai, BerriAI/litellm, promptfoo, Langfuse, and OpenAI Agents SDK.
+                      Good AI work needs good sources. If the agent uses trusted notes, it guesses less and explains better.
                     </p>
+                    <h4>Tiny project you can build</h4>
                     <p>
-                      Give the agent one job and a short leash. The leash is not rude. The leash is architecture.
+                      Build a study card maker. Add one topic and a few links. The app creates a simple summary, five key words, and three quiz questions.
                     </p>
-                    <h4>Tiny project idea</h4>
+                    <h4>Tools that fit</h4>
                     <p>
-                      Build a GitHub issue assistant: read one issue, summarize the likely cause, suggest files to inspect, and draft a pull-request checklist for a human to approve.
+                      Try NotebookLM, notebooklm-py, Python, Codex, Claude Code, Google Drive, and a tiny HTML page.
                     </p>
+                    <h4>Explain it simply</h4>
                     <p>
-                      Keep the first version tiny: one input, one AI step, one output, and one place where you approve the result. Small workflows grow up better than overbuilt monsters.
-                    </p>
-                    <h4>Tools to explore</h4>
-                    <p>
-                      Useful builder tools to keep nearby: Codex or Claude Code for coding help, Vercel AI SDK or Pydantic AI for app structure, MCP for tool connections, n8n or Dify for low-code workflows, and Langfuse or Phoenix for tracing.
-                    </p>
-                    <p>
-                      Pick only what the project needs. Tool collecting is fun, but so is buying gym clothes; neither counts as doing the work.
-                    </p>
-                    <h4>Credit</h4>
-                    <p>
-                      Credit to GitHub coding agents for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      It is like asking a librarian to turn messy notes into flashcards without judging your handwriting.
                     </p>
                   </div>
                   <a href="https://github.com/teng-lin/notebooklm-py">GitHub coding agents: original source</a>
@@ -640,7 +605,7 @@
               <article class="post-row" data-topics="AI Agents, GitHub Repos, Automation, B2B Ideas, B2C Ideas">
                 <button class="row-main" type="button" aria-expanded="false">
                   <time>2026.5.13</time>
-                  <strong>yvgude/lean-ctx</strong>
+                  <strong>lean-ctx: put AI on an information diet</strong>
                   <span>+</span>
                 </button>
                 <div class="row-detail">
@@ -654,38 +619,29 @@
                     </dl>
                     <b>/ ARTICLE</b>
                   </div>
-                  <div class="article-copy">
-                    <h4>What changed</h4>
+                                    <div class="article-copy">
+                    <h4>What it means</h4>
                     <p>
-                      Today&#x27;s useful AI signal comes from GitHub MCP tools: yvgude/lean-ctx.
+                      Context means the information you give an AI tool. lean-ctx helps give only the useful parts of a codebase, not the whole mountain.
                     </p>
                     <p>
-                      The Context OS for AI Development. Reduce token waste in Cursor, Claude Code, Copilot, Windsurf, Codex, Gemini &amp; more by 60–95% (up to 99% on cached reads) Shell Hook + MCP Server · 49 tools · 10 read modes · 90+ patterns · Single Rust binary Language: Rust. Stars: 1629. Useful signal: active public repo developers can inspect, fork, or learn from.
+                      Simple version: AI does not need the entire fridge when it only asked for milk.
                     </p>
-                    <h4>Why it is useful</h4>
+                    <h4>Why it matters</h4>
                     <p>
-                      Use this as a reason to make your AI stack swappable and testable: keep prompts, model choice, tool permissions, and output checks in separate places. Repos to explore: vercel/ai, BerriAI/litellm, promptfoo, Langfuse, and OpenAI Agents SDK.
+                      Less junk context can mean faster, cheaper, and clearer AI answers. This matters when using Codex, Claude Code, Copilot, Cursor, Windsurf, or Gemini.
                     </p>
+                    <h4>Tiny project you can build</h4>
                     <p>
-                      If the workflow needs eleven tabs, two exports, and a small emotional reset, congratulations: you have found automation compost.
+                      Build a context card generator. It reads a repo and creates one page with the important folders, commands, and files to show an AI coding helper.
                     </p>
-                    <h4>Tiny project idea</h4>
+                    <h4>Tools that fit</h4>
                     <p>
-                      Build a GitHub issue assistant: read one issue, summarize the likely cause, suggest files to inspect, and draft a pull-request checklist for a human to approve.
+                      Try lean-ctx, Codex, Claude Code, Cursor, Gemini CLI, GitHub, and MCP servers.
                     </p>
+                    <h4>Explain it simply</h4>
                     <p>
-                      Keep the first version tiny: one input, one AI step, one output, and one place where you approve the result. Small workflows grow up better than overbuilt monsters.
-                    </p>
-                    <h4>Tools to explore</h4>
-                    <p>
-                      Useful builder tools to keep nearby: Codex or Claude Code for coding help, Vercel AI SDK or Pydantic AI for app structure, MCP for tool connections, n8n or Dify for low-code workflows, and Langfuse or Phoenix for tracing.
-                    </p>
-                    <p>
-                      Pick only what the project needs. Tool collecting is fun, but so is buying gym clothes; neither counts as doing the work.
-                    </p>
-                    <h4>Credit</h4>
-                    <p>
-                      Credit to GitHub MCP tools for the original source. This blog adds a beginner-friendly builder explanation and links back below.
+                      It is like telling a tutor help me with chapter 3 instead of dropping the whole textbook on their head.
                     </p>
                   </div>
                   <a href="https://github.com/yvgude/lean-ctx">GitHub MCP tools: original source</a>
