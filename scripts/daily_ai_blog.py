@@ -150,7 +150,7 @@ def extract_json(s):
 def ai_write(c,date,cats,block=''):
     key=os.getenv('OPENAI_API_KEY')
     if not key: return None
-    prompt=f"""Date: {date}\nSource owner: {c.source}\nSource title: {c.title}\nSource URL: {c.url}\nSource summary: {c.summary}\nCategories: {', '.join(cats)}\nReturn JSON only with title, reading_time, categories, sections array of 5-7 objects with heading and paragraphs array, and links array. Explain like you are teaching a smart 10-year-old. Use short sentences and plain English. Define hard words. Do not reuse old jokes, generic tiny project ideas, or generic tool lists. Add one source-specific beginner build, one B2B or B2C angle, useful tools when relevant, and credit the source owner. Do not invent facts."""
+    prompt=f"""Date: {date}\nSource owner: {c.source}\nSource title: {c.title}\nSource URL: {c.url}\nSource summary: {c.summary}\nCategories: {', '.join(cats)}\nReturn JSON only with title, reading_time, categories, sections array of 5-7 objects with heading and paragraphs array, and links array. The title must be a useful human-readable headline, never an owner/repo slug like user/project. Explain like you are teaching a smart 10-year-old. Use short sentences and plain English. Define hard words. Do not reuse old jokes, generic tiny project ideas, or generic tool lists. Add one source-specific beginner build, one B2B or B2C angle, useful tools when relevant, and credit the source owner. Do not invent facts."""
     data={'model':os.getenv('OPENAI_MODEL','gpt-4.1-mini'),'messages':[{'role':'system','content':'You write The.AI.Blog by Roshan Arun. Practical, source-backed, funny, and simple enough for a 10-year-old to understand. Do not repeat prior wording. JSON only.'},{'role':'user','content':prompt}],'response_format':{'type':'json_object'},'temperature':0.7}
     try:
         req=urllib.request.Request('https://api.openai.com/v1/chat/completions',data=json.dumps(data).encode(),headers={'Authorization':'Bearer '+key,'Content-Type':'application/json'},method='POST')
@@ -193,9 +193,33 @@ def tiny_project(c):
         return 'Build a tiny workflow bot: scheduled trigger, one model call, one tool connection, one approval step, and a saved result. No 47-node dashboard drama.'
     return 'Build a one-page learning assistant: paste a confusing article, get a plain-English summary, three action steps, and links worth reading next.'
 
+def human_title(c):
+    blob=f'{c.source} {c.title} {c.summary}'.lower()
+    name=c.title.split('/')[-1].replace('-', ' ').replace('_', ' ').strip()
+    pretty=' '.join(w.capitalize() for w in name.split()) or 'AI tool'
+    if 'activepieces' in blob:
+        return 'Activepieces: build AI automations without starting from scratch'
+    if 'agent-of-empires' in blob:
+        return 'Agent of Empires: learn how AI agents plan and act'
+    if any(x in blob for x in ['guard','security','secret','safe','protect','antivirus']):
+        return pretty + ': make AI agents safer before they act'
+    if any(x in blob for x in ['mobile','android','ios','emulator','simulator']):
+        return pretty + ': let AI test mobile apps like a QA helper'
+    if any(x in blob for x in ['context','token','codebase','index']):
+        return pretty + ': help AI find the right files faster'
+    if any(x in blob for x in ['notebooklm','notes','document']):
+        return pretty + ': turn research notes into useful AI fuel'
+    if any(x in blob for x in ['devops','deploy','github actions','cli']):
+        return pretty + ': help AI-built projects ship safely'
+    if any(x in blob for x in ['mcp','tool','connector','api']):
+        return pretty + ': connect AI agents to useful tools'
+    if any(x in blob for x in ['rag','search','research','crawl','browser']):
+        return pretty + ': turn fresh research into a useful workflow'
+    return pretty + ': a practical AI tool worth learning'
+
 def fallback(c,cats):
     blob=f'{c.source} {c.title} {c.summary}'.lower()
-    t=c.title if len(c.title)<=95 else c.title[:92].rstrip()+'...'
+    t=human_title(c)
     if any(x in blob for x in ['guard','security','secret','safe','protect','antivirus']):
         angle='This helps keep AI helpers from doing unsafe things. Before AI touches files, tools, or money, it should explain the risk and ask for approval.'
         idea='Build an AI safety checklist: show what the agent wants to do, explain each action in plain English, and let a human approve or block it.'
@@ -244,7 +268,7 @@ def safe_cats(v,fb):
     return [str(x).strip() for x in v if str(x).strip() in CATS] if isinstance(v,list) and any(str(x).strip() in CATS for x in v) else fb
 
 def render(post,c,date,cats):
-    cats=safe_cats(post.get('categories'),cats); ct=', '.join(cats); title=html.escape(str(post.get('title') or c.title)[:120]); rt=html.escape(str(post.get('reading_time') or '5 min read'))
+    cats=safe_cats(post.get('categories'),cats); ct=', '.join(cats); raw_title=str(post.get('title') or '').strip(); raw_title=human_title(c) if '/' in raw_title else (raw_title or human_title(c)); title=html.escape(raw_title[:120]); rt=html.escape(str(post.get('reading_time') or '5 min read'))
     parts=[]
     for sec in (post.get('sections') if isinstance(post.get('sections'),list) else fallback(c,cats)['sections'])[:8]:
         if not isinstance(sec,dict): continue
