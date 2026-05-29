@@ -1,3 +1,8 @@
+git clone https://github.com/roshanarun1991/The.AI.Blog.git
+cd The.AI.Blog
+
+
+
 # The.AI.blog
 
 Static AI trends blog by Roshan Arun.

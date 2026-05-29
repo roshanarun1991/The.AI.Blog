@@ -1850,3 +1850,264 @@ a:hover {
   }
 }
 
+/* Compact Pac-Man style AI workflow for the blog sidebar */
+.blog-pac-figure {
+  min-height: 178px;
+  background:
+    linear-gradient(90deg, rgba(30, 30, 30, 0.06) 1px, transparent 1px),
+    linear-gradient(rgba(30, 30, 30, 0.045) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(80, 220, 233, 0.08), rgba(196, 232, 23, 0.08));
+  background-size: 16px 16px, 16px 16px, auto;
+}
+
+.blog-pac-stage {
+  position: relative;
+  height: 118px;
+  overflow: hidden;
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+}
+
+.pac-node {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 34px;
+  border: 1px solid #8f8a90;
+  background: rgba(251, 248, 251, 0.94);
+  color: var(--ink);
+  font-size: 9px;
+  line-height: 1.15;
+  text-align: center;
+  transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+}
+
+.pac-node em {
+  color: #6f6a72;
+  font-style: normal;
+  font-size: 8px;
+}
+
+.pac-idea {
+  left: 8px;
+  top: 18px;
+  border-color: #24bd75;
+}
+
+.pac-research {
+  left: 30%;
+  top: 18px;
+}
+
+.pac-agent {
+  left: 57%;
+  top: 18px;
+  background: #1e1e1e;
+  color: #ffffff;
+}
+
+.pac-agent em {
+  color: #dcdcdc;
+}
+
+.pac-post {
+  right: 8px;
+  top: 66px;
+  border-color: #f58f72;
+}
+
+.pac-path {
+  position: absolute;
+  z-index: 1;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, #c4e817 0 5px, transparent 5px 13px);
+  opacity: 0.9;
+}
+
+.path-one {
+  left: 18px;
+  right: 18px;
+  top: 70px;
+}
+
+.path-two {
+  left: 50%;
+  top: 52px;
+  width: 28px;
+  transform: rotate(90deg);
+}
+
+.path-three {
+  right: 54px;
+  top: 70px;
+  width: 36px;
+  transform: rotate(90deg);
+}
+
+.blog-pacman {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: conic-gradient(from 38deg, transparent 0 74deg, #c4e817 74deg 360deg);
+  box-shadow: 0 0 0 1px #1e1e1e, 0 0 14px rgba(196, 232, 23, 0.85);
+  animation: blogPacRun 5.4s infinite linear;
+}
+
+.pac-pellet {
+  position: absolute;
+  z-index: 3;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #50dce9;
+  box-shadow: 0 0 0 1px #1e1e1e, 0 0 10px currentColor;
+  animation: pacPelletEat 5.4s infinite steps(1, end);
+}
+
+.pellet-one {
+  left: 23%;
+  top: 68px;
+  color: #50dce9;
+  animation-delay: 0.35s;
+}
+
+.pellet-two {
+  left: 36%;
+  top: 68px;
+  color: #c4e817;
+  animation-delay: 0.85s;
+}
+
+.pellet-three {
+  left: 49%;
+  top: 68px;
+  color: #b892ff;
+  animation-delay: 1.35s;
+}
+
+.pellet-four {
+  left: 62%;
+  top: 68px;
+  color: #f58f72;
+  animation-delay: 1.9s;
+}
+
+.pellet-five {
+  left: 75%;
+  top: 68px;
+  color: #50dce9;
+  animation-delay: 2.5s;
+}
+
+.pellet-six {
+  right: 28px;
+  top: 86px;
+  color: #c4e817;
+  animation-delay: 3.25s;
+}
+
+.blog-pac-console {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin: 0 9px 9px;
+  padding: 7px 8px;
+  border: 1px solid rgba(30, 30, 30, 0.12);
+  background: rgba(255, 255, 255, 0.58);
+  font-family: "SF Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 8.5px;
+  line-height: 1.25;
+}
+
+.blog-pac-figure:hover .pac-agent,
+.blog-pac-figure:focus .pac-agent {
+  background: #c4e817;
+  color: #1e1e1e;
+  transform: translateY(-2px);
+}
+
+.blog-pac-figure:hover .pac-post,
+.blog-pac-figure:focus .pac-post {
+  background: #f58f72;
+  transform: translateX(2px);
+}
+
+.blog-pac-figure:hover .blog-pacman,
+.blog-pac-figure:focus .blog-pacman {
+  animation-duration: 3.4s;
+}
+
+@keyframes blogPacRun {
+  0% {
+    transform: translate(16px, 61px) rotate(0deg);
+  }
+  24% {
+    transform: translate(34%, 61px) rotate(0deg);
+  }
+  42% {
+    transform: translate(55%, 61px) rotate(0deg);
+  }
+  67% {
+    transform: translate(77%, 61px) rotate(0deg);
+  }
+  80% {
+    transform: translate(calc(100% - 38px), 79px) rotate(90deg);
+  }
+  100% {
+    transform: translate(16px, 61px) rotate(0deg);
+  }
+}
+
+@keyframes pacPelletEat {
+  0%,
+  18% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  19%,
+  88% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  89%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .blog-pac-figure {
+    min-height: 170px;
+  }
+
+  .blog-pac-stage {
+    height: 112px;
+  }
+
+  .pac-node {
+    width: 54px;
+    font-size: 8px;
+  }
+
+  .pac-node em {
+    font-size: 7px;
+  }
+
+  .blog-pac-console {
+    font-size: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-pacman,
+  .pac-pellet {
+    animation: none !important;
+  }
+}
+
