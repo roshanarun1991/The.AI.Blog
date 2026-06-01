@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-05-31 21:59:16 CEST
+Last run: 2026-06-01 23:56:08 CEST
 
-Added 2026.5.31 from GitHub MCP tools: alash3al/stash
-Source: https://github.com/alash3al/stash
+Added 2026.6.01 from GitHub MCP tools: firecrawl/firecrawl-mcp-server
+Source: https://github.com/firecrawl/firecrawl-mcp-server
