@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-06-03 23:39:55 CEST
+Last run: 2026-06-04 22:53:54 CEST
 
-Added 2026.6.03 from GitHub AI agents: Dicklesworthstone/ntm
-Source: https://github.com/Dicklesworthstone/ntm
+Added 2026.6.04 from GitHub MCP tools: SonarSource/sonarqube-mcp-server
+Source: https://github.com/SonarSource/sonarqube-mcp-server
