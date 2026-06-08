@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-06-07 22:04:40 CEST
+Last run: 2026-06-08 23:09:27 CEST
 
-Added 2026.6.07 from GitHub AI agents: juyterman1000/entroly
-Source: https://github.com/juyterman1000/entroly
+Added 2026.6.08 from GitHub MCP tools: agentgateway/agentgateway
+Source: https://github.com/agentgateway/agentgateway
