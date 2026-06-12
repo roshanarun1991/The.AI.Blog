@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-06-11 23:10:04 CEST
+Last run: 2026-06-12 22:57:15 CEST
 
-Added 2026.6.11 from GitHub AI agents: code-yeongyu/oh-my-openagent
-Source: https://github.com/code-yeongyu/oh-my-openagent
+Added 2026.6.12 from OpenAI News: OpenAI to acquire Ona
+Source: https://openai.com/index/openai-to-acquire-ona
