@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-06-26 22:24:04 CEST
+Last run: 2026-06-27 22:01:39 CEST
 
-Added 2026.6.26 from GitHub agent frameworks: growthxai/output
-Source: https://github.com/growthxai/output
+Added 2026.6.27 from GitHub coding agents: preset-io/agor
+Source: https://github.com/preset-io/agor
