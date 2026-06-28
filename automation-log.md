@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-06-27 22:01:39 CEST
+Last run: 2026-06-28 22:03:10 CEST
 
-Added 2026.6.27 from GitHub coding agents: preset-io/agor
-Source: https://github.com/preset-io/agor
+Added 2026.6.28 from GitHub coding agents: getagentseal/codeburn
+Source: https://github.com/getagentseal/codeburn
