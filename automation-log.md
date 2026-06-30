@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-06-29 22:44:48 CEST
+Last run: 2026-06-30 22:48:04 CEST
 
-Added 2026.6.29 from GitHub MCP tools: vishalsachdev/canvas-mcp
-Source: https://github.com/vishalsachdev/canvas-mcp
+Added 2026.6.30 from GitHub agent frameworks: swarmclawai/swarmclaw
+Source: https://github.com/swarmclawai/swarmclaw
