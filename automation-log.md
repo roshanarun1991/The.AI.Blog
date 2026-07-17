@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-07-16 21:52:07 CEST
+Last run: 2026-07-17 21:54:15 CEST
 
-Added 2026.7.16 from GitHub AI agents: eugeniughelbur/obsidian-second-brain
-Source: https://github.com/eugeniughelbur/obsidian-second-brain
+Added 2026.7.17 from GitHub MCP tools: mezmo/aura
+Source: https://github.com/mezmo/aura
