@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-07-24 22:06:56 CEST
+Last run: 2026-07-25 22:01:43 CEST
 
-Added 2026.7.24 from GitHub RAG apps: NVIDIA/skills
-Source: https://github.com/NVIDIA/skills
+Added 2026.7.25 from GitHub RAG apps: langgenius/dify
+Source: https://github.com/langgenius/dify
