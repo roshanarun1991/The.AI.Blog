@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-07-28 22:09:18 CEST
+Last run: 2026-07-29 22:04:23 CEST
 
-Added 2026.7.28 from GitHub AI agents: Fr-e-d/GAAI-framework
-Source: https://github.com/Fr-e-d/GAAI-framework
+Added 2026.7.29 from GitHub Changelog: GitHub Copilot for JetBrains adds improved OpenTelemetry configuration and model management
+Source: https://github.blog/changelog/2026-07-27-github-copilot-for-jetbrains-adds-improvved-opentelemetry-configuration-and-model-management
