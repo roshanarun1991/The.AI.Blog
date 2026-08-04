@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-08-03 22:18:48 CEST
+Last run: 2026-08-04 22:15:14 CEST
 
-Added 2026.8.03 from GitHub RAG apps: Dataojitori/nocturne_memory
-Source: https://github.com/Dataojitori/nocturne_memory
+Added 2026.8.04 from GitHub AI agents: PrismorSec/prismor
+Source: https://github.com/PrismorSec/prismor
