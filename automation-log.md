@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-08-09 21:22:18 CEST
+Last run: 2026-08-10 21:44:47 CEST
 
-Added 2026.8.09 from GitHub RAG apps: shibing624/agentica
-Source: https://github.com/shibing624/agentica
+Added 2026.8.10 from OpenAI News: ChatGPT agent System Card
+Source: https://openai.com/index/chatgpt-agent-system-card
