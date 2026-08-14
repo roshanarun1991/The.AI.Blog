@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-08-13 21:48:00 CEST
+Last run: 2026-08-14 21:39:26 CEST
 
-Added 2026.8.13 from GitHub RAG apps: szczyglis-dev/py-gpt
-Source: https://github.com/szczyglis-dev/py-gpt
+Added 2026.8.14 from GitHub RAG apps: Graphify-Labs/graphify
+Source: https://github.com/Graphify-Labs/graphify
