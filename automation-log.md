@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-08-14 21:39:26 CEST
+Last run: 2026-08-15 21:11:37 CEST
 
-Added 2026.8.14 from GitHub RAG apps: Graphify-Labs/graphify
-Source: https://github.com/Graphify-Labs/graphify
+Added 2026.8.15 from GitHub agent frameworks: wanxingai/LightAgent
+Source: https://github.com/wanxingai/LightAgent
