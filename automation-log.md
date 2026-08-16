@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-08-15 21:11:37 CEST
+Last run: 2026-08-16 21:10:45 CEST
 
-Added 2026.8.15 from GitHub agent frameworks: wanxingai/LightAgent
-Source: https://github.com/wanxingai/LightAgent
+Added 2026.8.16 from GitHub AI agents: razzant/claudexor
+Source: https://github.com/razzant/claudexor
