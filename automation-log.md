@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-08-19 21:15:15 CEST
+Last run: 2026-08-20 21:20:55 CEST
 
-Added 2026.8.19 from GitHub MCP tools: SCStelz/security-investigator
-Source: https://github.com/SCStelz/security-investigator
+Added 2026.8.20 from GitHub RAG apps: langbot-app/LangBot
+Source: https://github.com/langbot-app/LangBot
