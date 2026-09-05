@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-09-04 23:04:39 CEST
+Last run: 2026-09-05 22:45:00 CEST
 
-Added 2026.9.04 from GitHub coding agents: kentcdodds/kody
-Source: https://github.com/kentcdodds/kody
+Added 2026.9.05 from GitHub MCP tools: Gentleman-Programming/gentle-ai
+Source: https://github.com/Gentleman-Programming/gentle-ai
