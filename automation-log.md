@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-09-07 23:48:44 CEST
+Last run: 2026-09-08 23:28:59 CEST
 
-Added 2026.9.07 from GitHub MCP tools: bostrot/wsl2-distro-manager
-Source: https://github.com/bostrot/wsl2-distro-manager
+Added 2026.9.08 from GitHub coding agents: navikt/cplt
+Source: https://github.com/navikt/cplt
