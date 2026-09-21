@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-09-20 23:05:48 CEST
+Last run: 2026-09-22 00:20:15 CEST
 
-Added 2026.9.20 from GitHub MCP tools: skyhook-io/radar
-Source: https://github.com/skyhook-io/radar
+Added 2026.9.21 from GitHub coding agents: vshulcz/deja-vu
+Source: https://github.com/vshulcz/deja-vu
