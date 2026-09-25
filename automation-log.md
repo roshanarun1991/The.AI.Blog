@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-09-24 23:51:44 CEST
+Last run: 2026-09-25 23:52:28 CEST
 
-Added 2026.9.24 from GitHub MCP tools: jacob-bd/gemini-notebook-mcp-cli
-Source: https://github.com/jacob-bd/gemini-notebook-mcp-cli
+Added 2026.9.25 from GitHub RAG apps: SylphxAI/anymd
+Source: https://github.com/SylphxAI/anymd
