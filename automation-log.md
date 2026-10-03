@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-10-03 00:37:42 CEST
+Last run: 2026-10-03 23:50:42 CEST
 
-Added 2026.10.02 from GitHub MCP tools: sceneview/sceneview
-Source: https://github.com/sceneview/sceneview
+Added 2026.10.03 from GitHub coding agents: career-ops-hq/career-ops
+Source: https://github.com/career-ops-hq/career-ops
