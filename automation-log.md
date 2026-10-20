@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-10-20 00:39:29 CEST
+Last run: 2026-10-20 23:56:52 CEST
 
-Added 2026.10.19 from GitHub coding agents: logancyang/obsidian-copilot
-Source: https://github.com/logancyang/obsidian-copilot
+Added 2026.10.20 from GitHub MCP tools: agentfront/frontmcp
+Source: https://github.com/agentfront/frontmcp
