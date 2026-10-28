@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-10-27 23:40:25 CET
+Last run: 2026-10-28 23:53:52 CET
 
-Added 2026.10.27 from GitHub MCP tools: INSANE0777/Awwwards-mcp
-Source: https://github.com/INSANE0777/Awwwards-mcp
+Added 2026.10.28 from OpenAI News: OpenAI and ServiceNow expand partnership across enterprise workflows
+Source: https://openai.com/index/openai-servicenow-partnership-expansion
