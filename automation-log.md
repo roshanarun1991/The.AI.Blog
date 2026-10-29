@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-10-28 23:53:52 CET
+Last run: 2026-10-30 00:00:57 CET
 
-Added 2026.10.28 from OpenAI News: OpenAI and ServiceNow expand partnership across enterprise workflows
-Source: https://openai.com/index/openai-servicenow-partnership-expansion
+Added 2026.10.29 from GitHub MCP tools: speakeasy-api/gram
+Source: https://github.com/speakeasy-api/gram
