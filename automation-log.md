@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-11-07 23:23:05 CET
+Last run: 2026-11-08 23:32:22 CET
 
-Added 2026.11.07 from GitHub MCP tools: codeofaxel/Kiln
-Source: https://github.com/codeofaxel/Kiln
+Added 2026.11.08 from GitHub coding agents: sesori-ai/sesori_apps_monorepo
+Source: https://github.com/sesori-ai/sesori_apps_monorepo
