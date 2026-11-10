@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-11-08 23:32:22 CET
+Last run: 2026-11-10 02:46:42 CET
 
-Added 2026.11.08 from GitHub coding agents: sesori-ai/sesori_apps_monorepo
-Source: https://github.com/sesori-ai/sesori_apps_monorepo
+Added 2026.11.09 from GitHub MCP tools: JosssphZhou/poki
+Source: https://github.com/JosssphZhou/poki
