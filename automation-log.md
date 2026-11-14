@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-11-14 00:57:16 CET
+Last run: 2026-11-14 23:46:13 CET
 
-Added 2026.11.13 from GitHub coding agents: yetone/magpie
-Source: https://github.com/yetone/magpie
+Added 2026.11.14 from GitHub MCP tools: Dicklesworthstone/frankensonos
+Source: https://github.com/Dicklesworthstone/frankensonos
