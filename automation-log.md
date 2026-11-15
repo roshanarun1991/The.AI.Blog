@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-11-14 23:46:13 CET
+Last run: 2026-11-16 00:12:32 CET
 
-Added 2026.11.14 from GitHub MCP tools: Dicklesworthstone/frankensonos
-Source: https://github.com/Dicklesworthstone/frankensonos
+Added 2026.11.15 from GitHub coding agents: jgravelle/jcodemunch-mcp
+Source: https://github.com/jgravelle/jcodemunch-mcp
