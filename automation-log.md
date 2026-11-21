@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-11-20 01:56:55 CET
+Last run: 2026-11-21 01:22:16 CET
 
-Added 2026.11.19 from GitHub AI agents: cheaper-inference/OmniRoute
-Source: https://github.com/cheaper-inference/OmniRoute
+Added 2026.11.20 from GitHub MCP tools: aartiq/servicenow-mcp
+Source: https://github.com/aartiq/servicenow-mcp
