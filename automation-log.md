@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-11-26 02:58:24 CET
+Last run: 2026-11-27 02:58:02 CET
 
-Added 2026.11.25 from GitHub RAG apps: CherryHQ/cherry-studio
-Source: https://github.com/CherryHQ/cherry-studio
+Added 2026.11.26 from GitHub MCP tools: ClickHouse/loom
+Source: https://github.com/ClickHouse/loom
