@@ -1,6 +1,6 @@
 # Automation log
 
-Last run: 2026-11-27 02:58:02 CET
+Last run: 2026-11-28 02:41:20 CET
 
-Added 2026.11.26 from GitHub MCP tools: ClickHouse/loom
-Source: https://github.com/ClickHouse/loom
+Added 2026.11.27 from GitHub RAG apps: ModelEngine-Group/nexent
+Source: https://github.com/ModelEngine-Group/nexent
